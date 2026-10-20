@@ -1,0 +1,7 @@
+data/truth
+data/real
+data/processed/features.parquet
+data/processed/test_predictions.parquet
+docs
+dist
+.git
