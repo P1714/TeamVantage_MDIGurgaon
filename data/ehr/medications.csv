@@ -1,0 +1,800 @@
+START,STOP,PATIENT,CODE,DESCRIPTION,MED_CLASS
+2026-04-02,,P0001,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0001,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0001,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2026-01-10,,P0001,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-02-27,,P0002,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-12-06,,P0002,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-01-06,,P0002,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2018-04-19,,P0002,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-01-18,,P0002,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-06-04,,P0003,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-03-15,,P0003,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-06-08,,P0004,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-09-25,,P0004,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2023-09-10,,P0004,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2026-04-02,,P0005,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-09-14,,P0005,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0005,979492,Telmisartan 40 MG Oral Tablet,arb
+2019-09-28,,P0006,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-06-26,,P0006,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-06-24,,P0006,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2017-09-14,,P0006,617310,Atorvastatin 20 MG Oral Tablet,statin
+2013-11-26,,P0007,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2013-12-21,,P0007,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2015-12-27,,P0007,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-04-01,,P0008,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-11-22,,P0008,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2017-07-23,,P0008,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-12-22,,P0008,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-08-20,,P0009,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-12-10,,P0009,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2026-04-02,,P0009,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0010,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0011,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-07-27,,P0011,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0011,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0011,979492,Telmisartan 40 MG Oral Tablet,arb
+2021-08-10,,P0013,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-03-31,,P0014,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0014,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0014,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-06-19,,P0014,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-12-19,,P0014,979492,Telmisartan 40 MG Oral Tablet,arb
+2020-05-04,,P0015,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-12-04,,P0015,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2019-09-16,,P0015,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-07-12,,P0015,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-02-22,,P0016,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-01-29,,P0016,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-06-12,,P0017,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-11-09,,P0017,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2021-02-23,,P0017,617310,Atorvastatin 20 MG Oral Tablet,statin
+2012-08-08,,P0018,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2012-11-11,,P0018,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2016-03-12,,P0018,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2015-05-12,,P0018,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-02-07,,P0019,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-03-19,,P0019,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2024-08-27,,P0019,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-06-29,,P0019,979492,Telmisartan 40 MG Oral Tablet,arb
+2016-06-08,,P0020,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2016-08-29,,P0020,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2014-01-26,,P0020,979492,Telmisartan 40 MG Oral Tablet,arb
+2019-01-13,,P0021,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2016-09-30,,P0021,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-04-02,,P0021,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-06-22,,P0022,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-09-02,,P0022,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2020-12-02,,P0022,979492,Telmisartan 40 MG Oral Tablet,arb
+2021-02-14,,P0023,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-02-15,,P0023,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-04-06,,P0024,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-08-31,,P0024,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2019-05-29,,P0025,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-12-05,,P0025,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2020-08-02,,P0025,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-10-15,,P0026,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-01-02,,P0026,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-12-10,,P0027,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0027,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-10-03,,P0028,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-04-26,,P0028,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-01-26,,P0029,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-09-16,,P0029,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-02-28,,P0029,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2017-05-25,,P0029,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-01-21,,P0030,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0031,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0031,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0031,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2026-04-02,,P0031,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-04-06,,P0032,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-05-22,,P0032,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-05-03,,P0033,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2020-10-27,,P0033,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0034,979492,Telmisartan 40 MG Oral Tablet,arb
+2009-11-30,,P0035,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2008-12-06,,P0035,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2008-10-22,,P0035,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2009-03-17,,P0035,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2008-10-13,,P0035,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-02-12,,P0036,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-02-07,,P0036,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2020-10-02,,P0037,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-06-18,,P0037,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2021-07-30,,P0037,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-05-16,,P0037,979492,Telmisartan 40 MG Oral Tablet,arb
+2009-06-11,,P0038,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2005-08-23,,P0038,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2005-09-20,,P0038,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2005-12-30,,P0038,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-04-10,,P0039,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-08-06,,P0039,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0039,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-01-15,,P0039,979492,Telmisartan 40 MG Oral Tablet,arb
+2014-03-11,,P0040,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2013-09-27,,P0040,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2015-11-21,,P0040,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-05-08,,P0041,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0041,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-02-07,,P0041,979492,Telmisartan 40 MG Oral Tablet,arb
+2016-09-07,,P0042,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-04-02,,P0042,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2015-08-05,,P0042,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-08-01,,P0043,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-12-30,,P0043,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2020-11-18,,P0043,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-12-08,,P0044,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-03-02,,P0045,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-07-19,,P0045,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2022-08-02,,P0045,979492,Telmisartan 40 MG Oral Tablet,arb
+2017-07-24,,P0046,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-12-06,,P0046,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-10-06,,P0047,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2013-06-16,,P0047,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2014-05-09,,P0047,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2014-03-01,,P0047,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-03-01,,P0048,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-12-05,,P0048,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2024-12-19,,P0048,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-07-17,,P0048,979492,Telmisartan 40 MG Oral Tablet,arb
+2012-09-14,,P0049,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2012-05-27,,P0049,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2013-03-05,,P0049,617310,Atorvastatin 20 MG Oral Tablet,statin
+2011-05-18,,P0049,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0050,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-09-21,,P0050,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0050,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0050,979492,Telmisartan 40 MG Oral Tablet,arb
+2015-12-14,,P0051,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2016-03-21,,P0051,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2016-09-18,,P0051,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-04-22,,P0052,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-09-15,,P0052,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2021-02-09,,P0052,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-05-21,,P0052,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-03-07,,P0053,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-03-28,,P0053,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2024-11-14,,P0053,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2025-01-06,,P0054,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-09-23,,P0054,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-03-05,,P0054,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2024-08-22,,P0054,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-12-21,,P0055,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2023-01-15,,P0056,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2024-03-13,,P0056,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2009-06-06,,P0057,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2009-09-20,,P0057,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2012-01-21,,P0057,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2010-10-10,,P0057,617310,Atorvastatin 20 MG Oral Tablet,statin
+2010-11-02,,P0057,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0058,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2024-04-17,,P0058,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0059,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2025-04-05,,P0059,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-01-11,,P0060,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-09-24,,P0060,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2016-03-22,,P0061,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-05-07,,P0061,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2015-04-15,,P0061,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-04-14,,P0062,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-05-21,,P0063,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-11-02,,P0063,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2017-03-19,,P0063,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-09-18,,P0063,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-04-05,,P0064,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-06-03,,P0064,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-06-05,,P0065,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-08-05,,P0065,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-05-03,,P0066,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-01-20,,P0066,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-09-05,,P0066,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-01-17,,P0067,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-07-09,,P0068,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-04-11,,P0068,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-01-19,,P0069,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2023-06-05,,P0069,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-09-25,,P0070,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-01-09,,P0070,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2016-04-14,,P0070,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2018-01-26,,P0070,979492,Telmisartan 40 MG Oral Tablet,arb
+2014-11-28,,P0071,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2014-12-30,,P0071,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2016-01-21,,P0071,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-09-24,,P0072,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-09-12,,P0072,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-09-15,,P0073,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-03-11,,P0073,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2025-02-08,,P0073,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-05-15,,P0073,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-05-28,,P0074,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-07-02,,P0074,979492,Telmisartan 40 MG Oral Tablet,arb
+2017-02-24,,P0075,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2014-12-17,,P0075,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2022-07-14,,P0076,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-03-03,,P0076,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2023-01-11,,P0077,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-12-19,,P0077,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2019-07-10,,P0077,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-09-24,,P0077,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0078,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0078,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2025-03-04,,P0078,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0078,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-12-23,,P0079,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-09-01,,P0079,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-03-16,,P0079,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-03-03,,P0080,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-09-21,,P0080,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-03-26,,P0081,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0081,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-08-22,,P0081,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-10-24,,P0082,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-12-20,,P0082,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-05-29,,P0082,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2024-10-24,,P0082,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-02-06,,P0082,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-10-24,,P0083,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-02-11,,P0083,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2026-04-02,,P0083,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-03-26,,P0083,979492,Telmisartan 40 MG Oral Tablet,arb
+2017-11-06,,P0084,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2019-12-19,,P0084,617310,Atorvastatin 20 MG Oral Tablet,statin
+2016-02-23,,P0085,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-03-13,,P0085,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2016-05-08,,P0085,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2014-10-31,,P0085,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-06-17,,P0086,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-12-04,,P0086,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2023-12-23,,P0087,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-07-03,,P0087,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2024-09-02,,P0087,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-04-09,,P0087,979492,Telmisartan 40 MG Oral Tablet,arb
+2023-10-15,,P0088,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-01-10,,P0088,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2022-12-02,,P0088,617310,Atorvastatin 20 MG Oral Tablet,statin
+2012-04-10,,P0089,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2012-07-13,,P0089,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2011-02-03,,P0089,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0090,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-12-17,,P0090,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2025-05-07,,P0090,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-07-21,,P0090,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-03-28,,P0090,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0091,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-09-17,,P0091,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2023-03-23,,P0091,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-10-08,,P0092,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-07-25,,P0092,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0092,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-09-02,,P0093,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-07-27,,P0093,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2021-01-18,,P0093,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2021-02-28,,P0093,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2018-08-16,,P0093,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2018-01-27,,P0093,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-02-25,,P0094,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0095,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-08-13,,P0096,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2016-01-22,,P0096,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2016-12-25,,P0096,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2016-09-02,,P0096,617310,Atorvastatin 20 MG Oral Tablet,statin
+2016-04-24,,P0096,979492,Telmisartan 40 MG Oral Tablet,arb
+2023-12-27,,P0097,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2022-08-12,,P0097,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2024-09-28,,P0097,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-07-26,,P0097,979492,Telmisartan 40 MG Oral Tablet,arb
+2019-06-03,,P0098,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2016-11-09,,P0098,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2023-10-20,,P0099,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-02-11,,P0099,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2024-02-02,,P0099,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-06-13,,P0099,979492,Telmisartan 40 MG Oral Tablet,arb
+2020-07-22,,P0100,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-10-06,,P0100,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-09-12,,P0101,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-04-22,,P0102,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-03-23,,P0102,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0103,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-08-14,,P0103,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-07-15,,P0104,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2015-06-13,,P0104,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2022-05-09,,P0105,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-10-21,,P0105,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-08-14,,P0105,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-01-13,,P0105,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0106,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-07-03,,P0106,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-02-03,,P0106,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-11-14,,P0107,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-09-23,,P0107,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-08-01,,P0108,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-09-03,,P0108,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-01-03,,P0109,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-09-23,,P0110,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0110,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0110,979492,Telmisartan 40 MG Oral Tablet,arb
+2018-04-22,,P0111,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-01-11,,P0111,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2016-06-14,,P0111,617310,Atorvastatin 20 MG Oral Tablet,statin
+2016-05-24,,P0111,979492,Telmisartan 40 MG Oral Tablet,arb
+2015-03-26,,P0112,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2014-04-28,,P0112,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-02-17,,P0112,617310,Atorvastatin 20 MG Oral Tablet,statin
+2016-03-25,,P0112,979492,Telmisartan 40 MG Oral Tablet,arb
+2019-12-24,,P0113,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-07-15,,P0113,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2019-09-21,,P0113,617310,Atorvastatin 20 MG Oral Tablet,statin
+2009-01-19,,P0114,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2006-06-11,,P0114,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2008-07-25,,P0114,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-05-28,,P0115,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-04-22,,P0115,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-10-18,,P0115,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2020-08-26,,P0115,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-09-23,,P0115,979492,Telmisartan 40 MG Oral Tablet,arb
+2023-03-31,,P0116,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-07-03,,P0116,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2023-10-09,,P0116,979492,Telmisartan 40 MG Oral Tablet,arb
+2020-04-10,,P0117,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-11-22,,P0118,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2024-07-22,,P0119,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-01-15,,P0120,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-03-12,,P0120,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-09-07,,P0120,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-12-23,,P0121,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-05-13,,P0121,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2018-11-22,,P0121,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-11-27,,P0122,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2004-11-26,,P0123,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2007-03-15,,P0123,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2005-01-12,,P0123,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2007-05-15,,P0123,617310,Atorvastatin 20 MG Oral Tablet,statin
+2006-11-04,,P0123,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0124,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-10-31,,P0124,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-10-14,,P0125,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0125,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2025-01-07,,P0125,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-08-12,,P0126,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2014-11-03,,P0127,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-04-26,,P0127,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2017-12-16,,P0128,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-07-03,,P0128,617310,Atorvastatin 20 MG Oral Tablet,statin
+2017-06-30,,P0129,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-03-12,,P0129,979492,Telmisartan 40 MG Oral Tablet,arb
+2007-11-03,,P0130,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2006-06-18,,P0130,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2005-08-25,,P0130,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2005-06-18,,P0130,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2005-08-04,,P0130,617310,Atorvastatin 20 MG Oral Tablet,statin
+2008-04-11,,P0130,979492,Telmisartan 40 MG Oral Tablet,arb
+2018-10-21,,P0131,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-09-01,,P0131,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-01-11,,P0132,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2014-12-02,,P0132,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-01-06,,P0133,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-10-05,,P0133,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-03-23,,P0133,979492,Telmisartan 40 MG Oral Tablet,arb
+2021-11-14,,P0134,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2019-01-29,,P0134,979492,Telmisartan 40 MG Oral Tablet,arb
+2020-10-30,,P0135,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-02-14,,P0135,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2019-06-22,,P0135,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-09-08,,P0136,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-08-12,,P0136,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-10-04,,P0137,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-09-08,,P0137,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-03-20,,P0138,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-05-04,,P0138,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2021-06-19,,P0139,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-01-20,,P0139,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-03-14,,P0140,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-11-21,,P0140,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2019-06-08,,P0140,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2023-02-02,,P0141,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-09-29,,P0141,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-05-05,,P0141,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2021-08-11,,P0141,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-11-27,,P0141,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-12-03,,P0142,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-01-12,,P0142,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2023-03-31,,P0143,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-02-11,,P0143,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2011-12-20,,P0144,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2014-08-03,,P0144,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2014-11-14,,P0144,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-11-17,,P0145,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-03-26,,P0145,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-09-11,,P0146,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-07-03,,P0146,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-08-31,,P0146,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-02-16,,P0146,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0147,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-07-19,,P0147,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-12-15,,P0148,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2019-09-17,,P0148,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-03-06,,P0149,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-07-03,,P0150,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-06-23,,P0150,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2023-11-01,,P0150,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-12-02,,P0150,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-08-29,,P0151,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0152,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-02-08,,P0152,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0152,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-03-28,,P0153,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-11-17,,P0153,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2019-02-22,,P0153,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-09-21,,P0153,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-11-27,,P0154,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2023-11-26,,P0154,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-05-19,,P0155,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2013-12-12,,P0155,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2013-12-26,,P0155,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2025-09-01,,P0156,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-05-02,,P0157,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-01-14,,P0157,617310,Atorvastatin 20 MG Oral Tablet,statin
+2011-02-16,,P0158,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2012-12-03,,P0158,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2013-06-11,,P0158,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2012-04-06,,P0158,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-05-17,,P0159,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-12-17,,P0159,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2023-09-24,,P0159,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-02-07,,P0160,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0160,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0161,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0161,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0161,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-03-20,,P0162,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0162,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-07-31,,P0163,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-09-23,,P0163,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-12-10,,P0163,979492,Telmisartan 40 MG Oral Tablet,arb
+2019-01-31,,P0164,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-12-22,,P0164,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-04-27,,P0164,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0165,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-10-20,,P0165,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-12-08,,P0165,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-09-11,,P0166,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-06-03,,P0166,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-06-12,,P0166,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-12-24,,P0167,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-07-07,,P0167,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2022-12-21,,P0167,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2023-09-26,,P0167,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-08-03,,P0168,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-08-14,,P0169,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-11-07,,P0169,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0170,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2012-10-07,,P0171,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2011-09-21,,P0171,617310,Atorvastatin 20 MG Oral Tablet,statin
+2017-05-16,,P0172,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-08-30,,P0172,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-04-14,,P0173,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-10-03,,P0173,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0174,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0174,979492,Telmisartan 40 MG Oral Tablet,arb
+2021-04-17,,P0175,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-10-23,,P0175,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-04-05,,P0175,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2020-06-20,,P0175,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-08-06,,P0176,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-06-08,,P0176,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0176,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-03-19,,P0176,979492,Telmisartan 40 MG Oral Tablet,arb
+2016-03-14,,P0177,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-10-10,,P0178,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-06-14,,P0178,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2025-09-19,,P0178,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0179,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-10-06,,P0180,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-05-24,,P0180,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2024-12-31,,P0180,979492,Telmisartan 40 MG Oral Tablet,arb
+2023-02-02,,P0181,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-06-02,,P0181,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-09-09,,P0182,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-06-01,,P0182,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0183,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-10-16,,P0183,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0184,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-01-10,,P0184,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2021-02-14,,P0185,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-07-03,,P0185,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-10-25,,P0185,979492,Telmisartan 40 MG Oral Tablet,arb
+2017-12-11,,P0186,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-03-31,,P0186,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2018-12-24,,P0186,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-03-30,,P0187,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0187,617310,Atorvastatin 20 MG Oral Tablet,statin
+2001-05-17,,P0188,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+1999-02-11,,P0188,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+1998-08-24,,P0188,617310,Atorvastatin 20 MG Oral Tablet,statin
+1998-11-07,,P0188,979492,Telmisartan 40 MG Oral Tablet,arb
+2015-01-22,,P0189,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-03-04,,P0189,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2015-07-14,,P0189,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2016-06-14,,P0189,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-08-09,,P0190,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-08-30,,P0190,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-06-23,,P0191,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2016-02-29,,P0191,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2015-11-14,,P0191,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-01-03,,P0191,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-02-18,,P0192,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0192,979492,Telmisartan 40 MG Oral Tablet,arb
+2019-10-16,,P0193,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-02-28,,P0193,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2020-09-05,,P0193,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-01-26,,P0194,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0194,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-01-10,,P0194,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0194,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0195,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0195,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0195,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-11-22,,P0196,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-04-04,,P0196,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-01-26,,P0197,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-11-01,,P0197,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-07-21,,P0198,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-03-26,,P0198,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2023-12-21,,P0198,617310,Atorvastatin 20 MG Oral Tablet,statin
+2005-12-10,,P0199,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2005-10-20,,P0199,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2005-09-30,,P0199,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2008-09-03,,P0199,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-04-04,,P0200,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-05-24,,P0200,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2023-01-30,,P0200,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-12-13,,P0201,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-03-17,,P0201,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-03-23,,P0202,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-12-23,,P0202,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0202,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2004-01-25,,P0203,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2004-05-18,,P0203,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-05-06,,P0204,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-11-23,,P0204,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-01-11,,P0204,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-03-03,,P0205,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-09-17,,P0205,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0205,617310,Atorvastatin 20 MG Oral Tablet,statin
+2014-03-23,,P0206,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2010-11-03,,P0206,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2011-04-15,,P0206,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-10-14,,P0207,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-08-05,,P0207,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-12-12,,P0207,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2022-08-26,,P0208,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-12-20,,P0208,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-07-07,,P0209,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-10-01,,P0210,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0210,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2023-04-19,,P0210,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-02-18,,P0210,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0211,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-01-14,,P0212,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-07-22,,P0212,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2023-05-18,,P0212,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2025-08-22,,P0213,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0213,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2025-02-22,,P0213,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0213,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-09-25,,P0214,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-12-28,,P0214,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2019-09-18,,P0215,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-11-16,,P0215,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-01-11,,P0216,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-10-15,,P0216,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2021-04-19,,P0217,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-06-30,,P0217,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2020-04-04,,P0217,617310,Atorvastatin 20 MG Oral Tablet,statin
+2003-04-05,,P0218,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2002-06-08,,P0218,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2000-10-23,,P0218,617310,Atorvastatin 20 MG Oral Tablet,statin
+2004-01-26,,P0218,979492,Telmisartan 40 MG Oral Tablet,arb
+2021-11-06,,P0219,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-02-03,,P0219,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2023-11-14,,P0219,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-05-27,,P0220,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-05-22,,P0220,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-04-25,,P0221,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-07-04,,P0221,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2019-04-02,,P0221,979492,Telmisartan 40 MG Oral Tablet,arb
+2019-12-26,,P0222,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2019-11-24,,P0222,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-10-25,,P0223,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-10-19,,P0223,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2025-12-24,,P0223,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2024-08-09,,P0223,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-10-13,,P0224,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-06-13,,P0224,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-02-06,,P0225,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-04-11,,P0225,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2017-04-13,,P0226,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-08-05,,P0226,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2017-10-05,,P0226,617310,Atorvastatin 20 MG Oral Tablet,statin
+2006-09-18,,P0227,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2008-09-25,,P0227,617310,Atorvastatin 20 MG Oral Tablet,statin
+2016-11-06,,P0228,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-03-18,,P0228,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2020-05-18,,P0228,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-06-23,,P0228,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-11-09,,P0229,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-02-22,,P0229,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-04-27,,P0229,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-07-13,,P0229,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-02-26,,P0230,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-09-06,,P0230,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2025-04-15,,P0230,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-02-17,,P0231,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-04-26,,P0231,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-07-08,,P0231,979492,Telmisartan 40 MG Oral Tablet,arb
+2023-08-06,,P0232,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-05-17,,P0232,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0233,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0233,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-10-06,,P0234,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-08-07,,P0234,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0235,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0235,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-12-10,,P0235,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0236,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-06-10,,P0237,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-05-18,,P0237,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2024-03-07,,P0237,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-07-23,,P0238,979492,Telmisartan 40 MG Oral Tablet,arb
+2020-04-08,,P0239,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-02-13,,P0239,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2020-09-28,,P0239,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-11-02,,P0239,979492,Telmisartan 40 MG Oral Tablet,arb
+2014-09-23,,P0240,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-06-03,,P0240,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2016-01-07,,P0240,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2020-02-05,,P0241,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-11-07,,P0241,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-07-16,,P0241,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2020-02-20,,P0241,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0242,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0242,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-03-12,,P0243,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0243,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2026-04-02,,P0243,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2007-12-28,,P0244,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-04-30,,P0245,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-08-14,,P0245,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-06-13,,P0246,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-07-20,,P0246,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0246,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-02-07,,P0247,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-02-27,,P0247,617310,Atorvastatin 20 MG Oral Tablet,statin
+2013-12-10,,P0248,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2012-08-14,,P0248,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2015-11-18,,P0248,979492,Telmisartan 40 MG Oral Tablet,arb
+2018-11-06,,P0249,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-04-17,,P0249,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2017-12-21,,P0249,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-10-25,,P0250,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-10-25,,P0250,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2021-11-11,,P0250,979492,Telmisartan 40 MG Oral Tablet,arb
+2021-12-16,,P0251,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-06-05,,P0251,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2023-02-07,,P0251,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-08-11,,P0252,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-09-19,,P0252,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0253,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-07-14,,P0254,617310,Atorvastatin 20 MG Oral Tablet,statin
+2020-10-18,,P0254,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-02-15,,P0255,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-11-20,,P0255,617310,Atorvastatin 20 MG Oral Tablet,statin
+2018-12-10,,P0256,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-01-26,,P0256,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-04-08,,P0257,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-08-31,,P0257,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-10-10,,P0257,979492,Telmisartan 40 MG Oral Tablet,arb
+2020-11-04,,P0258,617310,Atorvastatin 20 MG Oral Tablet,statin
+2017-06-08,,P0259,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-07-26,,P0259,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2022-12-31,,P0260,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-02-23,,P0260,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-09-13,,P0261,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0261,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-09-12,,P0262,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-05-05,,P0262,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-09-20,,P0263,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0263,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-09-30,,P0264,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-01-11,,P0264,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-06-10,,P0265,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-10-11,,P0265,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0266,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0266,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-06-22,,P0267,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-10-02,,P0267,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-12-27,,P0267,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-04-09,,P0267,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0268,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-01-11,,P0268,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2026-04-02,,P0268,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-10-10,,P0269,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-04-04,,P0269,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2018-11-04,,P0269,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-03-13,,P0270,285018,Insulin Glargine 100 UNT/ML Injectable Solution,basal_insulin
+2018-02-20,,P0270,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-11-03,,P0271,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-05-16,,P0271,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2024-07-23,,P0271,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2022-02-24,,P0271,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0272,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-12-23,,P0272,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2026-04-02,,P0272,617310,Atorvastatin 20 MG Oral Tablet,statin
+2015-10-24,,P0273,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2016-06-03,,P0273,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2019-12-30,,P0274,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-06-01,,P0274,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2015-10-03,,P0275,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-01-31,,P0275,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2014-01-01,,P0275,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2017-05-23,,P0275,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2017-09-16,,P0275,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-02-11,,P0276,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-11-07,,P0276,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-01-07,,P0277,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2020-04-12,,P0277,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2022-08-05,,P0277,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-08-08,,P0278,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2025-12-04,,P0278,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2026-02-12,,P0278,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-09-28,,P0279,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2021-04-29,,P0279,665033,Sitagliptin 100 MG Oral Tablet,dpp4
+2019-01-22,,P0279,617310,Atorvastatin 20 MG Oral Tablet,statin
+2019-07-27,,P0279,979492,Telmisartan 40 MG Oral Tablet,arb
+2014-06-13,,P0280,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2015-07-08,,P0280,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2015-11-16,,P0280,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0281,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-04-02,,P0281,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-04-02,,P0282,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2018-05-23,,P0283,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2017-10-04,,P0283,617310,Atorvastatin 20 MG Oral Tablet,statin
+2016-12-23,,P0283,979492,Telmisartan 40 MG Oral Tablet,arb
+2020-04-18,,P0284,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-01-08,,P0284,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-05-23,,P0285,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-05-15,,P0285,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-05-09,,P0286,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-03-07,,P0286,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-08-02,,P0287,617310,Atorvastatin 20 MG Oral Tablet,statin
+2025-07-07,,P0287,979492,Telmisartan 40 MG Oral Tablet,arb
+2026-04-02,,P0288,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-03-30,,P0288,617310,Atorvastatin 20 MG Oral Tablet,statin
+2014-08-09,,P0289,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-01-22,,P0290,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-08-14,,P0290,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-01-21,,P0290,617310,Atorvastatin 20 MG Oral Tablet,statin
+2022-06-04,,P0290,979492,Telmisartan 40 MG Oral Tablet,arb
+2015-07-18,,P0291,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2012-01-19,,P0291,617310,Atorvastatin 20 MG Oral Tablet,statin
+2026-01-19,,P0292,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2025-09-23,,P0292,617310,Atorvastatin 20 MG Oral Tablet,statin
+2014-04-16,,P0293,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2014-01-12,,P0293,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-06-20,,P0294,979492,Telmisartan 40 MG Oral Tablet,arb
+2024-03-01,,P0295,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2026-02-14,,P0295,617310,Atorvastatin 20 MG Oral Tablet,statin
+2024-06-19,,P0296,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2025-03-22,,P0296,617310,Atorvastatin 20 MG Oral Tablet,statin
+2021-11-28,,P0297,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-09-29,,P0297,979492,Telmisartan 40 MG Oral Tablet,arb
+2022-02-04,,P0298,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2023-11-18,,P0298,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea
+2022-03-26,,P0298,1545658,Dapagliflozin 10 MG Oral Tablet,sglt2
+2023-01-13,,P0298,979492,Telmisartan 40 MG Oral Tablet,arb
+2025-05-04,,P0299,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2024-08-08,,P0299,617310,Atorvastatin 20 MG Oral Tablet,statin
+2023-11-21,,P0300,860975,Metformin hydrochloride 500 MG Extended Release Oral Tablet,metformin
+2022-04-19,,P0300,310534,Glimepiride 2 MG Oral Tablet,sulfonylurea

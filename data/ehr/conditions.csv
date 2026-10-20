@@ -1,0 +1,999 @@
+START,STOP,PATIENT,CODE,DESCRIPTION
+2025-08-13,,P0001,44054006,Diabetes mellitus type 2
+2023-07-29,,P0001,38341003,Hypertensive disorder
+2025-12-31,,P0001,55822004,Hyperlipidemia
+2026-02-27,,P0001,431855005,Chronic kidney disease stage 1-3
+2024-07-01,,P0001,414916001,Obesity
+2017-03-20,,P0002,44054006,Diabetes mellitus type 2
+2015-03-10,,P0002,38341003,Hypertensive disorder
+2017-02-09,,P0002,55822004,Hyperlipidemia
+2019-01-07,,P0003,44054006,Diabetes mellitus type 2
+2018-03-30,,P0003,55822004,Hyperlipidemia
+2021-03-08,,P0003,160303001,Family history: Diabetes mellitus
+2019-12-01,,P0004,44054006,Diabetes mellitus type 2
+2018-11-26,,P0004,197321007,Steatosis of liver
+2021-05-30,,P0004,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0004,414916001,Obesity
+2025-07-08,,P0005,44054006,Diabetes mellitus type 2
+2025-09-09,,P0005,38341003,Hypertensive disorder
+2025-12-03,,P0005,55822004,Hyperlipidemia
+2024-02-05,,P0005,160303001,Family history: Diabetes mellitus
+2017-01-06,,P0006,44054006,Diabetes mellitus type 2
+2015-11-20,,P0006,55822004,Hyperlipidemia
+2012-04-25,,P0007,44054006,Diabetes mellitus type 2
+2013-09-14,,P0007,55822004,Hyperlipidemia
+2011-06-20,,P0007,160303001,Family history: Diabetes mellitus
+2016-12-01,,P0008,44054006,Diabetes mellitus type 2
+2019-04-08,,P0008,38341003,Hypertensive disorder
+2016-07-01,,P0008,55822004,Hyperlipidemia
+2015-05-25,,P0008,160303001,Family history: Diabetes mellitus
+2022-12-01,,P0009,44054006,Diabetes mellitus type 2
+2025-01-20,,P0009,197321007,Steatosis of liver
+2023-10-30,,P0009,53741008,Coronary arteriosclerosis
+2021-11-16,,P0009,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0009,414916001,Obesity
+2024-10-25,,P0010,44054006,Diabetes mellitus type 2
+2026-06-01,,P0010,197321007,Steatosis of liver
+2025-01-06,,P0011,44054006,Diabetes mellitus type 2
+2026-01-08,,P0011,38341003,Hypertensive disorder
+2024-01-22,,P0011,55822004,Hyperlipidemia
+2025-01-18,,P0011,160303001,Family history: Diabetes mellitus
+2019-03-21,,P0012,44054006,Diabetes mellitus type 2
+2024-07-01,,P0012,414916001,Obesity
+2019-12-01,,P0013,44054006,Diabetes mellitus type 2
+2019-05-10,,P0013,197321007,Steatosis of liver
+2018-04-07,,P0013,53741008,Coronary arteriosclerosis
+2023-12-01,,P0014,44054006,Diabetes mellitus type 2
+2022-08-27,,P0014,38341003,Hypertensive disorder
+2024-05-07,,P0014,55822004,Hyperlipidemia
+2021-10-14,,P0014,160303001,Family history: Diabetes mellitus
+2018-10-26,,P0015,44054006,Diabetes mellitus type 2
+2017-05-28,,P0015,38341003,Hypertensive disorder
+2017-10-09,,P0015,55822004,Hyperlipidemia
+2019-03-03,,P0015,197321007,Steatosis of liver
+2023-12-01,,P0016,44054006,Diabetes mellitus type 2
+2024-09-22,,P0016,55822004,Hyperlipidemia
+2023-06-03,,P0016,230572002,Diabetic peripheral neuropathy
+2018-10-26,,P0017,44054006,Diabetes mellitus type 2
+2020-05-08,,P0017,38341003,Hypertensive disorder
+2016-08-22,,P0017,55822004,Hyperlipidemia
+2018-02-21,,P0017,160303001,Family history: Diabetes mellitus
+2012-04-25,,P0018,44054006,Diabetes mellitus type 2
+2011-10-19,,P0018,55822004,Hyperlipidemia
+2012-10-08,,P0018,160303001,Family history: Diabetes mellitus
+2021-03-20,,P0019,44054006,Diabetes mellitus type 2
+2023-05-02,,P0019,38341003,Hypertensive disorder
+2019-12-23,,P0019,55822004,Hyperlipidemia
+2018-10-24,,P0019,230572002,Diabetic peripheral neuropathy
+2013-09-19,,P0020,44054006,Diabetes mellitus type 2
+2013-12-18,,P0020,38341003,Hypertensive disorder
+2013-07-16,,P0020,431855005,Chronic kidney disease stage 1-3
+2013-03-19,,P0020,197321007,Steatosis of liver
+2014-09-29,,P0020,230572002,Diabetic peripheral neuropathy
+2012-05-26,,P0020,160303001,Family history: Diabetes mellitus
+2015-08-14,,P0021,44054006,Diabetes mellitus type 2
+2013-11-15,,P0021,55822004,Hyperlipidemia
+2024-07-01,,P0021,414916001,Obesity
+2017-02-12,,P0022,44054006,Diabetes mellitus type 2
+2018-08-17,,P0022,38341003,Hypertensive disorder
+2017-06-01,,P0023,44054006,Diabetes mellitus type 2
+2016-09-25,,P0023,197321007,Steatosis of liver
+2018-02-16,,P0023,230572002,Diabetic peripheral neuropathy
+2018-04-26,,P0024,44054006,Diabetes mellitus type 2
+2018-10-01,,P0024,197321007,Steatosis of liver
+2018-03-20,,P0025,44054006,Diabetes mellitus type 2
+2020-08-02,,P0025,53741008,Coronary arteriosclerosis
+2020-05-27,,P0025,160303001,Family history: Diabetes mellitus
+2023-07-08,,P0026,44054006,Diabetes mellitus type 2
+2025-02-16,,P0026,55822004,Hyperlipidemia
+2023-07-08,,P0027,44054006,Diabetes mellitus type 2
+2025-01-08,,P0027,55822004,Hyperlipidemia
+2022-06-12,,P0027,160303001,Family history: Diabetes mellitus
+2018-10-26,,P0028,44054006,Diabetes mellitus type 2
+2020-11-06,,P0028,55822004,Hyperlipidemia
+2016-09-19,,P0029,44054006,Diabetes mellitus type 2
+2014-07-26,,P0029,431855005,Chronic kidney disease stage 1-3
+2019-03-03,,P0029,197321007,Steatosis of liver
+2016-01-30,,P0029,53741008,Coronary arteriosclerosis
+2016-11-07,,P0029,230572002,Diabetic peripheral neuropathy
+2024-07-01,,P0029,414916001,Obesity
+2024-09-19,,P0030,44054006,Diabetes mellitus type 2
+2024-11-19,,P0030,160303001,Family history: Diabetes mellitus
+2025-08-13,,P0031,44054006,Diabetes mellitus type 2
+2026-06-01,,P0031,55822004,Hyperlipidemia
+2023-09-21,,P0031,53741008,Coronary arteriosclerosis
+2020-04-25,,P0032,44054006,Diabetes mellitus type 2
+2020-03-23,,P0032,55822004,Hyperlipidemia
+2022-04-30,,P0032,197321007,Steatosis of liver
+2018-08-27,,P0032,160303001,Family history: Diabetes mellitus
+2020-09-19,,P0033,44054006,Diabetes mellitus type 2
+2022-10-03,,P0033,55822004,Hyperlipidemia
+2025-09-19,,P0034,44054006,Diabetes mellitus type 2
+2025-07-14,,P0034,38341003,Hypertensive disorder
+2024-11-09,,P0034,160303001,Family history: Diabetes mellitus
+2007-10-26,,P0035,44054006,Diabetes mellitus type 2
+2007-09-16,,P0035,38341003,Hypertensive disorder
+2007-06-14,,P0035,197321007,Steatosis of liver
+2007-03-09,,P0035,230572002,Diabetic peripheral neuropathy
+2010-02-16,,P0035,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0035,414916001,Obesity
+2022-03-20,,P0036,44054006,Diabetes mellitus type 2
+2024-06-13,,P0036,197321007,Steatosis of liver
+2023-01-29,,P0036,160303001,Family history: Diabetes mellitus
+2018-08-14,,P0037,44054006,Diabetes mellitus type 2
+2016-04-11,,P0037,38341003,Hypertensive disorder
+2016-04-20,,P0037,55822004,Hyperlipidemia
+2005-06-01,,P0038,44054006,Diabetes mellitus type 2
+2003-06-04,,P0038,55822004,Hyperlipidemia
+2003-10-09,,P0038,431855005,Chronic kidney disease stage 1-3
+2007-04-07,,P0038,230572002,Diabetic peripheral neuropathy
+2022-12-01,,P0039,44054006,Diabetes mellitus type 2
+2022-07-23,,P0039,38341003,Hypertensive disorder
+2024-09-10,,P0039,55822004,Hyperlipidemia
+2021-07-12,,P0039,431855005,Chronic kidney disease stage 1-3
+2020-08-16,,P0039,53741008,Coronary arteriosclerosis
+2022-10-30,,P0039,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0039,414916001,Obesity
+2013-06-01,,P0040,44054006,Diabetes mellitus type 2
+2012-09-08,,P0040,197321007,Steatosis of liver
+2024-07-01,,P0040,414916001,Obesity
+2022-06-01,,P0041,44054006,Diabetes mellitus type 2
+2020-03-02,,P0041,38341003,Hypertensive disorder
+2020-12-15,,P0041,55822004,Hyperlipidemia
+2024-05-22,,P0041,197321007,Steatosis of liver
+2024-07-01,,P0041,414916001,Obesity
+2014-06-01,,P0042,44054006,Diabetes mellitus type 2
+2012-06-12,,P0042,55822004,Hyperlipidemia
+2016-07-28,,P0042,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0042,414916001,Obesity
+2019-07-08,,P0043,44054006,Diabetes mellitus type 2
+2022-06-01,,P0044,44054006,Diabetes mellitus type 2
+2021-01-07,,P0044,55822004,Hyperlipidemia
+2021-06-03,,P0044,160303001,Family history: Diabetes mellitus
+2020-08-13,,P0045,44054006,Diabetes mellitus type 2
+2018-03-06,,P0045,38341003,Hypertensive disorder
+2024-07-01,,P0045,414916001,Obesity
+2017-03-20,,P0046,44054006,Diabetes mellitus type 2
+2016-11-18,,P0046,197321007,Steatosis of liver
+2019-01-25,,P0046,53741008,Coronary arteriosclerosis
+2011-10-26,,P0047,44054006,Diabetes mellitus type 2
+2009-08-03,,P0047,55822004,Hyperlipidemia
+2014-02-10,,P0047,230572002,Diabetic peripheral neuropathy
+2020-12-01,,P0048,44054006,Diabetes mellitus type 2
+2020-11-05,,P0048,38341003,Hypertensive disorder
+2020-12-15,,P0048,55822004,Hyperlipidemia
+2021-12-17,,P0048,431855005,Chronic kidney disease stage 1-3
+2024-07-01,,P0048,414916001,Obesity
+2009-10-25,,P0049,44054006,Diabetes mellitus type 2
+2010-03-28,,P0049,38341003,Hypertensive disorder
+2009-08-19,,P0049,55822004,Hyperlipidemia
+2010-11-06,,P0049,431855005,Chronic kidney disease stage 1-3
+2012-02-24,,P0049,197321007,Steatosis of liver
+2011-02-20,,P0049,160303001,Family history: Diabetes mellitus
+2024-09-19,,P0050,44054006,Diabetes mellitus type 2
+2026-02-09,,P0050,38341003,Hypertensive disorder
+2026-03-12,,P0050,55822004,Hyperlipidemia
+2024-11-19,,P0050,160303001,Family history: Diabetes mellitus
+2015-02-12,,P0051,44054006,Diabetes mellitus type 2
+2014-02-03,,P0051,55822004,Hyperlipidemia
+2013-04-04,,P0051,197321007,Steatosis of liver
+2017-07-08,,P0052,44054006,Diabetes mellitus type 2
+2018-11-12,,P0052,38341003,Hypertensive disorder
+2015-03-22,,P0052,197321007,Steatosis of liver
+2015-08-08,,P0052,53741008,Coronary arteriosclerosis
+2022-09-19,,P0053,44054006,Diabetes mellitus type 2
+2021-12-28,,P0053,431855005,Chronic kidney disease stage 1-3
+2023-05-17,,P0053,197321007,Steatosis of liver
+2021-07-17,,P0053,160303001,Family history: Diabetes mellitus
+2021-07-08,,P0054,44054006,Diabetes mellitus type 2
+2019-10-31,,P0054,38341003,Hypertensive disorder
+2025-03-20,,P0055,44054006,Diabetes mellitus type 2
+2022-08-14,,P0056,44054006,Diabetes mellitus type 2
+2008-09-19,,P0057,44054006,Diabetes mellitus type 2
+2010-01-11,,P0057,38341003,Hypertensive disorder
+2006-06-13,,P0057,55822004,Hyperlipidemia
+2008-02-14,,P0057,160303001,Family history: Diabetes mellitus
+2023-07-08,,P0058,44054006,Diabetes mellitus type 2
+2025-02-01,,P0058,55822004,Hyperlipidemia
+2023-02-08,,P0058,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0058,414916001,Obesity
+2022-07-08,,P0059,44054006,Diabetes mellitus type 2
+2023-03-17,,P0059,38341003,Hypertensive disorder
+2022-01-26,,P0059,55822004,Hyperlipidemia
+2017-07-08,,P0060,44054006,Diabetes mellitus type 2
+2016-11-30,,P0060,197321007,Steatosis of liver
+2018-02-14,,P0060,230572002,Diabetic peripheral neuropathy
+2018-04-13,,P0060,160303001,Family history: Diabetes mellitus
+2014-12-01,,P0061,44054006,Diabetes mellitus type 2
+2013-06-15,,P0061,55822004,Hyperlipidemia
+2020-07-08,,P0062,44054006,Diabetes mellitus type 2
+2021-09-16,,P0062,55822004,Hyperlipidemia
+2020-06-17,,P0062,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0062,414916001,Obesity
+2015-07-08,,P0063,44054006,Diabetes mellitus type 2
+2015-04-18,,P0063,38341003,Hypertensive disorder
+2017-06-24,,P0063,197321007,Steatosis of liver
+2013-08-05,,P0063,230572002,Diabetic peripheral neuropathy
+2015-12-10,,P0063,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0063,414916001,Obesity
+2021-04-26,,P0064,44054006,Diabetes mellitus type 2
+2020-07-27,,P0064,55822004,Hyperlipidemia
+2021-06-01,,P0065,44054006,Diabetes mellitus type 2
+2020-05-05,,P0065,55822004,Hyperlipidemia
+2023-03-10,,P0065,230572002,Diabetic peripheral neuropathy
+2023-03-21,,P0066,44054006,Diabetes mellitus type 2
+2024-08-26,,P0066,38341003,Hypertensive disorder
+2023-05-24,,P0066,55822004,Hyperlipidemia
+2022-07-20,,P0066,160303001,Family history: Diabetes mellitus
+2022-01-06,,P0067,44054006,Diabetes mellitus type 2
+2019-12-24,,P0067,197321007,Steatosis of liver
+2023-01-30,,P0067,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0067,414916001,Obesity
+2017-10-25,,P0068,44054006,Diabetes mellitus type 2
+2019-12-10,,P0068,55822004,Hyperlipidemia
+2016-03-24,,P0068,197321007,Steatosis of liver
+2024-07-01,,P0068,414916001,Obesity
+2020-10-25,,P0069,44054006,Diabetes mellitus type 2
+2024-07-01,,P0069,414916001,Obesity
+2014-04-26,,P0070,44054006,Diabetes mellitus type 2
+2014-11-25,,P0070,38341003,Hypertensive disorder
+2013-11-05,,P0070,197321007,Steatosis of liver
+2014-07-08,,P0071,44054006,Diabetes mellitus type 2
+2014-11-16,,P0071,53741008,Coronary arteriosclerosis
+2021-02-12,,P0072,44054006,Diabetes mellitus type 2
+2020-02-02,,P0072,38341003,Hypertensive disorder
+2021-05-01,,P0072,431855005,Chronic kidney disease stage 1-3
+2022-11-13,,P0072,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0072,414916001,Obesity
+2023-02-12,,P0073,44054006,Diabetes mellitus type 2
+2022-06-06,,P0073,55822004,Hyperlipidemia
+2025-06-10,,P0073,160303001,Family history: Diabetes mellitus
+2017-06-01,,P0074,44054006,Diabetes mellitus type 2
+2015-05-10,,P0074,38341003,Hypertensive disorder
+2013-10-25,,P0075,44054006,Diabetes mellitus type 2
+2015-03-23,,P0075,160303001,Family history: Diabetes mellitus
+2019-03-21,,P0076,44054006,Diabetes mellitus type 2
+2018-11-25,,P0076,197321007,Steatosis of liver
+2016-11-18,,P0076,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0076,414916001,Obesity
+2019-01-07,,P0077,44054006,Diabetes mellitus type 2
+2016-12-12,,P0077,38341003,Hypertensive disorder
+2019-04-01,,P0077,55822004,Hyperlipidemia
+2016-08-07,,P0077,197321007,Steatosis of liver
+2024-02-12,,P0078,44054006,Diabetes mellitus type 2
+2024-11-05,,P0078,38341003,Hypertensive disorder
+2023-09-27,,P0078,55822004,Hyperlipidemia
+2020-07-08,,P0079,44054006,Diabetes mellitus type 2
+2018-12-09,,P0079,38341003,Hypertensive disorder
+2024-07-01,,P0079,414916001,Obesity
+2021-07-08,,P0080,44054006,Diabetes mellitus type 2
+2022-02-28,,P0080,55822004,Hyperlipidemia
+2021-03-23,,P0080,160303001,Family history: Diabetes mellitus
+2023-12-01,,P0081,44054006,Diabetes mellitus type 2
+2021-10-29,,P0081,38341003,Hypertensive disorder
+2023-09-20,,P0081,55822004,Hyperlipidemia
+2021-08-13,,P0082,44054006,Diabetes mellitus type 2
+2021-06-24,,P0082,38341003,Hypertensive disorder
+2019-12-02,,P0082,55822004,Hyperlipidemia
+2020-06-15,,P0082,160303001,Family history: Diabetes mellitus
+2023-09-19,,P0083,44054006,Diabetes mellitus type 2
+2024-10-28,,P0083,38341003,Hypertensive disorder
+2024-11-29,,P0083,55822004,Hyperlipidemia
+2024-07-01,,P0083,414916001,Obesity
+2016-08-13,,P0084,44054006,Diabetes mellitus type 2
+2017-03-24,,P0084,55822004,Hyperlipidemia
+2016-08-27,,P0084,160303001,Family history: Diabetes mellitus
+2013-07-08,,P0085,44054006,Diabetes mellitus type 2
+2013-03-19,,P0085,55822004,Hyperlipidemia
+2013-05-14,,P0085,197321007,Steatosis of liver
+2014-09-08,,P0085,230572002,Diabetic peripheral neuropathy
+2012-01-27,,P0085,160303001,Family history: Diabetes mellitus
+2018-10-26,,P0086,44054006,Diabetes mellitus type 2
+2018-01-02,,P0086,160303001,Family history: Diabetes mellitus
+2021-06-01,,P0087,44054006,Diabetes mellitus type 2
+2023-05-24,,P0087,38341003,Hypertensive disorder
+2022-04-12,,P0087,55822004,Hyperlipidemia
+2022-03-11,,P0087,197321007,Steatosis of liver
+2019-12-01,,P0088,44054006,Diabetes mellitus type 2
+2018-10-08,,P0088,55822004,Hyperlipidemia
+2020-10-12,,P0088,197321007,Steatosis of liver
+2018-11-30,,P0088,53741008,Coronary arteriosclerosis
+2008-10-25,,P0089,44054006,Diabetes mellitus type 2
+2024-06-01,,P0090,44054006,Diabetes mellitus type 2
+2021-12-29,,P0090,38341003,Hypertensive disorder
+2024-12-21,,P0090,55822004,Hyperlipidemia
+2022-08-04,,P0090,197321007,Steatosis of liver
+2024-06-30,,P0090,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0090,414916001,Obesity
+2022-10-26,,P0091,44054006,Diabetes mellitus type 2
+2023-10-19,,P0091,55822004,Hyperlipidemia
+2024-11-26,,P0091,53741008,Coronary arteriosclerosis
+2024-06-13,,P0091,160303001,Family history: Diabetes mellitus
+2023-03-21,,P0092,44054006,Diabetes mellitus type 2
+2022-05-17,,P0092,55822004,Hyperlipidemia
+2017-08-13,,P0093,44054006,Diabetes mellitus type 2
+2019-12-20,,P0093,38341003,Hypertensive disorder
+2018-11-13,,P0093,197321007,Steatosis of liver
+2019-06-27,,P0093,53741008,Coronary arteriosclerosis
+2024-07-01,,P0093,414916001,Obesity
+2019-01-07,,P0094,44054006,Diabetes mellitus type 2
+2019-12-08,,P0094,55822004,Hyperlipidemia
+2018-12-14,,P0094,431855005,Chronic kidney disease stage 1-3
+2024-02-12,,P0095,44054006,Diabetes mellitus type 2
+2014-03-20,,P0096,44054006,Diabetes mellitus type 2
+2012-04-30,,P0096,38341003,Hypertensive disorder
+2014-02-13,,P0096,55822004,Hyperlipidemia
+2015-05-10,,P0096,53741008,Coronary arteriosclerosis
+2021-06-01,,P0097,44054006,Diabetes mellitus type 2
+2022-11-10,,P0097,38341003,Hypertensive disorder
+2021-09-30,,P0097,55822004,Hyperlipidemia
+2023-07-28,,P0097,197321007,Steatosis of liver
+2023-04-15,,P0097,53741008,Coronary arteriosclerosis
+2024-07-01,,P0097,414916001,Obesity
+2016-06-01,,P0098,44054006,Diabetes mellitus type 2
+2021-06-01,,P0099,44054006,Diabetes mellitus type 2
+2022-05-04,,P0099,38341003,Hypertensive disorder
+2022-10-22,,P0099,55822004,Hyperlipidemia
+2020-04-26,,P0099,197321007,Steatosis of liver
+2024-07-01,,P0099,414916001,Obesity
+2019-09-19,,P0100,44054006,Diabetes mellitus type 2
+2020-10-03,,P0100,38341003,Hypertensive disorder
+2018-12-29,,P0100,55822004,Hyperlipidemia
+2017-06-07,,P0100,160303001,Family history: Diabetes mellitus
+2022-09-19,,P0101,44054006,Diabetes mellitus type 2
+2018-06-01,,P0102,44054006,Diabetes mellitus type 2
+2019-06-03,,P0102,55822004,Hyperlipidemia
+2025-01-06,,P0103,44054006,Diabetes mellitus type 2
+2026-06-01,,P0103,55822004,Hyperlipidemia
+2013-04-26,,P0104,44054006,Diabetes mellitus type 2
+2021-10-25,,P0105,44054006,Diabetes mellitus type 2
+2022-12-21,,P0105,38341003,Hypertensive disorder
+2020-12-08,,P0105,55822004,Hyperlipidemia
+2023-08-14,,P0106,44054006,Diabetes mellitus type 2
+2024-04-10,,P0106,38341003,Hypertensive disorder
+2022-10-06,,P0106,55822004,Hyperlipidemia
+2025-02-14,,P0106,160303001,Family history: Diabetes mellitus
+2021-04-26,,P0107,44054006,Diabetes mellitus type 2
+2022-08-02,,P0107,55822004,Hyperlipidemia
+2021-06-01,,P0108,44054006,Diabetes mellitus type 2
+2021-05-26,,P0108,55822004,Hyperlipidemia
+2020-05-25,,P0108,197321007,Steatosis of liver
+2024-07-01,,P0108,414916001,Obesity
+2021-04-26,,P0109,44054006,Diabetes mellitus type 2
+2020-11-10,,P0109,38341003,Hypertensive disorder
+2020-12-31,,P0109,230572002,Diabetic peripheral neuropathy
+2022-04-20,,P0109,160303001,Family history: Diabetes mellitus
+2025-02-12,,P0110,44054006,Diabetes mellitus type 2
+2023-11-18,,P0110,38341003,Hypertensive disorder
+2024-01-28,,P0110,55822004,Hyperlipidemia
+2015-04-26,,P0111,44054006,Diabetes mellitus type 2
+2013-07-20,,P0111,38341003,Hypertensive disorder
+2014-12-21,,P0111,55822004,Hyperlipidemia
+2014-04-19,,P0111,431855005,Chronic kidney disease stage 1-3
+2016-10-05,,P0111,160303001,Family history: Diabetes mellitus
+2014-03-20,,P0112,44054006,Diabetes mellitus type 2
+2014-09-04,,P0112,38341003,Hypertensive disorder
+2016-08-31,,P0112,55822004,Hyperlipidemia
+2011-11-11,,P0112,431855005,Chronic kidney disease stage 1-3
+2015-01-13,,P0112,230572002,Diabetic peripheral neuropathy
+2019-08-14,,P0113,44054006,Diabetes mellitus type 2
+2017-10-12,,P0113,55822004,Hyperlipidemia
+2006-02-12,,P0114,44054006,Diabetes mellitus type 2
+2003-10-29,,P0114,55822004,Hyperlipidemia
+2008-06-08,,P0114,230572002,Diabetic peripheral neuropathy
+2008-06-28,,P0114,160303001,Family history: Diabetes mellitus
+2018-04-26,,P0115,44054006,Diabetes mellitus type 2
+2020-05-07,,P0115,38341003,Hypertensive disorder
+2018-12-04,,P0115,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0115,414916001,Obesity
+2022-10-26,,P0116,44054006,Diabetes mellitus type 2
+2025-04-04,,P0116,38341003,Hypertensive disorder
+2023-03-24,,P0116,160303001,Family history: Diabetes mellitus
+2019-08-14,,P0117,44054006,Diabetes mellitus type 2
+2017-01-06,,P0118,44054006,Diabetes mellitus type 2
+2017-11-30,,P0118,230572002,Diabetic peripheral neuropathy
+2019-06-19,,P0118,160303001,Family history: Diabetes mellitus
+2022-02-12,,P0119,44054006,Diabetes mellitus type 2
+2020-11-27,,P0119,55822004,Hyperlipidemia
+2021-09-19,,P0120,44054006,Diabetes mellitus type 2
+2022-06-26,,P0120,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0120,414916001,Obesity
+2018-02-12,,P0121,44054006,Diabetes mellitus type 2
+2019-11-26,,P0121,55822004,Hyperlipidemia
+2024-07-01,,P0121,414916001,Obesity
+2023-03-21,,P0122,44054006,Diabetes mellitus type 2
+2004-09-19,,P0123,44054006,Diabetes mellitus type 2
+2002-09-21,,P0123,38341003,Hypertensive disorder
+2007-02-17,,P0123,55822004,Hyperlipidemia
+2024-10-25,,P0124,44054006,Diabetes mellitus type 2
+2025-02-04,,P0124,53741008,Coronary arteriosclerosis
+2024-11-24,,P0124,230572002,Diabetic peripheral neuropathy
+2024-03-20,,P0125,44054006,Diabetes mellitus type 2
+2025-10-14,,P0125,55822004,Hyperlipidemia
+2020-06-01,,P0126,44054006,Diabetes mellitus type 2
+2014-07-08,,P0127,44054006,Diabetes mellitus type 2
+2013-07-09,,P0127,230572002,Diabetic peripheral neuropathy
+2024-07-01,,P0127,414916001,Obesity
+2015-04-26,,P0128,44054006,Diabetes mellitus type 2
+2016-03-02,,P0128,55822004,Hyperlipidemia
+2017-04-26,,P0129,44054006,Diabetes mellitus type 2
+2017-02-04,,P0129,38341003,Hypertensive disorder
+2019-09-05,,P0129,197321007,Steatosis of liver
+2017-04-28,,P0129,230572002,Diabetic peripheral neuropathy
+2015-05-19,,P0129,160303001,Family history: Diabetes mellitus
+2004-10-25,,P0130,44054006,Diabetes mellitus type 2
+2005-07-12,,P0130,38341003,Hypertensive disorder
+2004-05-09,,P0130,55822004,Hyperlipidemia
+2004-04-23,,P0130,197321007,Steatosis of liver
+2002-09-03,,P0130,230572002,Diabetic peripheral neuropathy
+2006-06-05,,P0130,160303001,Family history: Diabetes mellitus
+2018-07-08,,P0131,44054006,Diabetes mellitus type 2
+2018-06-30,,P0131,55822004,Hyperlipidemia
+2017-08-28,,P0131,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0131,414916001,Obesity
+2014-06-01,,P0132,44054006,Diabetes mellitus type 2
+2016-06-17,,P0132,55822004,Hyperlipidemia
+2016-07-06,,P0132,197321007,Steatosis of liver
+2014-09-20,,P0132,160303001,Family history: Diabetes mellitus
+2020-01-07,,P0133,44054006,Diabetes mellitus type 2
+2018-05-03,,P0133,38341003,Hypertensive disorder
+2019-12-08,,P0133,160303001,Family history: Diabetes mellitus
+2017-10-25,,P0134,44054006,Diabetes mellitus type 2
+2019-11-04,,P0134,38341003,Hypertensive disorder
+2018-10-29,,P0134,431855005,Chronic kidney disease stage 1-3
+2017-01-17,,P0134,160303001,Family history: Diabetes mellitus
+2019-04-26,,P0135,44054006,Diabetes mellitus type 2
+2021-05-06,,P0135,38341003,Hypertensive disorder
+2017-04-30,,P0135,55822004,Hyperlipidemia
+2017-01-10,,P0135,197321007,Steatosis of liver
+2024-07-01,,P0135,414916001,Obesity
+2018-06-01,,P0136,44054006,Diabetes mellitus type 2
+2016-04-21,,P0136,55822004,Hyperlipidemia
+2018-03-30,,P0136,160303001,Family history: Diabetes mellitus
+2015-04-26,,P0137,44054006,Diabetes mellitus type 2
+2013-10-06,,P0137,55822004,Hyperlipidemia
+2016-04-23,,P0137,53741008,Coronary arteriosclerosis
+2017-02-08,,P0137,160303001,Family history: Diabetes mellitus
+2021-03-20,,P0138,44054006,Diabetes mellitus type 2
+2022-01-12,,P0138,38341003,Hypertensive disorder
+2020-01-22,,P0138,197321007,Steatosis of liver
+2020-10-03,,P0138,160303001,Family history: Diabetes mellitus
+2019-02-12,,P0139,44054006,Diabetes mellitus type 2
+2021-02-21,,P0139,55822004,Hyperlipidemia
+2020-08-21,,P0139,160303001,Family history: Diabetes mellitus
+2018-06-01,,P0140,44054006,Diabetes mellitus type 2
+2019-06-18,,P0140,197321007,Steatosis of liver
+2019-01-07,,P0141,44054006,Diabetes mellitus type 2
+2017-11-05,,P0141,38341003,Hypertensive disorder
+2018-12-18,,P0141,55822004,Hyperlipidemia
+2016-09-03,,P0141,197321007,Steatosis of liver
+2017-02-18,,P0141,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0141,414916001,Obesity
+2022-03-20,,P0142,44054006,Diabetes mellitus type 2
+2023-10-28,,P0142,197321007,Steatosis of liver
+2023-07-16,,P0142,160303001,Family history: Diabetes mellitus
+2021-03-20,,P0143,44054006,Diabetes mellitus type 2
+2011-06-02,,P0144,44054006,Diabetes mellitus type 2
+2010-09-23,,P0144,55822004,Hyperlipidemia
+2009-04-21,,P0144,160303001,Family history: Diabetes mellitus
+2018-12-01,,P0145,44054006,Diabetes mellitus type 2
+2020-11-10,,P0145,55822004,Hyperlipidemia
+2017-11-17,,P0145,197321007,Steatosis of liver
+2016-09-18,,P0145,53741008,Coronary arteriosclerosis
+2022-04-26,,P0146,44054006,Diabetes mellitus type 2
+2021-03-08,,P0146,38341003,Hypertensive disorder
+2022-03-08,,P0146,55822004,Hyperlipidemia
+2021-02-22,,P0146,53741008,Coronary arteriosclerosis
+2023-04-26,,P0147,44054006,Diabetes mellitus type 2
+2024-07-01,,P0147,414916001,Obesity
+2016-01-07,,P0148,44054006,Diabetes mellitus type 2
+2014-09-22,,P0148,55822004,Hyperlipidemia
+2017-10-08,,P0148,53741008,Coronary arteriosclerosis
+2021-07-08,,P0149,44054006,Diabetes mellitus type 2
+2019-10-31,,P0149,55822004,Hyperlipidemia
+2022-05-19,,P0149,230572002,Diabetic peripheral neuropathy
+2022-04-21,,P0149,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0149,414916001,Obesity
+2021-08-13,,P0150,44054006,Diabetes mellitus type 2
+2021-01-07,,P0150,38341003,Hypertensive disorder
+2023-12-18,,P0150,55822004,Hyperlipidemia
+2021-06-30,,P0150,431855005,Chronic kidney disease stage 1-3
+2022-06-01,,P0151,44054006,Diabetes mellitus type 2
+2023-11-05,,P0151,197321007,Steatosis of liver
+2021-01-17,,P0151,230572002,Diabetic peripheral neuropathy
+2021-01-08,,P0151,160303001,Family history: Diabetes mellitus
+2023-08-14,,P0152,44054006,Diabetes mellitus type 2
+2022-09-25,,P0152,55822004,Hyperlipidemia
+2017-06-01,,P0153,44054006,Diabetes mellitus type 2
+2017-10-02,,P0153,38341003,Hypertensive disorder
+2017-08-20,,P0153,55822004,Hyperlipidemia
+2017-04-02,,P0153,230572002,Diabetic peripheral neuropathy
+2018-12-03,,P0153,160303001,Family history: Diabetes mellitus
+2022-02-12,,P0154,44054006,Diabetes mellitus type 2
+2020-09-02,,P0154,55822004,Hyperlipidemia
+2024-07-01,,P0154,414916001,Obesity
+2013-04-26,,P0155,44054006,Diabetes mellitus type 2
+2013-06-10,,P0155,38341003,Hypertensive disorder
+2015-02-16,,P0155,197321007,Steatosis of liver
+2012-08-27,,P0155,160303001,Family history: Diabetes mellitus
+2022-06-01,,P0156,44054006,Diabetes mellitus type 2
+2022-12-28,,P0156,38341003,Hypertensive disorder
+2021-07-11,,P0156,197321007,Steatosis of liver
+2017-07-08,,P0157,44054006,Diabetes mellitus type 2
+2016-11-06,,P0157,38341003,Hypertensive disorder
+2019-09-05,,P0157,55822004,Hyperlipidemia
+2009-06-01,,P0158,44054006,Diabetes mellitus type 2
+2008-03-24,,P0158,55822004,Hyperlipidemia
+2009-09-22,,P0158,431855005,Chronic kidney disease stage 1-3
+2023-03-21,,P0159,44054006,Diabetes mellitus type 2
+2021-08-30,,P0159,55822004,Hyperlipidemia
+2024-07-08,,P0160,44054006,Diabetes mellitus type 2
+2022-02-21,,P0160,55822004,Hyperlipidemia
+2024-07-01,,P0160,414916001,Obesity
+2024-06-01,,P0161,44054006,Diabetes mellitus type 2
+2024-07-01,,P0161,414916001,Obesity
+2023-03-21,,P0162,44054006,Diabetes mellitus type 2
+2020-12-26,,P0162,55822004,Hyperlipidemia
+2023-06-08,,P0162,197321007,Steatosis of liver
+2025-04-16,,P0162,160303001,Family history: Diabetes mellitus
+2018-07-08,,P0163,44054006,Diabetes mellitus type 2
+2019-12-22,,P0163,38341003,Hypertensive disorder
+2017-02-26,,P0163,55822004,Hyperlipidemia
+2018-03-20,,P0164,44054006,Diabetes mellitus type 2
+2017-07-05,,P0164,55822004,Hyperlipidemia
+2023-10-26,,P0165,44054006,Diabetes mellitus type 2
+2021-09-22,,P0165,55822004,Hyperlipidemia
+2024-07-01,,P0165,414916001,Obesity
+2020-03-20,,P0166,44054006,Diabetes mellitus type 2
+2022-03-04,,P0166,38341003,Hypertensive disorder
+2020-07-02,,P0166,55822004,Hyperlipidemia
+2019-10-06,,P0166,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0166,414916001,Obesity
+2022-08-14,,P0167,44054006,Diabetes mellitus type 2
+2023-05-20,,P0167,55822004,Hyperlipidemia
+2023-04-24,,P0167,197321007,Steatosis of liver
+2024-10-04,,P0167,53741008,Coronary arteriosclerosis
+2024-07-01,,P0167,414916001,Obesity
+2022-02-12,,P0168,44054006,Diabetes mellitus type 2
+2023-10-26,,P0169,44054006,Diabetes mellitus type 2
+2024-01-07,,P0170,44054006,Diabetes mellitus type 2
+2026-01-29,,P0170,197321007,Steatosis of liver
+2024-07-01,,P0170,414916001,Obesity
+2010-09-19,,P0171,44054006,Diabetes mellitus type 2
+2015-06-02,,P0172,44054006,Diabetes mellitus type 2
+2016-03-28,,P0172,55822004,Hyperlipidemia
+2015-10-26,,P0173,44054006,Diabetes mellitus type 2
+2018-01-17,,P0173,55822004,Hyperlipidemia
+2015-01-11,,P0173,160303001,Family history: Diabetes mellitus
+2025-04-26,,P0174,44054006,Diabetes mellitus type 2
+2026-06-01,,P0174,38341003,Hypertensive disorder
+2023-09-26,,P0174,55822004,Hyperlipidemia
+2026-06-01,,P0174,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0174,414916001,Obesity
+2019-07-08,,P0175,44054006,Diabetes mellitus type 2
+2019-06-10,,P0175,55822004,Hyperlipidemia
+2021-02-04,,P0175,160303001,Family history: Diabetes mellitus
+2022-10-26,,P0176,44054006,Diabetes mellitus type 2
+2024-09-01,,P0176,38341003,Hypertensive disorder
+2020-06-02,,P0176,197321007,Steatosis of liver
+2020-09-13,,P0176,160303001,Family history: Diabetes mellitus
+2014-03-20,,P0177,44054006,Diabetes mellitus type 2
+2012-07-25,,P0177,431855005,Chronic kidney disease stage 1-3
+2022-01-06,,P0178,44054006,Diabetes mellitus type 2
+2024-03-03,,P0178,55822004,Hyperlipidemia
+2021-12-18,,P0178,197321007,Steatosis of liver
+2019-12-27,,P0178,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0178,414916001,Obesity
+2023-09-19,,P0179,44054006,Diabetes mellitus type 2
+2022-11-09,,P0179,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0179,414916001,Obesity
+2023-03-21,,P0180,44054006,Diabetes mellitus type 2
+2021-02-20,,P0180,38341003,Hypertensive disorder
+2025-06-02,,P0180,197321007,Steatosis of liver
+2024-02-15,,P0180,230572002,Diabetic peripheral neuropathy
+2024-07-01,,P0180,414916001,Obesity
+2020-04-25,,P0181,44054006,Diabetes mellitus type 2
+2021-07-10,,P0181,55822004,Hyperlipidemia
+2018-09-14,,P0181,160303001,Family history: Diabetes mellitus
+2017-10-25,,P0182,44054006,Diabetes mellitus type 2
+2016-10-21,,P0182,55822004,Hyperlipidemia
+2023-02-12,,P0183,44054006,Diabetes mellitus type 2
+2022-08-19,,P0183,55822004,Hyperlipidemia
+2024-09-16,,P0183,53741008,Coronary arteriosclerosis
+2023-03-21,,P0184,44054006,Diabetes mellitus type 2
+2020-09-19,,P0185,44054006,Diabetes mellitus type 2
+2018-09-25,,P0185,38341003,Hypertensive disorder
+2018-10-26,,P0185,55822004,Hyperlipidemia
+2022-12-17,,P0185,160303001,Family history: Diabetes mellitus
+2016-09-19,,P0186,44054006,Diabetes mellitus type 2
+2014-04-20,,P0186,55822004,Hyperlipidemia
+2015-03-09,,P0186,197321007,Steatosis of liver
+2018-08-07,,P0186,53741008,Coronary arteriosclerosis
+2024-07-01,,P0186,414916001,Obesity
+2023-03-21,,P0187,44054006,Diabetes mellitus type 2
+2021-06-29,,P0187,55822004,Hyperlipidemia
+2024-12-22,,P0187,160303001,Family history: Diabetes mellitus
+1998-06-01,,P0188,44054006,Diabetes mellitus type 2
+1999-10-30,,P0188,38341003,Hypertensive disorder
+1996-12-26,,P0188,55822004,Hyperlipidemia
+1999-10-03,,P0188,53741008,Coronary arteriosclerosis
+2014-06-01,,P0189,44054006,Diabetes mellitus type 2
+2016-01-21,,P0189,55822004,Hyperlipidemia
+2019-06-02,,P0190,44054006,Diabetes mellitus type 2
+2019-08-06,,P0190,55822004,Hyperlipidemia
+2020-08-14,,P0190,230572002,Diabetic peripheral neuropathy
+2014-10-26,,P0191,44054006,Diabetes mellitus type 2
+2013-04-13,,P0191,38341003,Hypertensive disorder
+2014-01-17,,P0191,55822004,Hyperlipidemia
+2017-02-27,,P0191,230572002,Diabetic peripheral neuropathy
+2023-12-01,,P0192,44054006,Diabetes mellitus type 2
+2022-05-05,,P0192,38341003,Hypertensive disorder
+2022-06-22,,P0192,197321007,Steatosis of liver
+2022-08-12,,P0192,230572002,Diabetic peripheral neuropathy
+2024-02-23,,P0192,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0192,414916001,Obesity
+2019-04-26,,P0193,44054006,Diabetes mellitus type 2
+2020-08-20,,P0193,53741008,Coronary arteriosclerosis
+2024-02-12,,P0194,44054006,Diabetes mellitus type 2
+2024-10-26,,P0194,38341003,Hypertensive disorder
+2021-10-29,,P0194,55822004,Hyperlipidemia
+2024-04-25,,P0195,44054006,Diabetes mellitus type 2
+2026-06-01,,P0195,55822004,Hyperlipidemia
+2025-04-03,,P0195,160303001,Family history: Diabetes mellitus
+2023-03-21,,P0196,44054006,Diabetes mellitus type 2
+2020-12-04,,P0196,38341003,Hypertensive disorder
+2022-03-17,,P0196,55822004,Hyperlipidemia
+2025-09-19,,P0197,44054006,Diabetes mellitus type 2
+2025-02-19,,P0197,38341003,Hypertensive disorder
+2021-09-19,,P0198,44054006,Diabetes mellitus type 2
+2020-10-08,,P0198,55822004,Hyperlipidemia
+2022-08-21,,P0198,160303001,Family history: Diabetes mellitus
+2005-08-13,,P0199,44054006,Diabetes mellitus type 2
+2004-10-19,,P0199,55822004,Hyperlipidemia
+2006-04-18,,P0199,53741008,Coronary arteriosclerosis
+2005-01-24,,P0199,230572002,Diabetic peripheral neuropathy
+2004-11-07,,P0199,160303001,Family history: Diabetes mellitus
+2019-04-26,,P0200,44054006,Diabetes mellitus type 2
+2019-01-18,,P0200,55822004,Hyperlipidemia
+2016-12-14,,P0200,431855005,Chronic kidney disease stage 1-3
+2020-01-04,,P0200,160303001,Family history: Diabetes mellitus
+2016-01-07,,P0201,44054006,Diabetes mellitus type 2
+2016-08-26,,P0201,55822004,Hyperlipidemia
+2015-04-06,,P0201,160303001,Family history: Diabetes mellitus
+2022-08-14,,P0202,44054006,Diabetes mellitus type 2
+2022-07-14,,P0202,197321007,Steatosis of liver
+2020-07-21,,P0202,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0202,414916001,Obesity
+2003-12-01,,P0203,44054006,Diabetes mellitus type 2
+2006-01-16,,P0203,38341003,Hypertensive disorder
+2001-12-16,,P0203,55822004,Hyperlipidemia
+2006-02-13,,P0203,230572002,Diabetic peripheral neuropathy
+2024-07-01,,P0203,414916001,Obesity
+2018-04-26,,P0204,44054006,Diabetes mellitus type 2
+2019-07-06,,P0204,53741008,Coronary arteriosclerosis
+2016-05-07,,P0204,160303001,Family history: Diabetes mellitus
+2023-03-21,,P0205,44054006,Diabetes mellitus type 2
+2024-09-28,,P0205,55822004,Hyperlipidemia
+2021-01-16,,P0205,197321007,Steatosis of liver
+2024-07-01,,P0205,414916001,Obesity
+2010-06-01,,P0206,44054006,Diabetes mellitus type 2
+2010-04-12,,P0206,55822004,Hyperlipidemia
+2010-07-24,,P0206,230572002,Diabetic peripheral neuropathy
+2010-12-09,,P0206,160303001,Family history: Diabetes mellitus
+2019-02-12,,P0207,44054006,Diabetes mellitus type 2
+2018-04-09,,P0207,197321007,Steatosis of liver
+2020-11-13,,P0207,160303001,Family history: Diabetes mellitus
+2021-04-26,,P0208,44054006,Diabetes mellitus type 2
+2019-01-24,,P0208,53741008,Coronary arteriosclerosis
+2020-11-15,,P0208,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0208,414916001,Obesity
+2023-04-26,,P0209,44054006,Diabetes mellitus type 2
+2025-06-23,,P0209,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0209,414916001,Obesity
+2022-09-19,,P0210,44054006,Diabetes mellitus type 2
+2022-07-18,,P0210,38341003,Hypertensive disorder
+2021-09-09,,P0210,55822004,Hyperlipidemia
+2022-10-26,,P0211,44054006,Diabetes mellitus type 2
+2022-05-29,,P0211,197321007,Steatosis of liver
+2024-07-01,,P0211,414916001,Obesity
+2021-06-01,,P0212,44054006,Diabetes mellitus type 2
+2020-01-10,,P0212,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0212,414916001,Obesity
+2023-09-19,,P0213,44054006,Diabetes mellitus type 2
+2021-09-10,,P0213,38341003,Hypertensive disorder
+2021-12-05,,P0213,197321007,Steatosis of liver
+2024-07-01,,P0213,414916001,Obesity
+2022-08-14,,P0214,44054006,Diabetes mellitus type 2
+2015-12-01,,P0215,44054006,Diabetes mellitus type 2
+2018-02-04,,P0215,55822004,Hyperlipidemia
+2013-10-04,,P0215,431855005,Chronic kidney disease stage 1-3
+2013-11-29,,P0215,53741008,Coronary arteriosclerosis
+2012-10-25,,P0216,44054006,Diabetes mellitus type 2
+2013-02-14,,P0216,197321007,Steatosis of liver
+2024-07-01,,P0216,414916001,Obesity
+2019-10-26,,P0217,44054006,Diabetes mellitus type 2
+2018-01-03,,P0217,55822004,Hyperlipidemia
+2022-01-30,,P0217,160303001,Family history: Diabetes mellitus
+2000-06-01,,P0218,44054006,Diabetes mellitus type 2
+1998-06-11,,P0218,38341003,Hypertensive disorder
+1999-08-04,,P0218,55822004,Hyperlipidemia
+2001-12-05,,P0218,431855005,Chronic kidney disease stage 1-3
+2001-06-23,,P0218,230572002,Diabetic peripheral neuropathy
+2021-08-13,,P0219,44054006,Diabetes mellitus type 2
+2019-11-21,,P0219,55822004,Hyperlipidemia
+2021-01-01,,P0219,53741008,Coronary arteriosclerosis
+2024-07-01,,P0219,414916001,Obesity
+2019-12-01,,P0220,44054006,Diabetes mellitus type 2
+2018-12-07,,P0220,55822004,Hyperlipidemia
+2017-12-01,,P0221,44054006,Diabetes mellitus type 2
+2015-07-15,,P0221,38341003,Hypertensive disorder
+2024-07-01,,P0221,414916001,Obesity
+2019-06-02,,P0222,44054006,Diabetes mellitus type 2
+2019-02-11,,P0222,55822004,Hyperlipidemia
+2019-11-03,,P0222,197321007,Steatosis of liver
+2018-12-29,,P0222,230572002,Diabetic peripheral neuropathy
+2019-02-23,,P0222,160303001,Family history: Diabetes mellitus
+2022-04-26,,P0223,44054006,Diabetes mellitus type 2
+2022-08-09,,P0223,55822004,Hyperlipidemia
+2024-04-20,,P0223,53741008,Coronary arteriosclerosis
+2023-01-07,,P0224,44054006,Diabetes mellitus type 2
+2020-12-10,,P0224,55822004,Hyperlipidemia
+2024-03-16,,P0224,197321007,Steatosis of liver
+2018-07-08,,P0225,44054006,Diabetes mellitus type 2
+2016-02-19,,P0225,431855005,Chronic kidney disease stage 1-3
+2020-12-11,,P0225,197321007,Steatosis of liver
+2020-07-18,,P0225,160303001,Family history: Diabetes mellitus
+2014-06-01,,P0226,44054006,Diabetes mellitus type 2
+2012-08-18,,P0226,55822004,Hyperlipidemia
+2016-05-22,,P0226,197321007,Steatosis of liver
+2012-09-15,,P0226,160303001,Family history: Diabetes mellitus
+2006-07-08,,P0227,44054006,Diabetes mellitus type 2
+2004-12-26,,P0227,38341003,Hypertensive disorder
+2004-10-24,,P0227,53741008,Coronary arteriosclerosis
+2005-02-27,,P0227,230572002,Diabetic peripheral neuropathy
+2006-02-28,,P0227,160303001,Family history: Diabetes mellitus
+2016-07-08,,P0228,44054006,Diabetes mellitus type 2
+2016-01-02,,P0228,38341003,Hypertensive disorder
+2014-08-25,,P0228,55822004,Hyperlipidemia
+2018-09-26,,P0228,431855005,Chronic kidney disease stage 1-3
+2015-01-04,,P0228,197321007,Steatosis of liver
+2017-04-23,,P0228,53741008,Coronary arteriosclerosis
+2014-08-03,,P0228,230572002,Diabetic peripheral neuropathy
+2014-12-15,,P0228,160303001,Family history: Diabetes mellitus
+2022-03-20,,P0229,44054006,Diabetes mellitus type 2
+2024-02-21,,P0229,38341003,Hypertensive disorder
+2022-04-10,,P0229,55822004,Hyperlipidemia
+2022-02-12,,P0230,44054006,Diabetes mellitus type 2
+2020-10-05,,P0230,55822004,Hyperlipidemia
+2023-01-10,,P0230,53741008,Coronary arteriosclerosis
+2024-07-01,,P0230,414916001,Obesity
+2017-09-19,,P0231,44054006,Diabetes mellitus type 2
+2018-03-05,,P0231,38341003,Hypertensive disorder
+2015-08-14,,P0231,55822004,Hyperlipidemia
+2019-04-21,,P0231,53741008,Coronary arteriosclerosis
+2024-07-01,,P0231,414916001,Obesity
+2022-02-12,,P0232,44054006,Diabetes mellitus type 2
+2022-12-29,,P0232,38341003,Hypertensive disorder
+2022-06-13,,P0232,160303001,Family history: Diabetes mellitus
+2025-06-01,,P0233,44054006,Diabetes mellitus type 2
+2023-08-29,,P0233,55822004,Hyperlipidemia
+2022-02-12,,P0234,44054006,Diabetes mellitus type 2
+2022-10-24,,P0234,38341003,Hypertensive disorder
+2021-05-08,,P0234,55822004,Hyperlipidemia
+2021-12-06,,P0234,53741008,Coronary arteriosclerosis
+2021-04-16,,P0234,160303001,Family history: Diabetes mellitus
+2024-07-08,,P0235,44054006,Diabetes mellitus type 2
+2026-03-08,,P0235,55822004,Hyperlipidemia
+2025-11-22,,P0235,53741008,Coronary arteriosclerosis
+2023-12-10,,P0235,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0235,414916001,Obesity
+2023-03-21,,P0236,44054006,Diabetes mellitus type 2
+2021-05-21,,P0236,197321007,Steatosis of liver
+2023-03-25,,P0236,230572002,Diabetic peripheral neuropathy
+2021-08-13,,P0237,44054006,Diabetes mellitus type 2
+2023-09-07,,P0237,55822004,Hyperlipidemia
+2021-03-31,,P0237,160303001,Family history: Diabetes mellitus
+2024-02-12,,P0238,44054006,Diabetes mellitus type 2
+2023-08-16,,P0238,38341003,Hypertensive disorder
+2025-04-16,,P0238,160303001,Family history: Diabetes mellitus
+2019-03-21,,P0239,44054006,Diabetes mellitus type 2
+2019-10-05,,P0239,38341003,Hypertensive disorder
+2020-10-16,,P0239,55822004,Hyperlipidemia
+2020-10-21,,P0239,53741008,Coronary arteriosclerosis
+2014-06-01,,P0240,44054006,Diabetes mellitus type 2
+2015-11-20,,P0240,197321007,Steatosis of liver
+2017-06-01,,P0241,44054006,Diabetes mellitus type 2
+2016-02-09,,P0241,38341003,Hypertensive disorder
+2016-10-28,,P0241,55822004,Hyperlipidemia
+2024-07-01,,P0241,414916001,Obesity
+2024-02-12,,P0242,44054006,Diabetes mellitus type 2
+2022-05-18,,P0242,55822004,Hyperlipidemia
+2024-01-07,,P0243,44054006,Diabetes mellitus type 2
+2025-09-25,,P0243,230572002,Diabetic peripheral neuropathy
+2004-04-25,,P0244,44054006,Diabetes mellitus type 2
+2005-09-03,,P0244,55822004,Hyperlipidemia
+2001-11-13,,P0244,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0244,414916001,Obesity
+2020-06-01,,P0245,44054006,Diabetes mellitus type 2
+2020-12-04,,P0245,38341003,Hypertensive disorder
+2018-09-07,,P0245,55822004,Hyperlipidemia
+2024-07-01,,P0245,414916001,Obesity
+2023-07-08,,P0246,44054006,Diabetes mellitus type 2
+2023-11-12,,P0246,38341003,Hypertensive disorder
+2023-07-08,,P0247,44054006,Diabetes mellitus type 2
+2022-02-13,,P0247,55822004,Hyperlipidemia
+2024-03-26,,P0247,197321007,Steatosis of liver
+2012-02-12,,P0248,44054006,Diabetes mellitus type 2
+2010-01-06,,P0248,38341003,Hypertensive disorder
+2009-09-28,,P0248,230572002,Diabetic peripheral neuropathy
+2013-12-22,,P0248,160303001,Family history: Diabetes mellitus
+2017-06-01,,P0249,44054006,Diabetes mellitus type 2
+2015-05-15,,P0249,55822004,Hyperlipidemia
+2017-03-24,,P0249,197321007,Steatosis of liver
+2019-10-10,,P0249,230572002,Diabetic peripheral neuropathy
+2019-09-19,,P0250,44054006,Diabetes mellitus type 2
+2019-10-20,,P0250,38341003,Hypertensive disorder
+2017-09-09,,P0250,197321007,Steatosis of liver
+2020-02-27,,P0250,230572002,Diabetic peripheral neuropathy
+2019-08-14,,P0251,44054006,Diabetes mellitus type 2
+2021-03-06,,P0251,55822004,Hyperlipidemia
+2018-12-26,,P0251,197321007,Steatosis of liver
+2021-12-17,,P0251,230572002,Diabetic peripheral neuropathy
+2021-06-01,,P0252,44054006,Diabetes mellitus type 2
+2019-09-03,,P0252,160303001,Family history: Diabetes mellitus
+2024-09-19,,P0253,44054006,Diabetes mellitus type 2
+2025-03-04,,P0253,38341003,Hypertensive disorder
+2024-07-01,,P0253,414916001,Obesity
+2018-04-26,,P0254,44054006,Diabetes mellitus type 2
+2018-07-28,,P0254,38341003,Hypertensive disorder
+2020-03-10,,P0254,55822004,Hyperlipidemia
+2018-08-05,,P0254,197321007,Steatosis of liver
+2020-03-20,,P0255,44054006,Diabetes mellitus type 2
+2019-01-29,,P0255,55822004,Hyperlipidemia
+2021-05-14,,P0255,230572002,Diabetic peripheral neuropathy
+2021-12-02,,P0255,160303001,Family history: Diabetes mellitus
+2018-04-26,,P0256,44054006,Diabetes mellitus type 2
+2017-04-19,,P0256,55822004,Hyperlipidemia
+2020-02-12,,P0257,44054006,Diabetes mellitus type 2
+2017-12-09,,P0257,38341003,Hypertensive disorder
+2019-07-16,,P0257,55822004,Hyperlipidemia
+2018-09-19,,P0258,44054006,Diabetes mellitus type 2
+2020-08-05,,P0258,55822004,Hyperlipidemia
+2020-05-07,,P0258,197321007,Steatosis of liver
+2014-06-01,,P0259,44054006,Diabetes mellitus type 2
+2016-04-01,,P0259,197321007,Steatosis of liver
+2024-07-01,,P0259,414916001,Obesity
+2021-04-26,,P0260,44054006,Diabetes mellitus type 2
+2018-11-12,,P0260,38341003,Hypertensive disorder
+2019-01-04,,P0260,160303001,Family history: Diabetes mellitus
+2024-06-01,,P0261,44054006,Diabetes mellitus type 2
+2024-12-19,,P0261,55822004,Hyperlipidemia
+2023-12-01,,P0262,44054006,Diabetes mellitus type 2
+2021-12-13,,P0262,55822004,Hyperlipidemia
+2026-05-01,,P0262,197321007,Steatosis of liver
+2022-04-07,,P0262,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0262,414916001,Obesity
+2024-07-08,,P0263,44054006,Diabetes mellitus type 2
+2024-01-22,,P0263,55822004,Hyperlipidemia
+2022-03-22,,P0263,160303001,Family history: Diabetes mellitus
+2019-10-26,,P0264,44054006,Diabetes mellitus type 2
+2019-07-30,,P0264,38341003,Hypertensive disorder
+2020-05-24,,P0264,197321007,Steatosis of liver
+2019-10-20,,P0264,53741008,Coronary arteriosclerosis
+2020-06-02,,P0264,160303001,Family history: Diabetes mellitus
+2022-02-12,,P0265,44054006,Diabetes mellitus type 2
+2022-11-26,,P0265,55822004,Hyperlipidemia
+2023-11-12,,P0265,197321007,Steatosis of liver
+2019-12-16,,P0265,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0265,414916001,Obesity
+2024-04-25,,P0266,44054006,Diabetes mellitus type 2
+2022-10-21,,P0266,55822004,Hyperlipidemia
+2025-03-15,,P0266,160303001,Family history: Diabetes mellitus
+2021-07-08,,P0267,44054006,Diabetes mellitus type 2
+2021-06-04,,P0267,38341003,Hypertensive disorder
+2021-06-16,,P0267,55822004,Hyperlipidemia
+2022-08-16,,P0267,160303001,Family history: Diabetes mellitus
+2023-02-12,,P0268,44054006,Diabetes mellitus type 2
+2025-05-11,,P0268,197321007,Steatosis of liver
+2014-12-01,,P0269,44054006,Diabetes mellitus type 2
+2014-09-16,,P0269,55822004,Hyperlipidemia
+2015-04-13,,P0269,230572002,Diabetic peripheral neuropathy
+2024-07-01,,P0269,414916001,Obesity
+2014-06-01,,P0270,44054006,Diabetes mellitus type 2
+2015-12-11,,P0270,55822004,Hyperlipidemia
+2014-01-01,,P0270,160303001,Family history: Diabetes mellitus
+2021-07-08,,P0271,44054006,Diabetes mellitus type 2
+2020-10-10,,P0271,55822004,Hyperlipidemia
+2022-11-21,,P0271,230572002,Diabetic peripheral neuropathy
+2024-08-13,,P0272,44054006,Diabetes mellitus type 2
+2026-01-18,,P0272,55822004,Hyperlipidemia
+2023-01-21,,P0272,197321007,Steatosis of liver
+2013-07-08,,P0273,44054006,Diabetes mellitus type 2
+2013-10-02,,P0273,230572002,Diabetic peripheral neuropathy
+2019-01-07,,P0274,44054006,Diabetes mellitus type 2
+2018-03-29,,P0274,230572002,Diabetic peripheral neuropathy
+2013-08-13,,P0275,44054006,Diabetes mellitus type 2
+2013-05-19,,P0275,53741008,Coronary arteriosclerosis
+2012-01-28,,P0275,160303001,Family history: Diabetes mellitus
+2021-08-13,,P0276,44054006,Diabetes mellitus type 2
+2023-08-25,,P0276,55822004,Hyperlipidemia
+2019-11-09,,P0276,197321007,Steatosis of liver
+2019-12-01,,P0277,44054006,Diabetes mellitus type 2
+2021-05-25,,P0277,431855005,Chronic kidney disease stage 1-3
+2018-05-22,,P0277,53741008,Coronary arteriosclerosis
+2021-11-03,,P0277,160303001,Family history: Diabetes mellitus
+2022-01-06,,P0278,44054006,Diabetes mellitus type 2
+2020-09-13,,P0278,55822004,Hyperlipidemia
+2018-06-01,,P0279,44054006,Diabetes mellitus type 2
+2016-07-13,,P0279,38341003,Hypertensive disorder
+2017-10-06,,P0279,55822004,Hyperlipidemia
+2011-12-01,,P0280,44054006,Diabetes mellitus type 2
+2013-05-28,,P0280,55822004,Hyperlipidemia
+2011-07-27,,P0280,230572002,Diabetic peripheral neuropathy
+2012-04-07,,P0280,160303001,Family history: Diabetes mellitus
+2024-07-08,,P0281,44054006,Diabetes mellitus type 2
+2023-10-22,,P0281,55822004,Hyperlipidemia
+2025-04-26,,P0282,44054006,Diabetes mellitus type 2
+2026-06-01,,P0282,197321007,Steatosis of liver
+2026-06-01,,P0282,230572002,Diabetic peripheral neuropathy
+2024-03-21,,P0282,160303001,Family history: Diabetes mellitus
+2014-04-26,,P0283,44054006,Diabetes mellitus type 2
+2016-06-23,,P0283,38341003,Hypertensive disorder
+2015-12-26,,P0283,197321007,Steatosis of liver
+2013-04-25,,P0283,53741008,Coronary arteriosclerosis
+2024-07-01,,P0283,414916001,Obesity
+2018-01-06,,P0284,44054006,Diabetes mellitus type 2
+2015-10-23,,P0284,55822004,Hyperlipidemia
+2021-10-25,,P0285,44054006,Diabetes mellitus type 2
+2023-06-27,,P0285,38341003,Hypertensive disorder
+2022-02-04,,P0285,55822004,Hyperlipidemia
+2020-11-03,,P0285,197321007,Steatosis of liver
+2020-04-25,,P0286,44054006,Diabetes mellitus type 2
+2020-12-02,,P0286,160303001,Family history: Diabetes mellitus
+2023-06-02,,P0287,44054006,Diabetes mellitus type 2
+2023-04-21,,P0287,38341003,Hypertensive disorder
+2025-09-23,,P0287,55822004,Hyperlipidemia
+2021-12-26,,P0287,160303001,Family history: Diabetes mellitus
+2024-12-01,,P0288,44054006,Diabetes mellitus type 2
+2023-07-25,,P0288,55822004,Hyperlipidemia
+2013-09-19,,P0289,44054006,Diabetes mellitus type 2
+2024-07-01,,P0289,414916001,Obesity
+2019-07-08,,P0290,44054006,Diabetes mellitus type 2
+2017-09-20,,P0290,38341003,Hypertensive disorder
+2018-08-13,,P0290,55822004,Hyperlipidemia
+2019-05-18,,P0290,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0290,414916001,Obesity
+2011-09-19,,P0291,44054006,Diabetes mellitus type 2
+2011-04-26,,P0291,55822004,Hyperlipidemia
+2011-09-06,,P0291,431855005,Chronic kidney disease stage 1-3
+2012-12-23,,P0291,197321007,Steatosis of liver
+2025-03-20,,P0292,44054006,Diabetes mellitus type 2
+2025-07-12,,P0292,55822004,Hyperlipidemia
+2011-03-21,,P0293,44054006,Diabetes mellitus type 2
+2012-04-26,,P0293,55822004,Hyperlipidemia
+2012-12-13,,P0293,197321007,Steatosis of liver
+2011-10-20,,P0293,230572002,Diabetic peripheral neuropathy
+2012-02-26,,P0293,160303001,Family history: Diabetes mellitus
+2021-04-26,,P0294,44054006,Diabetes mellitus type 2
+2022-05-11,,P0294,38341003,Hypertensive disorder
+2019-04-29,,P0294,160303001,Family history: Diabetes mellitus
+2022-07-08,,P0295,44054006,Diabetes mellitus type 2
+2022-05-02,,P0295,55822004,Hyperlipidemia
+2022-04-26,,P0296,44054006,Diabetes mellitus type 2
+2019-11-21,,P0296,55822004,Hyperlipidemia
+2022-04-11,,P0296,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0296,414916001,Obesity
+2021-06-01,,P0297,44054006,Diabetes mellitus type 2
+2020-10-28,,P0297,38341003,Hypertensive disorder
+2024-07-01,,P0297,414916001,Obesity
+2020-12-01,,P0298,44054006,Diabetes mellitus type 2
+2023-01-06,,P0298,38341003,Hypertensive disorder
+2022-10-26,,P0299,44054006,Diabetes mellitus type 2
+2025-01-23,,P0299,55822004,Hyperlipidemia
+2022-03-21,,P0299,230572002,Diabetic peripheral neuropathy
+2023-04-18,,P0299,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0299,414916001,Obesity
+2021-10-25,,P0300,44054006,Diabetes mellitus type 2
+2021-12-04,,P0300,197321007,Steatosis of liver
+2022-12-27,,P0300,160303001,Family history: Diabetes mellitus
+2024-07-01,,P0300,414916001,Obesity

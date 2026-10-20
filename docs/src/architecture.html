@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>MadhuTwin Architecture</title>
+<style>
+@page { size: 420mm 297mm; margin: 0; }
+:root{--ink:#15222a;--ink2:#4c5a60;--muted:#7f8b8f;--line:#d7dbd4;--bg:#fbfbf9;--panel:#ffffff;
+--ehr:#eda100;--ehr-s:#fdf3dc;--wear:#2a78d6;--wear-s:#e3eefb;--twin:#1baf7a;--twin-s:#e1f5ec;--ml:#4a3aa7;--ml-s:#ebe8f8;--ui:#eb6834;--ui-s:#fde9e0;--acc:#a8660a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"DejaVu Sans",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.page{width:420mm;height:297mm;padding:14mm 16mm;position:relative;page-break-after:always;overflow:hidden}
+h1{font-size:30px;margin:0;letter-spacing:-.01em}
+h1 span{color:var(--acc)}
+.sub{color:var(--ink2);font-size:14px;margin-top:4px}
+.mark{display:inline-block;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3c35b,#b8740c 70%);vertical-align:-3px;margin-right:8px}
+svg text{font-family:"DejaVu Sans",Arial,sans-serif}
+.foot{position:absolute;bottom:9mm;left:16mm;right:16mm;display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.cols{display:grid;grid-template-columns:1.25fr 1fr;gap:12mm;margin-top:8mm}
+h2{font-size:17px;margin:0 0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.k{font-family:"DejaVu Sans Mono",monospace;font-size:12px}
+ol{margin:0;padding-left:20px;font-size:13px;line-height:1.55}
+.cols3{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:8mm;margin-top:7mm}
+.cols3 table{font-size:12px}
+.cols3 li{margin-bottom:4px}
+</style></head><body>
+
+<section class="page">
+  <h1><span class="mark"></span>MadhuTwin: system architecture</h1>
+  <div class="sub">A hybrid digital twin for Type 2 Diabetes in India: a personalised physiology model fused with machine learning to predict glucose excursions 2 hours ahead</div>
+  <svg viewBox="0 0 1520 900" width="100%" style="margin-top:6mm" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4c5a60"/></marker>
+    </defs>
+    <!-- column headers -->
+    <g font-size="13" font-weight="700" fill="#7f8b8f" letter-spacing="1.5">
+      <text x="20" y="22">1 · DATA SOURCES</text><text x="300" y="22">2 · INGEST &amp; HARMONISE</text>
+      <text x="580" y="22" fill="#1baf7a">3 · LAYER 1 — DIGITAL TWIN (state)</text><text x="900" y="22" fill="#4a3aa7">4 · LAYER 2 — AI PREDICTION</text><text x="1220" y="22">5 · CLINICIAN CONSOLE</text>
+    </g>
+    <!-- sources -->
+    <g>
+      <rect x="20" y="40" width="240" height="190" rx="12" fill="#fdf3dc" stroke="#eda100"/>
+      <text x="36" y="66" font-size="16" font-weight="700" fill="#15222a">Static · EHR</text>
+      <text x="36" y="88" font-size="12.5" fill="#4c5a60">Synthea CSV schema (FHIR-mappable)</text>
+      <g font-size="12.5" fill="#15222a"><text x="36" y="114">• Demographics, region, urban/rural</text><text x="36" y="134">• Diagnoses (SNOMED CT)</text><text x="36" y="154">• Medications (RxNorm)</text><text x="36" y="174">• Labs (LOINC): HbA1c trend, FPG,</text><text x="48" y="192">insulin, lipids, eGFR, UACR</text><text x="36" y="212">• Genotype (record only; no gain)</text></g>
+    </g>
+    <g>
+      <rect x="20" y="250" width="240" height="250" rx="12" fill="#e3eefb" stroke="#2a78d6"/>
+      <text x="36" y="276" font-size="16" font-weight="700" fill="#15222a">Dynamic · wearables</text>
+      <text x="36" y="298" font-size="12.5" fill="#4c5a60">5-minute streams, 21 days/patient</text>
+      <g font-size="12.5" fill="#15222a"><text x="36" y="326">• CGM glucose (Libre/Dexcom-like)</text><text x="36" y="346">• Heart rate, HRV (RMSSD)</text><text x="36" y="366">• Steps / activity</text><text x="36" y="386">• Sleep stages (light/deep/REM)</text><text x="36" y="406">• Food log app: meal, carbs, GI</text><text x="48" y="424">(incomplete &amp; under-estimated,</text><text x="48" y="442">as in real life)</text></g>
+      <text x="36" y="474" font-size="11.5" fill="#4c5a60">Apple Health / Google Fit style export</text>
+    </g>
+    <g>
+      <rect x="20" y="520" width="240" height="200" rx="12" fill="#ffffff" stroke="#d7dbd4" stroke-dasharray="0"/>
+      <text x="36" y="546" font-size="16" font-weight="700" fill="#15222a">Virtual-patient simulator</text>
+      <text x="36" y="568" font-size="12.5" fill="#4c5a60">Stands in for real patients (DPDP/HIPAA)</text>
+      <g font-size="12.5" fill="#15222a"><text x="36" y="594">• 300 India-context synthetic adults</text><text x="36" y="614">• 37 regional foods, festivals,</text><text x="48" y="632">late dinners, unlogged chai</text><text x="36" y="652">• Sleep, stress, illness,</text><text x="48" y="670">missed doses, sensor noise</text><text x="36" y="690">• Hidden ground truth kept</text><text x="48" y="708">for validation only</text></g>
+    </g>
+    <path d="M140 520 L140 500" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <path d="M140 250 L140 230" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)" opacity="0"/>
+    <path d="M262 600 C 290 600, 290 150, 262 150" stroke="#9aa6ab" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+    <!-- ingest -->
+    <g>
+      <rect x="300" y="40" width="240" height="160" rx="12" fill="#ffffff" stroke="#d7dbd4"/>
+      <text x="316" y="66" font-size="15" font-weight="700" fill="#15222a">EHR loader</text>
+      <g font-size="12.5" fill="#15222a"><text x="316" y="92">• Reads Synthea/FHIR codes</text><text x="316" y="112">• Latest labs + 12-month trend</text><text x="316" y="132">• HOMA-IR, HOMA-B, TG/HDL</text><text x="316" y="152">• 44 static features per patient</text></g>
+      <text x="316" y="182" font-size="11.5" fill="#7f8b8f" font-family="DejaVu Sans Mono">madhutwin/ehr.py</text>
+    </g>
+    <g>
+      <rect x="300" y="250" width="240" height="190" rx="12" fill="#ffffff" stroke="#d7dbd4"/>
+      <text x="316" y="276" font-size="15" font-weight="700" fill="#15222a">Stream harmoniser</text>
+      <g font-size="12.5" fill="#15222a"><text x="316" y="302">• Align to a 5-minute grid</text><text x="316" y="322">• Gap-aware: sensor warm-up,</text><text x="328" y="340">dropouts, watch off-wrist</text><text x="316" y="360">• Night windows 18:00→12:00</text><text x="316" y="380">• Personal baselines (HR, HRV)</text><text x="316" y="400">• Meal log → gut inputs</text></g>
+      <text x="316" y="424" font-size="11.5" fill="#7f8b8f" font-family="DejaVu Sans Mono">twin.load_arrays · features.py</text>
+    </g>
+    <path d="M262 135 L298 120" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <path d="M262 375 L298 345" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <!-- twin core -->
+    <g>
+      <rect x="580" y="40" width="280" height="660" rx="14" fill="#e1f5ec" stroke="#1baf7a" stroke-width="1.5"/>
+      <text x="598" y="68" font-size="17" font-weight="700" fill="#15222a">Physiology twin</text>
+      <text x="598" y="88" font-size="12" fill="#4c5a60">extended Bergman minimal model, per patient</text>
+      <rect x="598" y="104" width="244" height="156" rx="10" fill="#ffffff" stroke="#1baf7a"/>
+      <text x="612" y="126" font-size="13.5" font-weight="700" fill="#15222a">A · Personalise</text>
+      <g font-size="12" fill="#15222a"><text x="612" y="148">Fit SI (insulin sensitivity),</text><text x="612" y="166">σ (beta-cell gain), Gb, dawn rise</text><text x="612" y="186">on week-1 CGM + meals + steps</text><text x="612" y="206">with an EHR-informed prior</text><text x="612" y="224">(HOMA-IR → SI, HOMA-B → σ)</text><text x="612" y="244" fill="#4c5a60">regularised grid fit (146k sims)</text></g>
+      <rect x="598" y="276" width="244" height="130" rx="10" fill="#ffffff" stroke="#1baf7a"/>
+      <text x="612" y="298" font-size="13.5" font-weight="700" fill="#15222a">B · Observe (every 5 min)</text>
+      <g font-size="12" fill="#15222a"><text x="612" y="320">State estimator nudged by CGM:</text><text x="612" y="338">glucose, insulin action,</text><text x="612" y="356">carbs still in the gut,</text><text x="612" y="374">plasma ahead of lagging sensor</text><text x="612" y="394" fill="#4c5a60">closed-loop observer</text></g>
+      <rect x="598" y="422" width="244" height="130" rx="10" fill="#ffffff" stroke="#1baf7a"/>
+      <text x="612" y="444" font-size="13.5" font-weight="700" fill="#15222a">C · Project 2 h ahead</text>
+      <g font-size="12" fill="#15222a"><text x="612" y="466">(i) food already eaten</text><text x="612" y="484">(ii) + the patient's habitual</text><text x="624" y="502">next meal learned from logs</text><text x="612" y="522">→ projected peak, +30/60/120</text><text x="612" y="540" fill="#4c5a60">1.8M projections in ~6 s</text></g>
+      <rect x="598" y="568" width="244" height="116" rx="10" fill="#ffffff" stroke="#1baf7a"/>
+      <text x="612" y="590" font-size="13.5" font-weight="700" fill="#15222a">D · What-if engine</text>
+      <g font-size="12" fill="#15222a"><text x="612" y="612">Counterfactuals: food swap,</text><text x="612" y="630">portion size, post-meal walk</text><text x="612" y="650">Same equations in Python</text><text x="612" y="668">and in the browser (JS)</text></g>
+    </g>
+    <path d="M542 120 C 565 120, 565 180, 596 180" stroke="#4c5a60" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+    <path d="M542 345 L596 340" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <!-- fusion + ml -->
+    <g>
+      <rect x="900" y="40" width="280" height="200" rx="12" fill="#ffffff" stroke="#d7dbd4"/>
+      <text x="916" y="66" font-size="15" font-weight="700" fill="#15222a">Fusion feature store</text>
+      <text x="916" y="86" font-size="12" fill="#4c5a60">107 leak-free features per 5-min step</text>
+      <g font-size="12.5"><rect x="916" y="100" width="12" height="12" rx="2" fill="#2a78d6"/><text x="936" y="111" fill="#15222a">CGM dynamics &amp; personal history (17)</text>
+      <rect x="916" y="122" width="12" height="12" rx="2" fill="#eb6834"/><text x="936" y="133" fill="#15222a">Meals, steps, HR, HRV, sleep (27)</text>
+      <rect x="916" y="144" width="12" height="12" rx="2" fill="#1baf7a"/><text x="936" y="155" fill="#15222a">Twin states &amp; projections (16)</text>
+      <rect x="916" y="166" width="12" height="12" rx="2" fill="#eda100"/><text x="936" y="177" fill="#15222a">EHR labs, Dx, Rx, trends (44)</text>
+      <rect x="916" y="188" width="12" height="12" rx="2" fill="#e87ba4"/><text x="936" y="199" fill="#15222a">Clock / weekday (3)</text></g>
+      <text x="916" y="226" font-size="11.5" fill="#7f8b8f" font-family="DejaVu Sans Mono">features.py</text>
+    </g>
+    <g>
+      <rect x="900" y="270" width="280" height="250" rx="12" fill="#ebe8f8" stroke="#4a3aa7" stroke-width="1.5"/>
+      <text x="916" y="296" font-size="15" font-weight="700" fill="#15222a">ML layer (LightGBM)</text>
+      <g font-size="12.5" fill="#15222a"><text x="916" y="324">• 2-h risk of excursion ≥180</text><text x="916" y="344">• 2-h risk of excursion ≥250</text><text x="916" y="364">• Quantile forecasts +30/+60/+120</text><text x="928" y="382">(10th, 50th, 90th percentile)</text><text x="916" y="406">• Threshold from validation F1;</text><text x="928" y="424">debounced alerts (1 per hour)</text><text x="916" y="448">• SHAP → plain-language reasons</text><text x="916" y="472">• Sick-day detector: a week of</text><text x="928" y="490">HR / HRV / sleep vs own baseline</text></g>
+      <text x="916" y="512" font-size="12" fill="#4c5a60">Patient-level splits; conformal 80% bands</text>
+    </g>
+    <g>
+      <rect x="900" y="550" width="280" height="150" rx="12" fill="#ffffff" stroke="#d7dbd4"/>
+      <text x="916" y="576" font-size="15" font-weight="700" fill="#15222a">Validation harness</text>
+      <g font-size="12.5" fill="#15222a"><text x="916" y="600">• AUROC/AUPRC + 95% CIs, Clarke grid</text><text x="916" y="618">• Delivered-alert lead time, false alerts</text><text x="916" y="636">• Twin vs hidden physiology; what-if</text><text x="916" y="654">• Ablation; model-mismatch stress test</text><text x="916" y="674" font-weight="700">• Open cohorts: 265 (retrospective)</text><text x="928" y="692">CGM + labs only, re-trained, CV</text></g>
+    </g>
+    <path d="M862 200 L898 150" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <path d="M862 480 C 880 480, 880 190, 898 190" stroke="#4c5a60" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+    <path d="M542 70 L562 70 L562 32 L880 32 L880 80 L898 80" stroke="#eda100" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+    <path d="M542 400 C 700 740, 870 740, 1040 702" stroke="#9aa6ab" stroke-width="1.2" fill="none" opacity="0"/>
+    <path d="M1040 242 L1040 268" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <path d="M1040 522 L1040 548" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <!-- console -->
+    <g>
+      <rect x="1220" y="40" width="280" height="660" rx="14" fill="#fde9e0" stroke="#eb6834" stroke-width="1.5"/>
+      <text x="1238" y="68" font-size="17" font-weight="700" fill="#15222a">Doctor's console</text>
+      <text x="1238" y="88" font-size="12" fill="#4c5a60">static web app · runs offline</text>
+      <g font-size="12.5" fill="#15222a">
+        <rect x="1238" y="104" width="244" height="92" rx="10" fill="#ffffff" stroke="#eb6834"/>
+        <text x="1252" y="126" font-weight="700">Triage list</text><text x="1252" y="146">Ranked by risk × severity ×</text><text x="1252" y="164">confidence × time-to-event</text><text x="1252" y="182">"Replay live" twin clock</text>
+        <rect x="1238" y="206" width="244" height="112" rx="10" fill="#ffffff" stroke="#eb6834"/>
+        <text x="1252" y="228" font-weight="700">Now view</text><text x="1252" y="248">Risk ± confidence, time to event</text><text x="1252" y="266">Twin state vs personal baseline</text><text x="1252" y="284">Why (reasons in %) → action</text><text x="1252" y="302">CGM + forecast cone, alert log</text>
+        <rect x="1238" y="328" width="244" height="92" rx="10" fill="#ffffff" stroke="#eb6834"/>
+        <text x="1252" y="350" font-weight="700">What-if simulator</text><text x="1252" y="370">Swap rice → millet, portion,</text><text x="1252" y="388">post-meal walk → peak, time</text><text x="1252" y="406">&gt;180, event probability</text>
+        <rect x="1238" y="430" width="244" height="74" rx="10" fill="#ffffff" stroke="#eb6834"/>
+        <text x="1252" y="452" font-weight="700">7-day AGP</text><text x="1252" y="472">TIR/TAR/TBR, GMI, CV vs</text><text x="1252" y="490">International Consensus targets</text>
+        <rect x="1238" y="514" width="244" height="74" rx="10" fill="#ffffff" stroke="#eb6834"/>
+        <text x="1252" y="536" font-weight="700">Record &amp; physiology</text><text x="1252" y="556">Labs, Rx, genotype, twin SI/σ,</text><text x="1252" y="574">disposition index, meal habits</text>
+        <rect x="1238" y="598" width="244" height="88" rx="10" fill="#ffffff" stroke="#eb6834"/>
+        <text x="1252" y="620" font-weight="700">Patient app · sick-day · model card</text><text x="1252" y="640">Nudges in English / हिन्दी; sick-day</text><text x="1252" y="658">flag; open-cohort + subgroup results</text>
+      </g>
+    </g>
+    <path d="M1182 395 L1218 260" stroke="#4c5a60" stroke-width="1.5" marker-end="url(#a)"/>
+    <path d="M862 626 L882 626 L882 728 L1200 728 L1200 380 L1218 380" stroke="#1baf7a" stroke-width="1.5" fill="none" marker-end="url(#a)"/>
+    <!-- layer callouts -->
+    <text x="590" y="722" font-size="12" fill="#1baf7a" font-weight="700">Layer 1: what state is this person in?</text>
+    <text x="590" y="740" font-size="11" fill="#4c5a60">mechanistic · personal · simulates interventions</text>
+    <text x="900" y="722" font-size="12" fill="#4a3aa7" font-weight="700">Layer 2: will an event happen, when, why?</text>
+    <text x="900" y="740" font-size="11" fill="#4c5a60">learned from 210 patients · calibrated · explained</text>
+    <!-- bottom band -->
+    <rect x="20" y="760" width="1480" height="120" rx="12" fill="#ffffff" stroke="#d7dbd4"/>
+    <text x="40" y="790" font-size="14" font-weight="700" fill="#15222a">Every 5 minutes, per patient</text>
+    <g font-size="13" fill="#15222a">
+      <text x="40" y="822">CGM reading arrives</text><text x="215" y="822">→</text>
+      <text x="240" y="822">twin observer updates hidden state</text><text x="505" y="822">→</text>
+      <text x="530" y="822">2-h projections</text><text x="650" y="822">→</text>
+      <text x="675" y="822">107 fused features</text><text x="825" y="822">→</text>
+      <text x="850" y="822">LightGBM risk + forecasts</text><text x="1045" y="822">→</text>
+      <text x="1070" y="822">debounced alert + SHAP reasons</text><text x="1300" y="822">→</text>
+      <text x="1325" y="822">console / nudge</text>
+    </g>
+    <text x="40" y="850" font-size="12.5" fill="#15222a"><tspan font-weight="700">Outputs:</tspan> doctor console · patient app nudges (English / हिन्दी) · FHIR R4 sample bundle (ABDM: proposed path) · REST API (FastAPI, Docker) · CI-tested · replayed data, not live devices</text>
+    <text x="40" y="870" font-size="12" fill="#4c5a60">Privacy by design: synthetic patients + open de-identified cohorts only. Production path: ABDM / FHIR R4, Health Connect / HealthKit, on-premise inference, consent under the DPDP Act 2023.</text>
+  </svg>
+  <div class="foot"><span>MadhuTwin · Team Vantage, MDI Gurgaon · Happiest Health Digital Twin Challenge 2026</span><span>Page 1 / 3 · System architecture</span></div>
+</section>
+
+<section class="page">
+  <h1><span class="mark"></span>Inside the twin and the evaluation</h1>
+  <div class="sub">Equations, components and how each claim is tested</div>
+  <div class="cols">
+    <div class="stack">
+      <div class="card">
+        <h2>Physiology model (per patient, 1-minute or 5-minute steps)</h2>
+        <table>
+          <tr><th>State</th><th>Equation</th><th>Meaning</th></tr>
+          <tr><td class="k">G</td><td class="k">dG/dt = −(S<sub>G</sub> + X + k<sub>ex</sub>·steps)·G + S<sub>G</sub>·G<sub>b</sub>(t) + R<sub>a</sub>/V − renal(G)</td><td>plasma glucose</td></tr>
+          <tr><td class="k">X</td><td class="k">dX/dt = −p<sub>2</sub>·X + p<sub>2</sub>·S<sub>I</sub>(t)·I</td><td>insulin action</td></tr>
+          <tr><td class="k">I</td><td class="k">dI/dt = −n·I + Y</td><td>insulin above basal</td></tr>
+          <tr><td class="k">Y</td><td class="k">dY/dt = α·(σ·max(G − h, 0) − Y)</td><td>delayed beta-cell secretion</td></tr>
+          <tr><td class="k">F, S</td><td class="k">two-compartment fast / slow gut chains; split by GI</td><td>meal absorption R<sub>a</sub></td></tr>
+          <tr><td class="k">IG</td><td class="k">dIG/dt = (G − IG)/τ, τ = 8 min</td><td>what the CGM sees</td></tr>
+        </table>
+        <p style="font-size:12.5px;color:#4c5a60;margin:10px 0 0">S<sub>I</sub>(t) carries a circadian rhythm and a post-exercise boost; G<sub>b</sub>(t) carries the dawn phenomenon. SGLT2 inhibitors lower the renal threshold. In the simulator (not the twin), sleep debt, stress, illness and missed doses also modulate S<sub>I</sub> and G<sub>b</sub>; the ML layer learns those from HRV, heart rate and sleep.</p>
+      </div>
+      <div class="card" style="margin-top:8mm">
+        <h2>Technology stack</h2>
+        <table>
+          <tr><td>Language / numerics</td><td>Python 3.11, NumPy, pandas, SciPy (vectorised ODEs; no GPU needed)</td></tr>
+          <tr><td>ML</td><td>LightGBM 4 (binary + quantile), scikit-learn metrics, native TreeSHAP</td></tr>
+          <tr><td>Data formats</td><td>Synthea CSV (SNOMED CT, LOINC, RxNorm codes), Parquet time series</td></tr>
+          <tr><td>Console</td><td>Dependency-free HTML/CSS/JS + SVG; twin ported to JavaScript</td></tr>
+          <tr><td>Reproducibility</td><td><span class="k">python run.py</span> rebuilds models → figures → console; seed 2026; versions pinned in requirements-lock.txt</td></tr>
+          <tr><td>Interop &amp; deploy</td><td>FHIR R4 Bundle (RiskAssessment, Observation); FastAPI REST service; Dockerfile; GitHub Actions CI</td></tr>
+          <tr><td>Testing</td><td>pytest (__NTESTS__ tests): physiology sanity, leakage guards, JS/Python twin parity, Clarke grid, conformal coverage, FHIR, API</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h2>How each claim is tested</h2>
+        <ol>
+          <li><b>Prediction (held-out synthetic).</b> 45 unseen virtual patients, days 8–21, every 5 min. AUROC, AUPRC, Brier, reliability curve.</li>
+          <li><b>Alert usefulness.</b> One alert policy (≤1/hour, ≥9 of 12 readings present) shared with the console. For every excursion: was a <i>delivered</i> alert raised in the prior 2 h (one-to-one matching), and how early? False alerts and precision from the same alerts.</li>
+          <li><b>Fusion value.</b> Ablation: EHR only, wearables only, fusion, fusion + twin; plus a cold-start test for the first 48 h of a new patient.</li>
+          <li><b>Twin fidelity (synthetic).</b> Each virtual patient's hidden physiology is known; we report rank correlations with the truth. Simulator and Twin share equations, so this is an upper bound; a <b>model-mismatch stress test</b> changes the generator's physics.</li>
+          <li><b>What-if accuracy (synthetic).</b> Interventions are re-run on the hidden virtual patient and compared with the Twin. Under the stress test, rankings held but effect sizes were biased; real-patient effects are unvalidated.</li>
+          <li><b>Retrospective open cohorts.</b> 265 adults (Hall 2018; Colas 2019; only 10 with T2D), CGM + labs only. Pipeline re-trained with patient-level CV, target ≥140 mg/dL: CGM-only and CGM + EHR reported separately, plus SSPG insulin-resistance checks.</li>
+          <li><b>Leakage guards.</b> Patient-level split (210 train / 45 validation / 45 test; no person in two sets) <i>and</i> temporal split (twin fitted on days 1–7, evaluated on days 8–21). Every feature uses data at or before the decision time; personal baselines use completed nights only; habits come from week 1.</li>
+        </ol>
+      </div>
+      <div class="card" style="margin-top:8mm">
+        <h2>India-context design choices (synthetic simulation)</h2>
+        <ol>
+          <li>Asian BMI and waist cut-offs. (Genotype is in the record but adds no predictive value, so the risk model excludes it.)</li>
+          <li>37-item regional food library (idli, poha, rajma chawal, fish-rice, millets) with carbs and GI.</li>
+          <li>Late dinners, sweet chai, festival thalis, office commutes, weekend drift.</li>
+          <li>Metformin, sulfonylurea, DPP-4i, SGLT2i and basal insulin mix typical of Indian practice (in the record; SGLT2i what-if kept as a research option, not in the demo).</li>
+          <li>Built to run on modest hardware and offline, for tier-2/3 clinics.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+<!--RESULTS-->
+  <div class="foot"><span>MadhuTwin · Team Vantage, MDI Gurgaon · Happiest Health Digital Twin Challenge 2026</span><span>Page 2 / 3 · Components &amp; validation</span></div>
+</section>
+<section class="page">
+  <h1><span class="mark"></span>Why a twin, and how it would be deployed</h1>
+  <div class="sub">What the twin adds over ordinary AI · the patient state vector · prototype vs production · privacy and governance</div>
+  <div class="cols3">
+    <div class="card">
+      <h2>Ordinary AI vs digital twin</h2>
+      <table>
+        <tr><th></th><th>Ordinary AI risk model</th><th>MadhuTwin</th></tr>
+        <tr><td>Question answered</td><td>“Will glucose go high?”</td><td>“What state is this person in, what happens next, and what if we act?”</td></tr>
+        <tr><td>Patient model</td><td>Shared weights, no per-person state</td><td>Per-person physiology (SI, σ, Gb, dawn) + hidden state every 5 min</td></tr>
+        <tr><td>Data needed</td><td>Lots of labelled history</td><td>Physiology prior + EHR; useful from day 1 (twin matures over week 1)</td></tr>
+        <tr><td>Interventions</td><td>Cannot simulate</td><td>Food swap, portion, walk: simulated estimates, checked against synthetic ground truth</td></tr>
+        <tr><td>Explanation</td><td>Feature attributions</td><td>Attributions <i>and</i> mechanism (carbs in gut, insulin action)</td></tr>
+        <tr><td>Drift</td><td>Retrain</td><td>Nightly re-personalisation of SI and basal glucose</td></tr>
+      </table>
+      <h2 style="margin-top:7mm">Measured value of the twin layer</h2>
+      <!--TWINVALUE-->
+    </div>
+    <div class="card">
+      <h2>Patient state vector (updated every 5 min)</h2>
+      <table>
+        <tr><th>State</th><th>Source</th><th>Updated</th></tr>
+        <tr><td>Glucose (plasma, ahead of sensor)</td><td>CGM + observer</td><td>5 min</td></tr>
+        <tr><td>Carbs still in gut (fast / slow)</td><td>Meal log + twin</td><td>5 min</td></tr>
+        <tr><td>Insulin action X, insulin I</td><td>Twin</td><td>5 min</td></tr>
+        <tr><td>Activity, HR vs own baseline</td><td>Wearable</td><td>5 min</td></tr>
+        <tr><td>Sleep debt, HRV vs own baseline</td><td>Wearable</td><td>nightly</td></tr>
+        <tr><td>Insulin sensitivity SI (× baseline)</td><td>Twin re-fit</td><td>nightly</td></tr>
+        <tr><td>Basal glucose Gb</td><td>Twin re-fit</td><td>nightly</td></tr>
+        <tr><td>β-cell gain σ, dawn rise</td><td>Week-1 fit + EHR prior</td><td>weekly</td></tr>
+        <tr><td>HbA1c, eGFR, meds, comorbidity</td><td>EHR</td><td>on new result</td></tr>
+        <tr><td>Habitual next meal (time, carbs, GI)</td><td>Meal log</td><td>weekly</td></tr>
+      </table>
+      <h2 style="margin-top:7mm">Prototype vs production</h2>
+      <table>
+        <tr><th></th><th>This prototype</th><th>Production path</th></tr>
+        <tr><td>Data in</td><td>Synthetic CSV/Parquet; open CGM cohorts</td><td>ABDM / FHIR R4 from HMIS; Health Connect / HealthKit; CGM vendor APIs</td></tr>
+        <tr><td>Compute</td><td>Laptop CPU, no GPU</td><td>On-premise or Indian-region cloud; one container per clinic</td></tr>
+        <tr><td>Serving</td><td>FastAPI + static console</td><td>Same API behind hospital SSO; FHIR RiskAssessment written back to EHR</td></tr>
+        <tr><td>Models</td><td>Retrained by script</td><td>Versioned registry, drift monitor, shadow mode before go-live</td></tr>
+        <tr><td>Status</td><td>Research prototype</td><td>Prospective study; CDSCO SaMD pathway</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Privacy and governance layer</h2>
+      <ol>
+        <li><b>No real patient data in this repo.</b> Synthetic cohort + CC-BY de-identified open cohorts only.</li>
+        <li><b>Consent (DPDP Act 2023).</b> Purpose-bound consent per data stream (CGM, watch, food log, EHR); revocable from the patient app; ABDM consent artefacts.</li>
+        <li><b>Minimisation.</b> The twin needs 5-min aggregates, not raw accelerometry; no location, no free text leaves the device.</li>
+        <li><b>Security.</b> Encryption at rest and in transit; role-based access; audit log of every view and alert acknowledgement.</li>
+        <li><b>Human in the loop.</b> Advisory only: alerts go to the care team; no automatic dosing; every suggestion shows its reasons and confidence.</li>
+        <li><b>Fairness monitoring (proposed).</b> AUROC with CIs by sex, age, BMI, HbA1c, region and medication; a release gate if any subgroup drops is a proposed governance step.</li>
+        <li><b>Model card</b> (docs/model_card.md): intended use, out-of-scope use, data, metrics, limits.</li>
+      </ol>
+      <h2 style="margin-top:7mm">Runs on modest hardware</h2>
+      <!--LATENCY-->
+    </div>
+  </div>
+  <div class="foot"><span>MadhuTwin · Team Vantage, MDI Gurgaon · Happiest Health Digital Twin Challenge 2026</span><span>Page 3 / 3 · Twin value, deployment &amp; governance</span></div>
+</section>
+</body></html>

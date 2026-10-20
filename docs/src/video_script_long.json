@@ -1,0 +1,142 @@
+{
+ "voice": "af_heart",
+ "speed": 1.0,
+ "segments": [
+  {
+   "slide": 1,
+   "text": "Hello. We are Team Vantage from the Management Development Institute, Gurgaon. Our team leader is Silla Puja, and our team members are Shourya Singh and Ridhima Goyal. MadhuTwin is a digital twin for people with type two diabetes in India. Madhu means honey, and madhumeha is the Ayurvedic name for diabetes. In this video we cover the problem, the data, how the twin works, how well it predicts, a live demonstration of the doctor's console, a retrospective check on open real-world data, and the deployment path."
+  },
+  {
+   "slide": 2,
+   "text": "First, the problem. India has about one hundred and one million adults with diabetes, and another one hundred and thirty six million with prediabetes. A typical Indian lunch carries seventy grams of carbohydrate or more, from rice, roti and sweet chai, which drives steep spikes after meals. Yet most care runs on an HbA1c test every three months, an average that hides those spikes. Even with a glucose monitor, the doctor sees the report after the fact, with no early warning, and no way to test whether advice like millet instead of rice would help this particular patient."
+  },
+  {
+   "slide": 3,
+   "text": "We chose one precise adverse event: glucose at or above one hundred and eighty milligrams per decilitre for at least fifteen minutes, following the international consensus on time in range. We predict it up to two hours ahead, re-evaluated every five minutes. The system has two layers. Layer one is the digital twin, a personal physiology model with a live state for each patient. Layer two is the AI, which predicts from that state and the raw data. The console then answers: who needs attention, when, why, what to do, and what if we intervene."
+  },
+  {
+   "slide": 4,
+   "text": "The challenge requires synthetic or anonymised data, so we built an India-context synthetic simulation of three hundred adults with type two diabetes, over twenty one days each. Health records follow the Synthea schema, with standard SNOMED, LOINC and RxNorm codes. Glucose, heart rate, heart rate variability, steps and sleep arrive every five minutes, about one point seven seven million glucose readings. A food log of thirty seven regional dishes is only about half complete, as in real life, and we added late dinners, unlogged chai, stress, illness and missed doses. Each virtual patient also has a hidden true physiology, used only to check the twin."
+  },
+  {
+   "slide": 5,
+   "text": "Here is the architecture. On the left, the static health record and the wearable streams are harmonised onto a five minute grid. In green is layer one, the physiology twin: it personalises a glucose and insulin model, observes every reading, projects two hours ahead, and runs what-if simulations. In purple is layer two: one hundred and seven leak-free features and LightGBM models for risk, forecasts, time to event and explanations. On the right is the doctor's console. Every arrow runs every five minutes, for every patient."
+  },
+  {
+   "slide": 6,
+   "text": "Inside the twin is an extended Bergman minimal model, a well established model of glucose and insulin, with gut absorption that depends on the glycaemic index, exercise, and daily rhythms. From the lab report and the first week of glucose data, it fits each patient's insulin sensitivity, beta cell response, basal glucose and dawn rise. Fusion pays off here. Against the simulator's hidden truth, glucose data alone recovers insulin sensitivity with a correlation of only zero point one three, while the lab record plus glucose data reaches zero point seven eight."
+  },
+  {
+   "slide": 7,
+   "text": "Why a digital twin, and not just another risk model? An ordinary model shares one set of weights across everyone and only says whether glucose will go high. MadhuTwin keeps a personal physiology for each patient. It starts from the health record on day zero, matures over the first week, and is re-fitted every night. The health record sets an informed starting point for a regularised fit, and the wearables drive the live state vector on the right: glucose, carbohydrate still in the gut, insulin action, activity and heart rate against baseline, and insulin sensitivity updated nightly. That is what lets it simulate an intervention."
+  },
+  {
+   "slide": 8,
+   "text": "The results, on forty five synthetic patients the model never saw, scored every five minutes from day eight to day twenty one. The AUROC is zero point nine one two. For the clinical numbers we count only alerts that would actually be delivered: at most one per hour, and only when enough recent readings exist. On that basis, about seventy five percent of two thousand spikes were warned at least thirty minutes ahead, with a median warning of seventy five minutes, at about two point three false alerts per patient per day. The threshold was chosen on separate validation patients, as a reproducible rule, not a clinically optimised one. We optimise for useful alerts, not maximum sensitivity."
+  },
+  {
+   "slide": 9,
+   "text": "We also ran a separate, retrospective check on two open cohorts: fifty seven adults from Stanford and two hundred and eight from Spain, with glucose monitors and lab records only. We re-trained the pipeline there with patient-level cross-validation, so this tests the method, not the synthetic-trained twin. For a one hundred and forty milligram event, the glucose-only model reached an AUROC of zero point eight one, and glucose plus health record zero point seven nine. Only ten of these people have type two diabetes, so the full twin, meals, wearables and Indian patients remain untested on real data."
+  },
+  {
+   "slide": 10,
+   "text": "These are the evaluation details. On the Clarke error grid, ninety nine point nine, ninety eight point nine and ninety eight point one percent of synthetic forecasts fall in the safe zones at thirty, sixty and one hundred and twenty minutes. Prediction bands are conformally calibrated, and we report the coverage we actually observed, about eighty percent, including patient by patient, rather than claiming a guarantee. Every headline number has a patient-level confidence interval, and an exploratory subgroup check shows similar performance across sex, age, weight, medication and region."
+  },
+  {
+   "slide": 11,
+   "text": "This ablation shows what each data stream contributes. Time of day alone is surprisingly strong, because meals are habitual. The health record alone gives zero point eight four four, and wearables lift it to zero point nine one one. Honestly, once a week of glucose data exists, adding the health record barely moves the two hour alarm. Its value is in personalising the physiology and in the what-if simulator. Genetic markers added nothing, so we left them out. Now, the doctor's console, live."
+  },
+  {
+   "demo": "triage",
+   "text": "This is the doctor's console, a single web page that runs offline in any browser. On the left is triage. The counts show how many patients need attention, how many to watch, and how many are stable. Patients are sorted by urgency, combining risk, severity, confidence and time to the event, with the expected time to the spike and current glucose on each row."
+  },
+  {
+   "demo": "hero",
+   "text": "One summary card answers the doctor's questions in order. This is Sanjay, forty six, from Shillong. When: an excursion is likely in about ninety minutes. Three numbers are clearly labelled: the highest glucose the AI expects in the next two hours, the AI forecast at thirty, sixty and one hundred and twenty minutes, and separately the twin's physics projection, which assumes his usual dinner. Why: mainly, he has spiked at this hour on most previous days. Then one advisory option to discuss: a twenty minute walk after dinner."
+  },
+  {
+   "demo": "whatif",
+   "text": "What if he does it? One click opens the what-if simulator on Sanjay's own twin. Grey is his usual dinner, orange is the same dinner with a walk. Below, they are compared: peak, time to peak, minutes above one hundred and eighty, and the chance of an excursion, labelled as a simulated estimate for discussion, not a prescription."
+  },
+  {
+   "demo": "wimore",
+   "text": "The doctor can try other changes. Swapping his rice dinner for a millet roti, jowar or bajra, lowers his peak much more. A smaller portion helps further. Each curve is simulated live in the browser. Further down, the console shows how accurate these simulations were against synthetic ground truth, and warns that effect sizes can be biased when real physiology differs."
+  },
+  {
+   "demo": "state",
+   "text": "Back on the main view, the live twin state shows what the twin knows about Sanjay now, against his usual: insulin sensitivity and basal glucose re-fitted overnight, carbohydrate in the gut, insulin action, projected peak and risk. Tonight his insulin sensitivity is about seven percent below usual. Next to it, today is compared with his normal day."
+  },
+  {
+   "demo": "alerts",
+   "text": "Below the chart is the alert log. Alerts follow one policy, the same one used in our evaluation: at most one per hour, and suppressed when recent sensor data are missing. Each alert shows what happened next. The doctor can acknowledge alerts and keep notes, and the jump button moves to the next patient who needs a decision."
+  },
+  {
+   "demo": "reveal",
+   "text": "The main chart shows the last day of glucose, the twin's two hour forecast cone, the risk lane with alerts, and steps and sleep. Because this replays a held-out patient, we can reveal what actually happened next. The spike arrived, as predicted."
+  },
+  {
+   "demo": "play",
+   "text": "Replay streams the recorded data forward five minutes at a time, exactly as the twin would have seen it, using only past data. Risk, forecast, the summary card and triage all update with every reading. In deployment, each new reading would arrive through our API."
+  },
+  {
+   "demo": "sick",
+   "text": "The brief asks for anomalies from a week of sleep and heart data. For diabetes the most useful is a sick day. Each morning this card compares last night's heart rate, heart rate variability and sleep with the patient's own previous week, and flags a likely sick day as advice for the clinician."
+  },
+  {
+   "demo": "agp",
+   "text": "The seven day tab shows the ambulatory glucose profile that diabetologists already use: percentile bands by time of day, time in range, the glucose management indicator and variability, against the international targets."
+  },
+  {
+   "demo": "record",
+   "text": "The record tab joins the health record with the twin: labs against targets, the HbA1c trend, diagnoses and medicines, the twin's estimate of insulin sensitivity, beta cell function and disposition index, and the meal habits it has learned."
+  },
+  {
+   "demo": "app",
+   "text": "This is what the patient sees on their phone: one clear nudge before the usual meal, with one doable action, in English or, with one tap, in Hindi. A sick-day banner appears when needed."
+  },
+  {
+   "demo": "evidence",
+   "text": "The evidence tab lets anyone verify our claims. The tiles show what the twin measurably adds, then the operating point and the calibration curve. The open-cohort results are labelled by model and target, with the cohort mix, so the glucose-only and fusion numbers are never confused."
+  },
+  {
+   "demo": "evidence2",
+   "text": "Further down: the threshold table, built from delivered alerts, the model-mismatch stress test, data provenance, leakage controls, subgroup results with confidence intervals, measured speed, and our limitations."
+  },
+  {
+   "demo": "api",
+   "text": "The same twin runs as a REST service with FastAPI and Docker. This live request returns the full prediction contract: the same risk, forecasts, peak and twin projection the console shows, computed from the saved models. It can also export a sample FHIR R4 bundle; integration with India's digital health mission is a proposed next step."
+  },
+  {
+   "slide": 12,
+   "text": "What does the twin measurably add? We trained the same model with and without twin features. With all two hundred and ten training patients, the AUROC gain is within noise, and we say so. With only five training patients, as in a new clinic, the twin adds clearly more, because physics acts as a prior when data is scarce. It also recovers insulin sensitivity far better than glucose alone, sharpens day by day over the first week, and its nightly re-fit tracks illness. Twin maturity is visible too: the disposition index correlation rises from zero point four five on day zero, from the record alone, to zero point seven two after one week."
+  },
+  {
+   "slide": 13,
+   "text": "How accurate is the what-if simulator? Because every virtual patient has a hidden true physiology, we re-ran each intervention on the true patient. Swapping rice for millet lowered the true peak by fifty three milligrams on average, and the twin predicted fifty three. Then we stress-tested it: we generated patients with deliberately different physics. The twin still ranked who benefits, with correlations of zero point six six to zero point eight seven, but it over-estimated some effect sizes. So we show what-if results as estimates for discussion, and real-patient effects remain unvalidated."
+  },
+  {
+   "slide": 14,
+   "text": "The sick-day detector needs no labelled training data. Comparing each night with the patient's own baseline, it identifies hidden illness days with an AUROC of zero point nine seven, and flagged days ran hotter: fifty four percent of the rest of the day above range, against thirty seven percent. Illness in the simulator is clear-cut, so real-world performance will be lower."
+  },
+  {
+   "slide": 15,
+   "text": "In short, the console follows one workflow: who needs attention, when, why, what to do, and what would happen if we intervene, all usable within a two minute consultation. The design follows clinical practice: the ambulatory glucose profile and time in range targets that diabetologists already know, reasons in plain language instead of model jargon, and one suggested action rather than a long list, to keep alert fatigue low."
+  },
+  {
+   "slide": 16,
+   "text": "MadhuTwin is a research prototype designed with a clinic deployment pathway. Patients get one nudge before their usual meal, in English or Hindi. The service produces sample FHIR R4 output, and integration with India's digital health mission is a proposed next step. A REST service and Docker image run on an ordinary processor, with no graphics card. One alert takes under ten milliseconds per patient. Twenty eight automated tests, with none skipped, run on every commit, including alert matching and an API contract check, and one command rebuilds everything."
+  },
+  {
+   "slide": 17,
+   "text": "Every alert comes with its reasons, which are model attributions, not proof of cause. We used only synthetic and open de-identified data, and the production design assumes consent under India's data protection act. Our limitations: the main results are synthetic and replayed, not from live devices; the open-cohort check covers glucose and labs only, with just ten people with type two diabetes; the twin shares equations with our simulator; and this is decision support, not a medical device, with no diagnosis or dosing."
+  },
+  {
+   "slide": 18,
+   "text": "Our roadmap. Next three months: validate on an Indian glucose cohort with meals and wearables, add hypoglycaemia risk, and run in shadow mode in a clinic. Six months: live connectors and more Indian languages. Twelve months: a prospective clinic pilot on the path to approval as software as a medical device. The aim: turn glucose monitoring from a report about the past into a personal coach for the next two hours."
+  },
+  {
+   "slide": 19,
+   "text": "Thank you for watching. MadhuTwin was built by Team Vantage from the Management Development Institute, Gurgaon: team leader Silla Puja, with Shourya Singh and Ridhima Goyal. Everything is in our public GitHub repository under the MIT licence, and rebuilds with one command. We would be glad to answer your questions, and to take MadhuTwin forward with clinical partners."
+  }
+ ]
+}

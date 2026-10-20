@@ -1,0 +1,78 @@
+{
+ "voice": "af_heart",
+ "speed": 1.07,
+ "segments": [
+  {
+   "slide": 1,
+   "text": "Meet MadhuTwin: a digital twin for type two diabetes, designed for India. It warns a doctor about a glucose spike up to two hours before it happens, explains why, and lets the doctor test what would prevent it."
+  },
+  {
+   "slide": 2,
+   "text": "India has around one hundred and one million adults with diabetes. Yet care still runs on an HbA1c every three months, an average that hides the sharp spikes after rice, roti and sweet chai. Doctors get no early warning, and no way to test advice for a specific patient."
+  },
+  {
+   "slide": 3,
+   "text": "We predict one adverse event: glucose above one eighty for at least fifteen minutes, two hours ahead. Layer one, the digital twin, keeps a live physiological state for each patient. Layer two, the AI, predicts from it."
+  },
+  {
+   "slide": 4,
+   "text": "For the sandbox we built three hundred synthetic patients modelled on Indian diets and routines, with Synthea-style health records and three weeks of CGM, heart rate, HRV, steps, sleep and food logs. We also validate on real people from open research data."
+  },
+  {
+   "slide": 7,
+   "text": "Why a twin, and not just another risk model? The health record sets an informed starting point for each patient's physiology, and the wearables drive a live state vector every five minutes: glucose, carbs still in the gut, insulin action, and insulin sensitivity re-fitted every night. That is what lets us simulate an intervention."
+  },
+  {
+   "slide": 8,
+   "text": "On forty five synthetic patients the model never saw, AUROC is zero point nine one. Counting only alerts actually delivered, at most one per hour, about seventy five percent of spikes are warned at least thirty minutes ahead, with a median warning of seventy five minutes."
+  },
+  {
+   "slide": 9,
+   "text": "In a separate retrospective check on two hundred and sixty five adults from open cohorts, with glucose and lab data only, we re-trained the pipeline with patient-level cross-validation. The glucose-only model reached an AUROC of zero point eight one, and glucose plus health record zero point seven nine. Only ten of these people have type two diabetes, so this checks the method, not the full twin."
+  },
+  {
+   "demo": "triage",
+   "text": "Here is the doctor's console. First: who needs attention? Patients are sorted by risk, severity, confidence and time to event, with counts at the top."
+  },
+  {
+   "demo": "hero",
+   "text": "Then one card answers when, why, and what to do. Sanjay, forty six, from Shillong: an excursion is likely in about ninety minutes, with medium confidence. The AI's forecast and the twin's physics projection are labelled separately. Why? He spikes at this hour on most past days. The advisory option to discuss: a twenty minute walk after his usual dinner."
+  },
+  {
+   "demo": "whatif",
+   "text": "What if he does it? The twin re-simulates his own physiology: lower peak, less time above one eighty, and a lower event probability, shown side by side with the usual meal."
+  },
+  {
+   "demo": "state",
+   "text": "Below, the live twin state is compared with his own baseline. His insulin sensitivity is about seven percent below usual, picked up by the nightly re-fit, while sleep and heart rate look normal."
+  },
+  {
+   "demo": "play",
+   "text": "Pressing replay streams the data forward five minutes at a time. The twin state, risk and triage all update with every reading."
+  },
+  {
+   "demo": "evidence",
+   "text": "The evidence tab shows the calibration, the operating point, data provenance, leakage controls and limitations, so a judge can verify every claim."
+  },
+  {
+   "slide": 12,
+   "text": "What does the twin measurably add? With all two hundred and ten training patients, very little AUROC, and we say so. But with only five training patients it adds clearly more. It recovers each person's insulin sensitivity far better than CGM alone, and it tracks illness night by night."
+  },
+  {
+   "slide": 13,
+   "text": "How accurate is the what-if? Against the hidden true virtual patient, the predicted benefit of a food change correlates about zero point nine with the truth. When we changed the simulator's physics, rankings held but some effect sizes were over-estimated, so we show these as estimates for discussion."
+  },
+  {
+   "slide": 16,
+   "text": "It is a research prototype with a deployment pathway: sample FHIR R4 output, a REST API, Docker, and under ten milliseconds of CPU per patient alert. Integration with India's digital health mission is a proposed next step."
+  },
+  {
+   "slide": 18,
+   "text": "Next, we would validate on an Indian cohort with meals and wearables, and pilot with a diabetes clinic."
+  },
+  {
+   "slide": 19,
+   "text": "Thank you. Everything rebuilds from our public GitHub repository with one command."
+  }
+ ]
+}

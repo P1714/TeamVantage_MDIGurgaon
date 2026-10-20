@@ -1,0 +1,277 @@
+{
+  "resourceType": "Bundle",
+  "id": "78724954-559f-5026-afbd-2f015889e719",
+  "type": "collection",
+  "timestamp": "2026-10-20T10:46:57+05:30",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:bc3e1519-b139-5fd4-afe4-4baa4800afa2",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "bc3e1519-b139-5fd4-afe4-4baa4800afa2",
+        "identifier": [
+          {
+            "system": "https://github.com/madhutwin/codes/pseudonymous-id",
+            "value": "P0244"
+          }
+        ],
+        "meta": {
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PSEUDED"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:53e9eaa2-27bc-5ec2-9ec8-8d33d26383ee",
+      "resource": {
+        "resourceType": "Device",
+        "id": "53e9eaa2-27bc-5ec2-9ec8-8d33d26383ee",
+        "deviceName": [
+          {
+            "name": "MadhuTwin digital twin (research prototype)",
+            "type": "user-friendly-name"
+          }
+        ],
+        "type": {
+          "text": "Clinical decision support software, not a medical device"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:28827303-e7fe-5ba8-9871-626aa75ca7af",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "28827303-e7fe-5ba8-9871-626aa75ca7af",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Continuous glucose monitor reading"
+        },
+        "subject": {
+          "reference": "Patient/bc3e1519-b139-5fd4-afe4-4baa4800afa2"
+        },
+        "effectiveDateTime": "2026-06-21T19:20:00+05:30",
+        "valueQuantity": {
+          "value": 172.0,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:551c5c06-b5cb-54ff-b9e3-4b97b9d6d6d5",
+      "resource": {
+        "resourceType": "RiskAssessment",
+        "id": "551c5c06-b5cb-54ff-b9e3-4b97b9d6d6d5",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/bc3e1519-b139-5fd4-afe4-4baa4800afa2"
+        },
+        "occurrenceDateTime": "2026-06-21T19:20:00+05:30",
+        "performer": {
+          "reference": "Device/53e9eaa2-27bc-5ec2-9ec8-8d33d26383ee"
+        },
+        "method": {
+          "text": "MadhuTwin hybrid physiology twin + LightGBM, v2"
+        },
+        "prediction": [
+          {
+            "outcome": {
+              "text": "Glycaemic excursion >=180 mg/dL lasting >=15 min"
+            },
+            "probabilityDecimal": 0.43,
+            "whenRange": {
+              "low": {
+                "value": 0,
+                "unit": "min"
+              },
+              "high": {
+                "value": 120,
+                "unit": "min"
+              }
+            },
+            "rationale": "hist_spike_rate_tod=0.675 (raises risk); twin_proj_peak_habit=227.794 (raises risk); hr_30m_rel=18.639 (raises risk); weekend=1.0 (lowers risk); g_now=171.0 (raises risk)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Alert threshold 0.40. Decision support only."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:60565190-a7dd-5a5b-a417-c3d69a7b18ee",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "60565190-a7dd-5a5b-a417-c3d69a7b18ee",
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://github.com/madhutwin/codes",
+              "code": "twin-SI",
+              "display": "Insulin sensitivity (twin)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc3e1519-b139-5fd4-afe4-4baa4800afa2"
+        },
+        "effectiveDateTime": "2026-06-21T19:20:00+05:30",
+        "device": {
+          "reference": "Device/53e9eaa2-27bc-5ec2-9ec8-8d33d26383ee"
+        },
+        "valueQuantity": {
+          "value": 1.871,
+          "unit": "10^-4/min per uU/mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1fb46e26-fb9b-5389-95a9-51233a081950",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1fb46e26-fb9b-5389-95a9-51233a081950",
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://github.com/madhutwin/codes",
+              "code": "twin-sigma",
+              "display": "Beta-cell secretory gain (twin)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc3e1519-b139-5fd4-afe4-4baa4800afa2"
+        },
+        "effectiveDateTime": "2026-06-21T19:20:00+05:30",
+        "device": {
+          "reference": "Device/53e9eaa2-27bc-5ec2-9ec8-8d33d26383ee"
+        },
+        "valueQuantity": {
+          "value": 2.449,
+          "unit": "x100"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:80c8fdce-bd21-5805-992a-4711ac9a175c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "80c8fdce-bd21-5805-992a-4711ac9a175c",
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://github.com/madhutwin/codes",
+              "code": "twin-Gb",
+              "display": "Basal glucose set-point (twin)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc3e1519-b139-5fd4-afe4-4baa4800afa2"
+        },
+        "effectiveDateTime": "2026-06-21T19:20:00+05:30",
+        "device": {
+          "reference": "Device/53e9eaa2-27bc-5ec2-9ec8-8d33d26383ee"
+        },
+        "valueQuantity": {
+          "value": 187.0,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ff74fb3e-5ba0-509b-aa94-8f083650b126",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "ff74fb3e-5ba0-509b-aa94-8f083650b126",
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://github.com/madhutwin/codes",
+              "code": "twin-DI",
+              "display": "Disposition index (twin)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc3e1519-b139-5fd4-afe4-4baa4800afa2"
+        },
+        "effectiveDateTime": "2026-06-21T19:20:00+05:30",
+        "device": {
+          "reference": "Device/53e9eaa2-27bc-5ec2-9ec8-8d33d26383ee"
+        },
+        "valueQuantity": {
+          "value": 0.458,
+          "unit": "1"
+        }
+      }
+    }
+  ]
+}
