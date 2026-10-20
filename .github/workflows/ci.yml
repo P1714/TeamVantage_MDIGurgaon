@@ -1,0 +1,18 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/setup-node@v4
+        with: {node-version: "20"}
+      - run: pip install -r requirements-lock.txt
+      # API/contract tests run on the committed fixture tests/fixtures/api_store_small.parquet.
+      # The job fails if any test is skipped, so a green run always includes the API end-to-end path.
+      - name: run tests (no skips allowed)
+        run: |
+          python -m pytest -q -rs | tee pytest.log
+          if grep -qi "skipped" pytest.log; then echo "a test was skipped"; exit 1; fi
