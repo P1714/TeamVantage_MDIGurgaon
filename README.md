@@ -7,7 +7,7 @@ Submission for the **Happiest Health Digital Twin Challenge 2026** (Reimagining 
 
 | | |
 |---|---|
-| **Demo video (16 min, unlisted YouTube)** | *link added after upload* (16 min video; run `python scripts/set_links.py`) · narrated walkthrough of the problem, data, Twin, results, every console screen, the open-cohort check and the deployment path |
+| **Demo video (16 min, unlisted YouTube)** | (https://youtu.be/4zCbew-v27k)· narrated walkthrough of the problem, data, Twin, results, every console screen, the open-cohort check and the deployment path |
 | **Presentation** | [`docs/MadhuTwin_Presentation.pdf`](docs/MadhuTwin_Presentation.pdf) · [`.pptx`](docs/MadhuTwin_Presentation.pptx) |
 | **Architecture diagram** | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) |
 | **Doctor's console (runs offline)** | open [`dashboard/madhutwin_console.html`](dashboard/madhutwin_console.html) in any browser |
@@ -26,11 +26,11 @@ Submission for the **Happiest Health Digital Twin Challenge 2026** (Reimagining 
 | ✅ Healthcare Use Case | [§3 Use case](#3-problem-statement-and-healthcare-use-case): T2D, 2-hour warning of a ≥180 mg/dL excursion |
 | ✅ Technical Stack | [§4 Technical stack](#4-technical-stack-and-aiml-details) |
 | ✅ AI/ML Model or Framework Details | [§4](#4-technical-stack-and-aiml-details) (physiology twin + LightGBM) · [model card](docs/model_card.md) |
-| ⏳ 15–20 minute Demo Video (unlisted YouTube) | *link added after upload* (16 min video; run `python scripts/set_links.py`) |
+| ✅ 15–20 minute Demo Video (unlisted YouTube) | (https://youtu.be/4zCbew-v27k) (16 min video; run `python scripts/set_links.py`) |
 | ✅ Open-source License Details | [§12 License](#12-license): MIT ([`LICENSE`](LICENSE)) |
 | ✅ Architecture Diagram (PDF/PPT) | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) |
 | ✅ Presentation (PDF/PPT) with project details and outcomes | [`docs/MadhuTwin_Presentation.pdf`](docs/MadhuTwin_Presentation.pdf) · [`.pptx`](docs/MadhuTwin_Presentation.pptx) |
-| ⏳ All files and links publicly accessible | Every document is in this repo; tick only after the repository and video open in a signed-out (incognito) browser |
+| ✅ All files and links publicly accessible | Public repository and unlisted video, checked in a signed-out browser |
 
 Challenge requirements also covered: fusion of static EHR + dynamic wearable data ([§4](#4-technical-stack-and-aiml-details)), a working model that predicts an adverse event in advance ([§6.1](#61-predicting-the-adverse-event)), a clinician dashboard ([§7](#7-the-doctors-console)), synthetic/anonymised data only ([§5](#5-data-sandbox-rules-synthetic--open-data-only)), and one-command reproduction (`python run.py`).
 
