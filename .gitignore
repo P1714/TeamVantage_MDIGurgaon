@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+data/processed/features.parquet
+data/processed/test_predictions.parquet
+.DS_Store
+docs/MadhuTwin_Demo.mp4
+data/stress/
+data/processed/api_store.parquet
+data/processed/realworld_oof.parquet
