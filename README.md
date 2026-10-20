@@ -7,15 +7,15 @@ Submission for the **Happiest Health Digital Twin Challenge 2026** (Reimagining 
 
 | | |
 |---|---|
-| **Demo video (16 min, unlisted YouTube)** | (https://youtu.be/4zCbew-v27k)· narrated walkthrough of the problem, data, Twin, results, every console screen, the open-cohort check and the deployment path |
+| **Demo video (16 min, unlisted YouTube)** | **[https://youtu.be/4zCbew-v27k](https://youtu.be/4zCbew-v27k)** (16 min) · narrated walkthrough of the problem, data, Twin, results, every console screen, the open-cohort check and the deployment path |
 | **Presentation** | [`docs/MadhuTwin_Presentation.pdf`](docs/MadhuTwin_Presentation.pdf) · [`.pptx`](docs/MadhuTwin_Presentation.pptx) |
 | **Architecture diagram** | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) |
-| **Doctor's console (runs offline)** | open [`dashboard/madhutwin_console.html`](dashboard/madhutwin_console.html) in any browser |
+| **Doctor's console** | **Live: [https://p1714.github.io/TeamVantage_MDIGurgaon/dashboard/madhutwin_console.html](https://p1714.github.io/TeamVantage_MDIGurgaon/dashboard/madhutwin_console.html)** (opens in any browser, nothing to install) · or download [`dashboard/madhutwin_console.html`](dashboard/madhutwin_console.html) and open it offline |
 | **License** | MIT, see [`LICENSE`](LICENSE) |
 
 ### Submission checklist (every item the submission form asks for)
 
-✅ = present and checked · ⏳ = present locally, external link still to be added and verified signed-out
+All items present; links checked in a signed-out browser.
 
 | Form item | Where in this README / repo |
 |---|---|
@@ -26,7 +26,7 @@ Submission for the **Happiest Health Digital Twin Challenge 2026** (Reimagining 
 | ✅ Healthcare Use Case | [§3 Use case](#3-problem-statement-and-healthcare-use-case): T2D, 2-hour warning of a ≥180 mg/dL excursion |
 | ✅ Technical Stack | [§4 Technical stack](#4-technical-stack-and-aiml-details) |
 | ✅ AI/ML Model or Framework Details | [§4](#4-technical-stack-and-aiml-details) (physiology twin + LightGBM) · [model card](docs/model_card.md) |
-| ✅ 15–20 minute Demo Video (unlisted YouTube) | (https://youtu.be/4zCbew-v27k) (16 min video; run `python scripts/set_links.py`) |
+| ✅ 15–20 minute Demo Video (unlisted YouTube) | **[https://youtu.be/4zCbew-v27k](https://youtu.be/4zCbew-v27k)** (16 min) |
 | ✅ Open-source License Details | [§12 License](#12-license): MIT ([`LICENSE`](LICENSE)) |
 | ✅ Architecture Diagram (PDF/PPT) | [`docs/Architecture_Diagram.pdf`](docs/Architecture_Diagram.pdf) |
 | ✅ Presentation (PDF/PPT) with project details and outcomes | [`docs/MadhuTwin_Presentation.pdf`](docs/MadhuTwin_Presentation.pdf) · [`.pptx`](docs/MadhuTwin_Presentation.pptx) |
@@ -416,7 +416,7 @@ The flag is advisory: the console suggests that a clinician *consider* sick-day 
 
 ## 7. The doctor's console
 
-Open `dashboard/madhutwin_console.html`. It is a single self-contained file that works offline with no install. It **replays** recorded synthetic data five minutes at a time; it is not connected to live devices. A permanent banner reads: *research prototype · decision support only · not for diagnosis or dosing · clinician judgement required*.
+Open the **[live console](https://p1714.github.io/TeamVantage_MDIGurgaon/dashboard/madhutwin_console.html)**, or download `dashboard/madhutwin_console.html` and open it locally. It is a single self-contained file that works offline with no install. It **replays** recorded synthetic data five minutes at a time; it is not connected to live devices. A permanent banner reads: *research prototype · decision support only · not for diagnosis or dosing · clinician judgement required*.
 
 The console follows one workflow: **Triage → When → Why → What to do → What if I intervene → Outcome**.
 
