@@ -1,0 +1,80 @@
+{
+  "description": "The main synthetic benchmark generates patients with the same physiology equations the Twin uses, which\nflatters the Twin. Here the *generator* is deliberately different from the Twin's assumptions:",
+  "mismatches": {
+    "gut_fast_x": 0.65,
+    "gut_slow_x": 1.5,
+    "insulin_clearance_x": 1.3,
+    "secretion_delay_rate_x": 0.7,
+    "sensor_lag_min": 13,
+    "cgm_noise_x": 1.6,
+    "si_rhythm_amplitude": 0.25,
+    "si_rhythm_peak": "08:00",
+    "meal_logging_x": 0.7,
+    "gi_split": "(GI-15)/70 instead of (GI-25)/80"
+  },
+  "n_patients": 90,
+  "decision_rows": 237521,
+  "prevalence": 0.29503917548343095,
+  "risk_model_transferred": {
+    "auroc": 0.9175236697660647,
+    "auprc": 0.8357725218337413,
+    "prevalence": 0.29503917548343095,
+    "cgm_trend_baseline_auroc": 0.6224179855054925
+  },
+  "event_level": {
+    "alert_policy": "alert-policy-v2 (debounce 60 min, >=9/12 readings in last hour, threshold from validation)",
+    "events": 4374,
+    "detected_any_lead": 0.8285322359396433,
+    "detected_lead_ge_30min": 0.7290809327846365,
+    "detected_lead_ge_60min": 0.6227709190672154,
+    "median_lead_min": 80.0,
+    "alerts_per_patient_day": 7.2936507936507935,
+    "false_alerts_per_patient_day": 2.697619047619048,
+    "alert_precision": 0.6301414581066377,
+    "detected_lead_ge_30min_ci": [
+      0.70450293222919,
+      0.7534218945170524
+    ],
+    "false_alerts_per_patient_day_ci": [
+      2.5602976190476188,
+      2.840535714285714
+    ]
+  },
+  "insulin_sensitivity_recovery_spearman": {
+    "twin_fused": 0.7521773295170776,
+    "cgm_only_twin": 0.35546030778624205,
+    "ehr_only_homa_ir": 0.6874511256533727
+  },
+  "whatif_effects": {
+    "walk_20": {
+      "effect_corr": 0.6570192117810079,
+      "effect_mae_mgdl": 7.019467621377929,
+      "true_mean_effect": -8.839256685451378,
+      "pred_mean_effect": -15.858724306829307
+    },
+    "millet_swap": {
+      "effect_corr": 0.868088099295412,
+      "effect_mae_mgdl": 16.701753149450198,
+      "true_mean_effect": -40.165213947698064,
+      "pred_mean_effect": -56.86696709714826
+    },
+    "portion_minus30": {
+      "effect_corr": 0.8715221796842456,
+      "effect_mae_mgdl": 2.9614441427140723,
+      "true_mean_effect": -41.61504665935429,
+      "pred_mean_effect": -42.41279593964158
+    }
+  },
+  "matched_reference": {
+    "auroc": 0.9117221777713731,
+    "cgm_trend_baseline_auroc": 0.6005965369226784,
+    "detected_lead_ge_30min": 0.7461269365317341,
+    "false_alerts_per_patient_day": 2.295238095238095,
+    "si_recovery_twin_fused": 0.7824118020464419,
+    "whatif_effect_corr": {
+      "walk_20": 0.6777055785177936,
+      "millet_swap": 0.928606608333094,
+      "portion_minus30": 0.9134017625783696
+    }
+  }
+}

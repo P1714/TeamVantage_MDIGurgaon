@@ -1,0 +1,1390 @@
+<title>MadhuTwin Clinician Console</title>
+<meta name="description" content="Doctor console for the MadhuTwin Type 2 Diabetes digital twin: triage, 2-hour spike alerts, explanations and what-if simulation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#f3f4f1; --panel:#ffffff; --panel2:#f8f9f6; --ink:#15222a; --ink2:#4c5a60; --muted:#7f8b8f;
+  --line:#e1e4de; --grid:#eceee9; --accent:#a8660a; --accent-soft:#f5e9d2; --focus:#2a78d6;
+  --cgm:#2a78d6; --cgm-soft:rgba(42,120,214,.16); --risk:#1baf7a; --risk-soft:rgba(27,175,122,.18);
+  --step:#eb6834; --band:#e5f2e8; --future:#9aa6ab;
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b; --crit-soft:#fbe7e6; --warn-soft:#fdf2d8; --good-soft:#e3f3e2;
+  --sleep1:#9ec5f4; --sleep2:#1c5cab; --sleep3:#4a3aa7;
+  --shadow:0 1px 2px rgba(21,34,42,.06),0 4px 16px rgba(21,34,42,.05);
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0e1416; --panel:#161f23; --panel2:#1b262b; --ink:#edf2f1; --ink2:#b3bfc1; --muted:#7d8a8d;
+    --line:#26333a; --grid:#1f2b30; --accent:#e3a54a; --accent-soft:#3a2d17; --focus:#6aa7f0;
+    --cgm:#3987e5; --cgm-soft:rgba(57,135,229,.22); --risk:#199e70; --risk-soft:rgba(25,158,112,.25);
+    --step:#d95926; --band:#15291c; --future:#5f6d72;
+    --crit-soft:#3a1d1d; --warn-soft:#3a3016; --good-soft:#15301a;
+    --sleep1:#5598e7; --sleep2:#8fb8ef; --sleep3:#9085e9;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0e1416; --panel:#161f23; --panel2:#1b262b; --ink:#edf2f1; --ink2:#b3bfc1; --muted:#7d8a8d;
+  --line:#26333a; --grid:#1f2b30; --accent:#e3a54a; --accent-soft:#3a2d17; --focus:#6aa7f0;
+  --cgm:#3987e5; --cgm-soft:rgba(57,135,229,.22); --risk:#199e70; --risk-soft:rgba(25,158,112,.25);
+  --step:#d95926; --band:#15291c; --future:#5f6d72;
+  --crit-soft:#3a1d1d; --warn-soft:#3a3016; --good-soft:#15301a;
+  --sleep1:#5598e7; --sleep2:#8fb8ef; --sleep3:#9085e9;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+h1,h2,h3{margin:0;text-wrap:balance}
+.app{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:100%}
+/* ---------- rail ---------- */
+.rail{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.brand{display:flex;align-items:center;gap:10px;padding:18px 18px 14px}
+.brand-mark{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3c35b,#b8740c 70%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35);flex:none}
+.brand b{font-size:17px;letter-spacing:-.01em}
+.brand small{display:block;color:var(--muted);font-size:11.5px;letter-spacing:.02em}
+.clock{margin:0 14px 10px;padding:10px 12px;border-radius:10px;background:var(--panel2);border:1px solid var(--line)}
+.clock-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.clock time{font-family:var(--mono);font-size:13px}
+.clock .lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.clock input[type=range]{width:100%;margin:8px 0 2px;accent-color:var(--accent)}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-weight:500;font-size:13px}
+.btn:hover{background:var(--panel2)}
+.btn.primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.btn.small{padding:3px 8px;font-size:12px}
+.btn[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.rail-h{display:flex;white-space:nowrap;gap:8px;justify-content:space-between;align-items:baseline;padding:6px 18px 6px;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.plist{list-style:none;margin:0;padding:0 8px 16px;overflow:auto;flex:1}
+.pitem{display:grid;grid-template-columns:4px 1fr auto;gap:10px;align-items:center;padding:8px 10px 8px 0;border-radius:9px;cursor:pointer;border:1px solid transparent}
+.pitem:hover{background:var(--panel2)}
+.pitem[aria-current=true]{background:var(--panel2);border-color:var(--line)}
+.pitem .sev{align-self:stretch;border-radius:0 3px 3px 0;background:var(--line)}
+.pitem .sev.crit{background:var(--crit)} .pitem .sev.warn{background:var(--warn)} .pitem .sev.ok{background:var(--good)}
+.pname{font-weight:600;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmeta{font-size:11.5px;color:var(--muted)}
+.pright{text-align:right}
+.pill{display:inline-flex;align-items:center;gap:4px;font:500 11.5px/1 var(--mono);padding:4px 7px;border-radius:999px;white-space:nowrap}
+.pill.crit{background:var(--crit-soft);color:var(--crit)} .pill.warn{background:var(--warn-soft);color:var(--ink)} .pill.ok{background:var(--good-soft);color:var(--good)} .pill.hi{background:var(--crit);color:#fff}
+.pill.neutral{background:var(--panel2);color:var(--ink2);border:1px solid var(--line)}
+.spark{display:block;margin-top:3px}
+/* ---------- main ---------- */
+main{padding:18px 22px 40px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.phead{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+.phead h1{font-size:24px;letter-spacing:-.015em;font-weight:700}
+.phead .sub{color:var(--ink2);font-size:13px;margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:12px;padding:3px 8px;border-radius:6px;background:var(--panel);border:1px solid var(--line);color:var(--ink2)}
+.chip b{color:var(--ink);font-weight:600}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{border:0;background:none;padding:9px 12px;cursor:pointer;color:var(--ink2);font-weight:500;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tab[aria-selected=true]{color:var(--ink);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);min-width:0}
+.card h2{font-size:13px;font-weight:600;letter-spacing:.01em;display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+.card h2 small{font-weight:400;color:var(--muted);font-size:12px}
+.eyebrow{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:14px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--ink2);margin-top:6px}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.legend i.sq{height:10px;width:10px}
+svg text{fill:var(--muted);font:11px var(--sans)}
+svg .tick{font-family:var(--mono);font-size:10.5px}
+.chartwrap{position:relative}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--panel);border-radius:8px;padding:7px 9px;font-size:12px;line-height:1.35;white-space:nowrap;transform:translate(-50%,-110%);box-shadow:var(--shadow);z-index:3}
+.tip b{font-family:var(--mono)}
+/* risk card */
+.risk-top{display:flex;align-items:center;gap:14px}
+.gauge{flex:none}
+.risk-state{font-size:15px;font-weight:600}
+.risk-state small{display:block;font-size:12px;color:var(--ink2);font-weight:400;margin-top:2px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:12.5px;margin-top:10px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;text-align:right;font-family:var(--mono)}
+.why{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.why li{display:grid;grid-template-columns:18px 1fr 60px;gap:8px;align-items:center;font-size:12.5px}
+.why .arr{font-weight:700;text-align:center}
+.why .up{color:var(--crit)} .why .down{color:var(--good)}
+.why .bar{height:6px;border-radius:3px;background:var(--line);position:relative;overflow:hidden}
+.why .bar span{position:absolute;top:0;bottom:0;left:0;border-radius:3px}
+.src{font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:1px 5px;border-radius:4px;margin-left:5px;vertical-align:1px;border:1px solid var(--line);color:var(--muted)}
+.actions{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.action{padding:9px 11px;border-radius:9px;background:var(--panel2);border:1px solid var(--line);font-size:12.5px}
+.action b{display:block;font-size:13px;margin-bottom:2px}
+.alerts{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;max-height:260px;overflow:auto}
+.alerts li{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;font-size:12.5px;padding:6px 8px;border-radius:8px;border:1px solid var(--line)}
+.alerts li.ack{opacity:.55}
+.alerts .t{font-family:var(--mono);font-size:12px}
+.out{font-size:11px;padding:2px 6px;border-radius:5px}
+.out.hit{background:var(--crit-soft);color:var(--crit)} .out.miss{background:var(--panel2);color:var(--muted)} .out.pending{background:var(--warn-soft)}
+textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--panel2);color:var(--ink);font:13px var(--sans);resize:vertical}
+.notes{list-style:none;padding:0;margin:8px 0 0;font-size:12.5px;display:flex;flex-direction:column;gap:6px}
+.notes li{padding:6px 8px;border-left:3px solid var(--accent);background:var(--panel2);border-radius:0 6px 6px 0}
+/* week */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.stat{padding:10px 12px;border-radius:10px;background:var(--panel2);border:1px solid var(--line)}
+.stat .v{font:600 22px/1.1 var(--mono);letter-spacing:-.02em}
+.stat .l{font-size:11.5px;color:var(--ink2);margin-top:3px}
+.stat .t{font-size:11px;color:var(--muted)}
+.tir{display:flex;height:26px;border-radius:6px;overflow:hidden;gap:2px;margin-top:6px}
+.tir span{display:block;height:100%}
+.tirleg{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;margin-top:8px;font-size:12px}
+.tirleg div{display:flex;align-items:center;gap:6px}
+.tirleg i{width:10px;height:10px;border-radius:2px;flex:none}
+/* record */
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--ink2);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td.n{text-align:right;font-family:var(--mono)}
+.flag{color:var(--crit);font-weight:600}
+.tw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+/* what-if */
+.wi{display:grid;grid-template-columns:300px minmax(0,1fr);gap:14px;align-items:start}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.field label{font-size:12px;color:var(--ink2);font-weight:500;display:flex;justify-content:space-between}
+.field label output{font-family:var(--mono);color:var(--ink)}
+.field select,.field input[type=time]{border:1px solid var(--line);background:var(--panel2);border-radius:8px;padding:7px 8px}
+.field input[type=range]{accent-color:var(--accent)}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.toggle{display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer}
+.delta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.delta .stat .v{font-size:19px}
+.good-t{color:var(--good)} .bad-t{color:var(--crit)}
+.note{font-size:12px;color:var(--muted);line-height:1.5}
+.disclaimer{font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.hbar{display:grid;grid-template-columns:minmax(120px,220px) 1fr 52px;gap:8px;align-items:center;font-size:12.5px;margin:5px 0}
+.hbar .track{height:10px;background:var(--panel2);border-radius:5px;overflow:hidden;border:1px solid var(--line)}
+.hbar .track span{display:block;height:100%;background:var(--cgm);border-radius:4px}
+.hbar.best .track span{background:var(--risk)}
+.hbar.base .track span{background:var(--future)}
+.menu-btn{display:none}
+/* v3: hero, twin state, evidence */
+.hero{border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr);gap:18px;border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow)}
+.hero.alert{background:linear-gradient(0deg,var(--panel),var(--panel)) padding-box;border:2px solid var(--crit)}
+.hero.hi{border:2px solid var(--crit);background:var(--crit-soft)}
+.hero.nodata{border:2px dashed var(--warn)}
+.safety{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--ink2);background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;padding:7px 12px;margin:0 0 10px}
+.safety b{color:var(--ink)}
+.src{font-size:10.5px;color:var(--muted);letter-spacing:.02em}
+.fcline{font-size:12px;color:var(--ink2);margin-top:8px;line-height:1.5}
+.fcline b{font-family:var(--mono)}
+.hero .h-head{font-size:19px;font-weight:700;line-height:1.25;text-wrap:balance}
+.hero .h-head .when{color:var(--crit)}
+.hero .h-kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.hero .h-kv div{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:7px 9px}
+.hero .h-kv b{display:block;font:600 20px/1.1 var(--mono)}
+.hero .h-kv span{font-size:11.5px;color:var(--ink2)}
+.hero h3{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px}
+.reason{display:grid;grid-template-columns:1fr 46px;gap:2px 8px;font-size:13px;margin-bottom:7px}
+.reason .rb{grid-column:1/3;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.reason .rb span{display:block;height:100%;background:var(--crit);border-radius:3px}
+.reason .pc{text-align:right;font-family:var(--mono);color:var(--ink2)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:12px;margin-top:10px}
+.flow span{padding:3px 8px;border-radius:999px;background:var(--panel2);border:1px solid var(--line)}
+.flow i{font-style:normal;color:var(--muted)}
+.act-big{font-size:15px;font-weight:600;margin:2px 0 6px}
+.wi-mini{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center;margin-top:8px;font-size:12.5px}
+.wi-mini div{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:7px 9px}
+.wi-mini b{font:600 17px var(--mono);display:block}
+.wi-mini .after{background:var(--good-soft);border-color:transparent}
+.pipe{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:11.5px;margin:2px 0 10px}
+.pipe span{padding:3px 7px;border-radius:6px;background:var(--panel2);border:1px solid var(--line)}
+.pipe span.on{background:var(--accent-soft);border-color:var(--accent);animation:pulse 1.2s ease-out}
+.pipe i{font-style:normal;color:var(--muted)}
+@keyframes pulse{from{box-shadow:0 0 0 3px var(--accent-soft)}to{box-shadow:0 0 0 0 transparent}}
+.state td.n{white-space:nowrap}
+.chg-up{color:var(--crit)} .chg-down{color:var(--cgm)} .chg-flat{color:var(--muted)}
+.updated{font-size:11px;color:var(--muted);font-family:var(--mono)}
+.mature{display:flex;gap:3px;margin-top:8px}
+.mature span{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.mature span.on{background:var(--risk)}
+.triage-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 14px 8px}
+.triage-sum div{border-radius:9px;padding:6px 8px;font-size:11.5px;color:var(--ink2);border:1px solid var(--line);background:var(--panel2)}
+.triage-sum b{display:block;font:600 18px var(--mono);color:var(--ink)}
+.triage-sum .c{border-color:var(--crit)} .triage-sum .w{border-color:var(--warn)} .triage-sum .o{border-color:var(--good)}
+.outcome{display:grid;grid-template-columns:1fr 1fr minmax(160px,.8fr);gap:10px;margin-top:10px}
+.outcome .col{border-radius:10px;padding:10px 12px;border:1px solid var(--line);background:var(--panel2)}
+.outcome .col.int{background:var(--good-soft);border-color:transparent}
+.outcome .col h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.outcome dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:0;font-size:12.5px}
+.outcome dd{margin:0;text-align:right;font-family:var(--mono)}
+.outcome .gain{display:flex;flex-direction:column;justify-content:center;border-radius:10px;padding:10px 12px;background:var(--ink);color:var(--panel)}
+.outcome .gain b{font:600 26px var(--mono)}
+.research{margin-top:8px;border:1px dashed var(--line);border-radius:9px;padding:6px 10px;font-size:13px}
+.research summary{cursor:pointer;color:var(--ink2)}
+.warnbox{background:var(--warn-soft);border-radius:8px;padding:8px 10px;font-size:12px;margin:8px 0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tv{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:10px}
+.tv .stat .v{font-size:20px}
+.bridge{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bridge div{border-radius:10px;padding:10px 12px;background:var(--panel2);border:1px solid var(--line);font-size:12.5px;position:relative}
+.bridge b{display:block;font-size:13.5px;margin-bottom:4px}
+details.card summary{cursor:pointer;list-style-position:inside}
+@media (max-width:1180px){.hero{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.outcome{grid-template-columns:1fr}.bridge{grid-template-columns:1fr}}
+
+.sickbars{display:flex;align-items:flex-end;gap:6px;height:64px;margin:8px 0 4px}
+.sickbars div{flex:1;border-radius:4px 4px 0 0;background:var(--line);min-height:3px;position:relative}
+.sickbars div.flag{background:var(--crit)}
+.sickdays{display:flex;gap:6px;font:11px var(--mono);color:var(--muted)}
+.sickdays span{flex:1;text-align:center}
+.appwrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:start}
+.phone{width:340px;max-width:100%;border-radius:40px;padding:12px;background:#0d1417;box-shadow:var(--shadow);position:relative}
+.phone-notch{width:110px;height:22px;border-radius:0 0 14px 14px;background:#0d1417;position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:2}
+.phone-body{border-radius:30px;background:var(--bg);min-height:640px;padding:40px 18px 22px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.phone-body[lang=hi]{font-family:"Noto Sans Devanagari",var(--sans)}
+.ph-hello{font-size:13px;color:var(--ink2)}
+.ph-big{display:flex;align-items:baseline;gap:8px}
+.ph-big b{font:600 46px/1 var(--mono);letter-spacing:-.03em}
+.ph-big span{color:var(--ink2);font-size:13px}
+.ph-card{border-radius:18px;padding:14px;background:var(--panel);border:1px solid var(--line)}
+.ph-card.alert{background:var(--warn-soft);border-color:transparent}
+.ph-card.hi{background:var(--crit-soft);border-color:transparent}
+.ph-card.ok{background:var(--good-soft);border-color:transparent}
+.ph-card.sick{background:var(--crit-soft);border-color:var(--crit)}
+.ph-card h3{font-size:15px;margin:0 0 4px}
+.ph-card p{margin:0;font-size:13.5px;line-height:1.45;color:var(--ink)}
+.ph-act{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.ph-act i{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center;font-style:normal}
+.ph-btns{display:flex;gap:8px;margin-top:10px}
+.ph-btns button{flex:1;border-radius:12px;border:0;padding:9px;font-weight:600;background:var(--ink);color:var(--panel);cursor:pointer}
+.ph-btns button.sec{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+.ph-week{display:flex;height:10px;border-radius:5px;overflow:hidden;gap:2px;margin-top:6px}
+.ci{color:var(--muted);font-size:11px;font-family:var(--mono)}
+@media (max-width:860px){.appwrap{grid-template-columns:1fr}.phone{margin:0 auto}}
+@media (max-width:1180px){ .grid{grid-template-columns:1fr} .wi{grid-template-columns:1fr} }
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  .rail{border-right:0;border-bottom:1px solid var(--line)}
+  .plist{max-height:240px}
+  main{padding:14px 16px 40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="app">
+  <aside class="rail" aria-label="Patients">
+    <div class="brand"><div class="brand-mark" aria-hidden="true"></div><div><b>MadhuTwin</b><small>T2D digital twin · clinician console</small></div></div>
+    <div class="clock">
+      <div class="clock-row"><span class="lbl">Twin clock</span><time id="nowlbl"></time></div>
+      <input type="range" id="scrub" min="300" max="2015" step="1" aria-label="Move the twin clock">
+      <div class="clock-row">
+        <button class="btn small" id="play" aria-pressed="false">▶ Replay live</button>
+        <button class="btn small" id="jump">Jump to next alert</button>
+      </div>
+    </div>
+    <div class="rail-h"><span>Triage · sorted by urgency</span><span id="count"></span></div>
+    <div class="triage-sum" id="trisum"></div>
+    <ul class="plist" id="plist"></ul>
+  </aside>
+
+  <main>
+    <header class="phead">
+      <div>
+        <div class="eyebrow" id="pid"></div>
+        <h1 id="pname"></h1>
+        <div class="sub" id="psub"></div>
+        <div class="chips" id="pchips"></div>
+      </div>
+      <div class="chips" id="twinchips"></div>
+    </header>
+
+    <div class="safety" role="note" id="safety"><b>Research prototype</b> · decision support only · not for diagnosis or dosing · clinician judgement required · synthetic India-context patients, replayed data (not a live device feed)</div>
+    <nav class="tabs" role="tablist" aria-label="Views">
+      <button class="tab" role="tab" data-tab="now" aria-selected="true">1 · Now</button>
+      <button class="tab" role="tab" data-tab="whatif" aria-selected="false">2 · What if I intervene?</button>
+      <button class="tab" role="tab" data-tab="app" aria-selected="false">3 · Patient app</button>
+      <button class="tab" role="tab" data-tab="week" aria-selected="false">7-day AGP</button>
+      <button class="tab" role="tab" data-tab="record" aria-selected="false">Record &amp; twin</button>
+      <button class="tab" role="tab" data-tab="model" aria-selected="false">Evidence &amp; model card</button>
+    </nav>
+
+    <!-- NOW -->
+    <section data-view="now" class="stack">
+    <div class="hero" id="hero"></div>
+    <div class="grid">
+      <div class="stack">
+        <div class="card">
+          <h2>Glucose, last 24 h and the 2-hour ML forecast <small id="fcnote"></small></h2>
+          <div class="chartwrap" id="mainchart"></div>
+          <div class="legend">
+            <span><i style="background:var(--cgm)"></i>CGM (mg/dL)</span>
+            <span><i class="sq" style="background:var(--cgm-soft)"></i>ML forecast (+30/+60/+120), empirical 80% band</span>
+            <span><i style="background:var(--future)"></i>What actually happened (replay only)</span>
+            <span><i class="sq" style="background:var(--band)"></i>Target 70–180</span>
+            <span><i style="background:var(--risk)"></i>2-h spike risk</span>
+            <span><i class="sq" style="background:var(--step)"></i>Steps · ▲ logged meal</span>
+            <span><i class="sq" style="background:var(--sleep2)"></i>Sleep</span>
+          </div>
+          <label class="toggle" style="margin-top:8px"><input type="checkbox" id="showfuture"> Show what actually happened after "now" (validation view)</label>
+        </div>
+        <div class="card">
+          <h2>Alert log <small>last 24 h · one alert per hour at most</small></h2>
+          <ul class="alerts" id="alerts"></ul>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="card" id="twinstate"></div>
+        <div class="card" id="todaybase"></div>
+        <div class="card" id="sickcard"></div>
+        <div class="card">
+          <h2>Detailed drivers <small>top 5 model inputs (SHAP)</small></h2>
+          <ul class="why" id="why"></ul>
+        </div>
+        <div class="card">
+          <h2>Options to discuss <small>advisory only · clinician decides</small></h2>
+          <div class="actions" id="actions"></div>
+        </div>
+        <details class="card">
+          <summary><h2 style="display:inline">Clinician notes <small>kept for this session</small></h2></summary>
+          <textarea id="notetext" placeholder="e.g. Discussed post-lunch walk; review in 2 weeks." style="margin-top:8px"></textarea>
+          <div style="margin-top:6px"><button class="btn small" id="addnote">Add note</button></div>
+          <ul class="notes" id="notes"></ul>
+        </details>
+      </div>
+    </div>
+    </section>
+
+    <!-- WHAT-IF -->
+    <section data-view="whatif" hidden>
+      <div class="wi">
+        <div class="card">
+          <h2>Try a change</h2>
+          <div class="presets">
+            <button class="btn small" data-preset="walk">+ 20-min walk</button>
+            <button class="btn small" data-preset="millet">Rice → millet</button>
+            <button class="btn small" data-preset="portion">Portion −30%</button>
+            <button class="btn small" data-preset="reset">Reset</button>
+          </div>
+          <div class="field"><label for="wslot">Meal</label>
+            <select id="wslot"><option value="breakfast">Breakfast</option><option value="lunch" selected>Lunch</option><option value="snack">Evening snack</option><option value="dinner">Dinner</option></select></div>
+          <div class="field"><label for="wbase">Usual meal (baseline)</label><select id="wbase"></select></div>
+          <div class="field"><label for="wfood">Change it to</label><select id="wfood"></select></div>
+          <div class="field"><label for="wportion">Portion <output id="wportiono">100%</output></label><input type="range" id="wportion" min="40" max="150" step="5" value="100"></div>
+          <div class="field"><label for="wwalk">Walk after the meal <output id="wwalko">0 min</output></label><input type="range" id="wwalk" min="0" max="45" step="5" value="0"></div>
+          <div class="field"><label for="wdelay">Start walking after <output id="wdelayo">15 min</output></label><input type="range" id="wdelay" min="0" max="60" step="5" value="15"></div>
+          <details class="research">
+            <summary>Research simulation (medication)</summary>
+            <p class="warnbox">Illustrative only, not treatment guidance. The twin models SGLT2 inhibition as a lower renal glucose threshold; it does not capture dosing, contraindications, ketoacidosis risk or individual drug response.</p>
+            <label class="toggle"><input type="checkbox" id="wsglt2"> Simulate an SGLT2 inhibitor</label>
+          </details>
+          <p class="note" style="margin-top:12px">Each curve is this patient's personalised twin (insulin sensitivity, beta-cell function, basal glucose and dawn rise fitted from their EHR and first week of CGM) re-simulated minute by minute in your browser.</p>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <h2 id="wititle">Predicted response <small id="wisub"></small></h2>
+            <div class="chartwrap" id="wichart"></div>
+            <div class="legend"><span><i style="background:var(--future)"></i>Usual meal</span><span><i style="background:var(--accent)"></i>With your change</span><span><i class="sq" style="background:var(--band)"></i>Target 70–180</span></div>
+            <div class="outcome" id="widelta"></div>
+          </div>
+          <div class="card">
+            <h2>How accurate is the what-if? <small>against synthetic ground truth · not validated on real patients</small></h2>
+            <div id="wivalid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEK -->
+    <section data-view="week" hidden class="stack">
+      <div class="card"><h2>Glucose summary, last 7 days <small>International Consensus on Time in Range targets</small></h2><div class="stats" id="wkstats"></div>
+        <div style="margin-top:14px" class="eyebrow">Time in ranges</div><div class="tir" id="tirbar"></div><div class="tirleg" id="tirleg"></div></div>
+      <div class="card"><h2>Ambulatory glucose profile <small>all 7 days folded onto one day</small></h2><div class="chartwrap" id="agp"></div>
+        <div class="legend"><span><i style="background:var(--cgm)"></i>Median</span><span><i class="sq" style="background:var(--cgm-soft)"></i>25–75th percentile</span><span><i class="sq" style="background:rgba(42,120,214,.07);border:1px solid var(--cgm-soft)"></i>5–95th percentile</span><span><i class="sq" style="background:var(--step)"></i>Logged meals</span></div></div>
+      <div class="card"><h2>Lifestyle signals <small>from the smartwatch</small></h2><div class="stats" id="lifestats"></div></div>
+    </section>
+
+    <!-- RECORD -->
+    <section data-view="record" hidden class="grid">
+      <div class="stack">
+        <div class="card"><h2>Twin physiology <small>personalised from EHR + week-1 CGM</small></h2><div class="tw" id="twinphys"></div>
+          <p class="note" style="margin-top:10px">Disposition index = insulin sensitivity × beta-cell response: the single best summary of how well this patient's body handles a carbohydrate load.</p></div>
+        <div class="card"><h2>Laboratory results</h2><div style="overflow-x:auto"><table id="labs"></table></div></div>
+      </div>
+      <div class="stack">
+        <div class="card"><h2>HbA1c trend</h2><div id="a1c"></div></div>
+        <div class="card"><h2>Diagnoses</h2><div class="chips" id="dx"></div></div>
+        <div class="card"><h2>Medications</h2><div class="chips" id="rx"></div></div>
+        <div class="card"><h2>Genetic markers</h2><div id="gen"></div></div>
+        <div class="card"><h2>Learned meal habits</h2><div style="overflow-x:auto"><table id="habits"></table></div></div>
+      </div>
+    </section>
+
+    <!-- PATIENT APP -->
+    <section data-view="app" hidden>
+      <div class="appwrap">
+        <div class="phone" aria-label="Patient app preview">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="phone-body" id="phone"></div>
+        </div>
+        <div class="card appside">
+          <h2>What the patient sees <small>same twin, plain words</small></h2>
+          <p class="note" style="margin-top:0">The doctor's alert becomes a gentle nudge on the patient's phone, in English or Hindi, timed before the usual meal. More Indian languages can be added from a strings table.</p>
+          <div class="presets" role="group" aria-label="Language">
+            <button class="btn small" data-lang="en" aria-pressed="true">English</button>
+            <button class="btn small" data-lang="hi" aria-pressed="false">हिन्दी</button>
+          </div>
+          <p class="note">Design rules: one message at a time, no numbers the patient has to interpret, always one doable action, and an escalation path ("call your doctor") for sick days. Notification wording is reviewed by the treating clinician.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODEL -->
+    <section data-view="model" hidden class="stack">
+      <div class="card"><h2>Why a digital twin? <small>measured, not asserted</small></h2><div id="twinvalue"></div></div>
+      <div class="card"><h2>The operating point <small>what a clinic actually experiences</small></h2><div id="oppoint"></div></div>
+      <div class="grid2">
+        <div class="card"><h2>Calibration <small>does "80% risk" mean 80%?</small></h2><div id="calib"></div></div>
+        <div class="card"><h2>Which data streams matter <small>AUROC, ≥180 mg/dL within 2 h</small></h2><div id="ablation"></div></div>
+      </div>
+      <div class="card"><h2>How well does it work? <small>held-out synthetic evaluation · 45 virtual patients, days 8–21</small></h2><div class="mgrid" id="mtiles"></div></div>
+      <div class="card"><h2>Pick an alert threshold <small>sensitivity vs alert burden · all figures from delivered alerts</small></h2><div style="overflow-x:auto"><table id="ops"></table></div></div>
+      <div class="card"><h2>From synthetic to real <small>three validation stages</small></h2><div id="bridge"></div></div>
+      <div class="card"><h2>Retrospective open-cohort evaluation <small>265 adults · mostly prediabetes / normoglycaemic · CGM + labs only</small></h2><div id="realworld"></div></div>
+      <div class="card"><h2>Model-mismatch stress test <small>generator physics differs from the Twin's assumptions</small></h2><div id="stress"></div></div>
+      <div class="grid2">
+        <div class="card"><h2>Data provenance <small>sandbox rules</small></h2><div style="overflow-x:auto"><table id="prov"></table></div></div>
+        <div class="card"><h2>No peeking at the future <small>leakage &amp; splits</small></h2><div id="leak"></div></div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h2>Subgroup performance <small>exploratory · synthetic test set · 95% CI</small></h2><div style="overflow-x:auto"><table id="fair"></table></div></div>
+        <div class="card"><h2>Speed on a laptop CPU <small>measured</small></h2><div id="latency"></div></div>
+      </div>
+      <div class="card"><h2>Limitations &amp; next validation phase</h2><div id="limits"></div>
+        <p class="disclaimer">Research prototype for the Happiest Health Digital Twin Challenge 2026. Not a medical device; not for diagnosis, dosing or clinical decisions. Patients in this console are synthetic (India-context simulation) and their data are replayed, not streamed from devices; the retrospective real-data check uses open, de-identified cohorts and is a separate experiment.</p></div>
+    </section>
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script>
+(() => {
+"use strict";
+const D = window.MADHU_DATA;
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const NS = "http://www.w3.org/2000/svg";
+const STEP = D.step_min, THR = D.threshold, N = D.patients[0].cgm.length;
+const START = new Date(D.start.endsWith("Z") ? D.start : D.start + "Z");
+const FEATS = D.features, FGRP = D.feature_groups;
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+const state = { pi: 0, now: 0, tab: "now", playing: false, ack: {}, notes: {}, showFuture: false, wi: null };
+
+// ---------- helpers ----------
+function svg(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const pad2 = n => String(n).padStart(2, "0");
+function tAt(i) { return new Date(START.getTime() + i * STEP * 60000); }
+function fmtTime(i) { const d = tAt(i); return `${pad2(d.getUTCHours())}:${pad2(d.getUTCMinutes())}`; }
+function fmtDay(i) { const d = tAt(i); return d.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" }); }
+function fmtClock(min) { min = ((Math.round(min) % 1440) + 1440) % 1440; return `${pad2(Math.floor(min / 60))}:${pad2(min % 60)}`; }
+function lastValid(arr, i, back = 3) { for (let k = i; k >= Math.max(0, i - back); k--) if (arr[k] != null) return arr[k]; return null; }
+function riskClass(r, g) { if (g != null && g >= 180) return "hi"; if (r == null) return "neutral"; return r >= 70 ? "crit" : r >= THR * 100 ? "warn" : "ok"; }
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+// ---------- alerts: delivered by the Python alert policy (madhutwin/alerting.py), exported in data.js ----------
+// alertsFor() is only a fallback for old data bundles.
+function alertsFor(p) {
+  const out = []; let last = -1e9;
+  for (let i = 0; i < N; i++) if (p.risk[i] != null && p.risk[i] >= THR * 100 && i - last >= 12) { out.push(i); last = i; }
+  return out;
+}
+function onsets(p) {
+  const o = []; const c = p.cgm;
+  for (let i = 1; i < N - 2; i++) if (c[i] >= 180 && c[i + 1] >= 180 && c[i + 2] >= 180 && !(c[i - 1] >= 180)) o.push(i);
+  return o;
+}
+D.patients.forEach(p => { p._alerts = p.alerts || alertsFor(p); p._onsets = onsets(p); });
+const MIN_READ = D.min_readings_last_hour || 9;
+function readingsLastHour(p, i) { let n = 0; for (let k = Math.max(0, i - 11); k <= i; k++) if (p.cgm[k] != null) n++; return n; }
+
+// ---------- initial "now": a pre-meal alert with the spike still ahead ----------
+function pickStart() {
+  let best = null;
+  D.patients.forEach((p, pi) => p._alerts.forEach(a => {
+    const nxt = p._onsets.find(o => o > a && o <= a + 24);
+    const g = lastValid(p.cgm, a);
+    if (nxt && nxt - a >= 10 && g != null && g < 150 && a > 600 && a < N - 60) {
+      const nx = habitNext(p, a + 2), act = nx && nx.dt >= 20 && nx.dt <= 120 ? bestAction(p, a + 2) : null;
+      const gain = act && act.slot ? act.b.peak - act.a.peak : 0;
+      const score = (nxt - a) + (p.risk[a] || 0) / 10 + (gain >= 15 ? 40 + gain / 2 : 0);
+      if (!best || score > best.score) best = { pi, i: a + 2, score };
+    }
+  }));
+  return best || { pi: 0, i: N - 300 };
+}
+
+// ---------- rail ----------
+function sparkline(p, i) {
+  const w = 72, h = 22, a = Math.max(0, i - 72);
+  const s = svg("svg", { width: w, height: h, viewBox: `0 0 ${w} ${h}`, class: "spark", "aria-hidden": "true" });
+  const y = v => h - 2 - (Math.min(Math.max(v, 60), 320) - 60) / 260 * (h - 4);
+  svg("rect", { x: 0, y: y(180), width: w, height: y(70) - y(180), fill: css("--band") }, s);
+  let d = "", pen = false;
+  for (let k = a; k <= i; k++) { const v = p.cgm[k]; if (v == null) { pen = false; continue; } const x = (k - a) / 72 * w; d += (pen ? "L" : "M") + x.toFixed(1) + " " + y(v).toFixed(1); pen = true; }
+  svg("path", { d, fill: "none", stroke: css("--cgm"), "stroke-width": 1.5 }, s);
+  return s;
+}
+function urgency(p, i) {
+  const g = lastValid(p.cgm, i), r = lastValid(p.risk, i, 1), tte = lastValid(p.tte, i, 1);
+  if (g != null && g >= 180) return { level: "hi", key: 3 + g / 1000, g, r, tte };
+  if (r != null && r >= THR * 100) {
+    // risk x time-to-event x confidence: sooner and more certain alerts first
+    const soon = tte != null ? Math.max(0, 120 - tte) / 120 : 0.5;
+    const conf = (lastValid(p.risk_sd, i, 1) ?? 5) < 8 ? 1 : 0.85;
+    return { level: r >= 70 ? "crit" : "warn", key: 1 + (r / 100) * (0.6 + 0.4 * soon) * conf, g, r, tte };
+  }
+  return { level: r == null ? "neutral" : "ok", key: (r ?? 0) / 100, g, r, tte };
+}
+function renderRail() {
+  const i = state.now;
+  const rows = D.patients.map((p, pi) => ({ p, pi, ...urgency(p, i) })).sort((a, b) => b.key - a.key);
+  const ul = $("#plist"); ul.innerHTML = "";
+  const cnt = { attn: 0, watch: 0, ok: 0 };
+  rows.forEach(({ p, pi, g, r, tte, level }) => {
+    if (level === "hi" || level === "crit") cnt.attn++; else if (level === "warn") cnt.watch++; else cnt.ok++;
+    const li = el("li", "pitem"); li.tabIndex = 0; li.setAttribute("role", "button");
+    li.setAttribute("aria-current", pi === state.pi ? "true" : "false");
+    const sev = el("div", "sev " + (level === "hi" ? "crit" : level === "neutral" ? "" : level));
+    const sub = level === "hi" ? "above range now" : (level === "crit" || level === "warn") && tte != null ? `spike in ~${Math.max(5, Math.round(tte / 5) * 5)} min` : `${p.age}${p.sex} · ${esc(p.city)}`;
+    const mid = el("div", "", `<div class="pname">${esc(p.name)}</div><div class="pmeta">${sub}</div>`);
+    mid.appendChild(sparkline(p, i));
+    const lab = level === "hi" ? `${g} now` : r == null ? "—" : `${r}%`;
+    const right = el("div", "pright", `<span class="pill ${level}">${level === "hi" ? "▲ " : level === "crit" ? "● " : ""}${lab}</span><div class="pmeta num" style="margin-top:4px">${g ?? "–"} mg/dL</div>`);
+    li.append(sev, mid, right);
+    const go = () => { state.pi = pi; renderAll(); };
+    li.onclick = go; li.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } };
+    ul.appendChild(li);
+  });
+  $("#trisum").innerHTML = `<div class="c"><b>${cnt.attn}</b>need attention</div><div class="w"><b>${cnt.watch}</b>watch</div><div class="o"><b>${cnt.ok}</b>stable</div>`;
+  $("#count").textContent = `${rows.length} monitored`;
+  $("#nowlbl").textContent = `${fmtDay(i)} · ${fmtTime(i)}`;
+  $("#scrub").value = i;
+}
+
+// ---------- header ----------
+function renderHeader() {
+  const p = D.patients[state.pi], e = p.ehr;
+  $("#pid").textContent = `${p.id} · synthetic patient`;
+  $("#pname").textContent = p.name;
+  $("#psub").textContent = `${p.age} y · ${p.sex === "M" ? "Male" : "Female"} · ${p.city}, ${p.region} India · T2D for ${e.duration.toFixed(1)} y`;
+  const meds = [...new Set(e.med_classes)].filter(m => !["statin", "arb"].includes(m)).map(m => ({ metformin: "Metformin", sulfonylurea: "Glimepiride", dpp4: "Sitagliptin", sglt2: "Dapagliflozin", basal_insulin: "Glargine" }[m]));
+  $("#pchips").innerHTML = [
+    `HbA1c <b>${e.hba1c.toFixed(1)}%</b>`, `BMI <b>${e.bmi.toFixed(1)}</b>`, `eGFR <b>${e.egfr}</b>`, `HOMA-IR <b>${e.homa_ir}</b>`,
+    meds.length ? `Rx <b>${meds.join(", ")}</b>` : "No glucose-lowering Rx"
+  ].map(t => `<span class="chip">${t}</span>`).join("");
+  const di = p.twin.SI * p.twin.sigma * 1e5;
+  $("#twinchips").innerHTML = [
+    `Twin · insulin sensitivity <b class="num">${(p.twin.SI * 1e4).toFixed(2)}</b>`,
+    `β-cell <b class="num">${(p.twin.sigma * 100).toFixed(1)}</b>`,
+    `disposition <b class="num">${di.toFixed(2)}</b>`,
+  ].map(t => `<span class="chip">${t}</span>`).join("");
+}
+
+// ---------- main chart ----------
+function renderMain() {
+  const p = D.patients[state.pi], i = state.now;
+  const host = $("#mainchart"); host.innerHTML = "";
+  const W = Math.max(320, host.clientWidth), H = W < 560 ? 330 : 380;
+  const m = { l: 38, r: 12, t: 10 }, gH = H * 0.60, rT = gH + 16, rH = H * 0.16, sT = rT + rH + 12, sH = H - (rT + rH + 12) - 20;
+  const a = Math.max(0, i - 288), b = Math.min(N - 1, i + 24);
+  const span = 312;
+  const x = k => m.l + (k - (i - 288)) / span * (W - m.l - m.r);
+  const yMax = 350, yMin = 40;
+  const y = v => m.t + (1 - (Math.min(Math.max(v, yMin), yMax) - yMin) / (yMax - yMin)) * (gH - m.t);
+  const s = svg("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Glucose chart with forecast and risk" }, host);
+  // grid + band
+  svg("rect", { x: m.l, y: y(180), width: W - m.l - m.r, height: y(70) - y(180), fill: css("--band") }, s);
+  [70, 180, 250, 300].forEach(v => {
+    svg("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: v === 180 ? css("--crit") : css("--grid"), "stroke-width": v === 180 ? 0.8 : 1, "stroke-opacity": v === 180 ? .6 : 1 }, s);
+    svg("text", { x: m.l - 6, y: y(v) + 3.5, "text-anchor": "end", class: "tick" }, s).textContent = v;
+  });
+  // hour ticks
+  for (let k = a; k <= b; k++) {
+    const mins = ((k * STEP + START.getUTCHours() * 60) % 1440);
+    if (mins % 180 === 0) {
+      svg("line", { x1: x(k), x2: x(k), y1: m.t, y2: sT + sH, stroke: css("--grid") }, s);
+      svg("text", { x: x(k), y: H - 4, "text-anchor": "middle", class: "tick" }, s).textContent = fmtTime(k);
+    }
+  }
+  // future zone
+  svg("rect", { x: x(i), y: m.t, width: x(i + 24) - x(i), height: sT + sH - m.t, fill: css("--panel2"), opacity: .8 }, s);
+  // meals
+  p.meals.filter(ml => ml[0] >= a && ml[0] <= i).forEach(ml => {
+    const g = svg("g", {}, s);
+    svg("path", { d: `M${x(ml[0]) - 5} ${gH + 2} L${x(ml[0]) + 5} ${gH + 2} L${x(ml[0])} ${gH - 7} Z`, fill: css("--step") }, g);
+    svg("title", {}, g).textContent = `${fmtTime(ml[0])} ${ml[1]} · ${ml[2]} g carbs · GI ${ml[3]}`;
+  });
+  // CGM path
+  const path = (from, to, key) => { let d = "", pen = false; for (let k = from; k <= to; k++) { const v = p[key][k]; if (v == null) { pen = false; continue; } d += (pen ? "L" : "M") + x(k).toFixed(1) + " " + y(v).toFixed(1); pen = true; } return d; };
+  if (state.showFuture) svg("path", { d: path(i, b, "cgm"), fill: "none", stroke: css("--future"), "stroke-width": 1.6 }, s);
+  svg("path", { d: path(a, i, "cgm"), fill: "none", stroke: css("--cgm"), "stroke-width": 2, "stroke-linejoin": "round" }, s);
+  // forecast cone
+  const g0 = lastValid(p.cgm, i);
+  const f = p.fc;
+  if (g0 != null && f.f30[i] != null) {
+    const pts = [[0, g0, g0, g0], [6, f.f30[i], f.f30_q10[i], f.f30_q90[i]], [12, f.f60[i], f.f60_q10[i], f.f60_q90[i]], [24, f.f120[i], f.f120_q10[i], f.f120_q90[i]]];
+    const up = pts.map(q => `${x(i + q[0])},${y(q[3])}`), lo = pts.slice().reverse().map(q => `${x(i + q[0])},${y(q[2])}`);
+    svg("polygon", { points: up.concat(lo).join(" "), fill: css("--cgm-soft") }, s);
+    svg("polyline", { points: pts.map(q => `${x(i + q[0])},${y(q[1])}`).join(" "), fill: "none", stroke: css("--cgm"), "stroke-width": 2, opacity: .85 }, s);
+    pts.slice(1).forEach(q => svg("circle", { cx: x(i + q[0]), cy: y(q[1]), r: 3.5, fill: css("--panel"), stroke: css("--cgm"), "stroke-width": 2 }, s));
+    const last = pts[3];
+    svg("text", { x: x(i + 24) - 2, y: y(last[1]) - 8, "text-anchor": "end", style: `fill:${css("--ink")};font:600 11px var(--mono)` }, s).textContent = `${last[1]}`;
+    $("#fcnote").textContent = `ML forecast at +2 h: ${last[1]} mg/dL (empirical 80% band ${last[2]}–${last[3]})`;
+  } else {
+    $("#fcnote").textContent = g0 != null && g0 >= 180 ? "already above range: forecast paused" : "";
+  }
+  // now line
+  svg("line", { x1: x(i), x2: x(i), y1: m.t, y2: sT + sH, stroke: css("--ink"), "stroke-width": 1.2 }, s);
+  svg("text", { x: x(i) + 4, y: m.t + 10, style: `fill:${css("--ink")};font:600 11px var(--sans)` }, s).textContent = "now";
+  if (g0 != null) svg("circle", { cx: x(i), cy: y(g0), r: 5, fill: css("--cgm"), stroke: css("--panel"), "stroke-width": 2 }, s);
+  // risk lane
+  svg("text", { x: m.l - 6, y: rT + 9, "text-anchor": "end", class: "tick" }, s).textContent = "risk";
+  svg("line", { x1: m.l, x2: W - m.r, y1: rT + rH, y2: rT + rH, stroke: css("--grid") }, s);
+  const ry = v => rT + rH - v / 100 * rH;
+  svg("line", { x1: m.l, x2: W - m.r, y1: ry(THR * 100), y2: ry(THR * 100), stroke: css("--ink2"), "stroke-width": .8, opacity: .6 }, s);
+  let d = "", seg = [];
+  const flush = () => { if (seg.length > 1) { const top = seg.map(([k, v]) => `${x(k)},${ry(v)}`).join(" "); svg("polygon", { points: `${x(seg[0][0])},${ry(0)} ${top} ${x(seg[seg.length - 1][0])},${ry(0)}`, fill: css("--risk-soft") }, s); svg("polyline", { points: top, fill: "none", stroke: css("--risk"), "stroke-width": 1.6 }, s); } seg = []; };
+  for (let k = a; k <= i; k++) { const v = p.risk[k]; if (v == null) { flush(); continue; } seg.push([k, v]); }
+  flush();
+  p._alerts.filter(k => k >= a && k <= i).forEach(k => svg("path", { d: `M${x(k) - 5} ${ry(p.risk[k]) - 10} L${x(k) + 5} ${ry(p.risk[k]) - 10} L${x(k)} ${ry(p.risk[k]) - 2} Z`, fill: css("--crit") }, s));
+  // steps + sleep lane
+  const maxS = 500;
+  for (let k = a; k <= i; k++) {
+    const st = p.stage[k];
+    if (st > 0) svg("rect", { x: x(k), y: sT, width: Math.max(1, x(k + 1) - x(k)), height: 5, fill: css(st === 2 ? "--sleep2" : st === 3 ? "--sleep3" : "--sleep1") }, s);
+    const v = p.steps[k]; if (v > 0) { const hh = Math.min(v, maxS) / maxS * (sH - 8); svg("rect", { x: x(k), y: sT + sH - hh, width: Math.max(1, x(k + 1) - x(k) - .5), height: hh, fill: css("--step") }, s); }
+  }
+  svg("text", { x: m.l - 6, y: sT + 9, "text-anchor": "end", class: "tick" }, s).textContent = "act.";
+  // hover
+  const tip = el("div", "tip"); tip.hidden = true; host.appendChild(tip);
+  const cross = svg("line", { y1: m.t, y2: sT + sH, stroke: css("--ink2"), "stroke-width": .8, opacity: 0 }, s);
+  const hit = svg("rect", { x: m.l, y: 0, width: W - m.l - m.r, height: H, fill: "transparent" }, s);
+  hit.addEventListener("pointermove", ev => {
+    const r = s.getBoundingClientRect(); const px = ev.clientX - r.left;
+    const k = Math.round((px - m.l) / (W - m.l - m.r) * span + (i - 288));
+    if (k < a || k > b) { tip.hidden = true; return; }
+    const shown = k <= i || state.showFuture;
+    const g = shown ? p.cgm[k] : null, rv = k <= i ? p.risk[k] : null;
+    cross.setAttribute("x1", x(k)); cross.setAttribute("x2", x(k)); cross.setAttribute("opacity", 1);
+    tip.hidden = false; tip.style.left = x(k) + "px"; tip.style.top = (g != null ? y(g) : m.t + 30) + "px";
+    tip.innerHTML = `${fmtDay(k)} ${fmtTime(k)}<br>glucose <b>${g ?? "–"}</b>${rv != null ? ` · risk <b>${rv}%</b>` : ""}${k <= i && p.steps[k] ? ` · ${p.steps[k]} steps` : ""}`;
+  });
+  hit.addEventListener("pointerleave", () => { tip.hidden = true; cross.setAttribute("opacity", 0); });
+}
+
+// ---------- gauge + risk card ----------
+function gauge(v, cls) {
+  const s = svg("svg", { width: 96, height: 96, viewBox: "0 0 96 96", class: "gauge", "aria-hidden": "true" });
+  const r = 40, c = 2 * Math.PI * r, frac = v == null ? 0 : v / 100;
+  svg("circle", { cx: 48, cy: 48, r, fill: "none", stroke: css("--line"), "stroke-width": 9 }, s);
+  const col = cls === "crit" || cls === "hi" ? css("--crit") : cls === "warn" ? css("--warn") : css("--good");
+  svg("circle", { cx: 48, cy: 48, r, fill: "none", stroke: col, "stroke-width": 9, "stroke-linecap": "round", "stroke-dasharray": `${c * frac} ${c}`, transform: "rotate(-90 48 48)" }, s);
+  const t = svg("text", { x: 48, y: 53, "text-anchor": "middle", style: `fill:${css("--ink")};font:600 20px var(--mono)` }, s);
+  t.textContent = v == null ? "—" : v + "%";
+  return s;
+}
+function renderRisk() {
+  const p = D.patients[state.pi], i = state.now;
+  const g = lastValid(p.cgm, i), r = p.risk[i], r2 = p.risk250[i];
+  const cls = riskClass(r, g);
+  const card = $("#riskcard"); card.innerHTML = "";
+  card.appendChild(el("h2", "", `Spike risk, next 2 hours <small>${fmtTime(i)}</small>`));
+  const top = el("div", "risk-top"); top.appendChild(gauge(g != null && g >= 180 ? null : r, cls));
+  let msg, sub;
+  if (g != null && g >= 180) { msg = "Above range now"; sub = `Glucose ${g} mg/dL. The twin re-arms once it's back under 180.`; }
+  else if (r == null) { msg = "No reading"; sub = "Sensor gap. Waiting for the next CGM value."; }
+  else if (r >= THR * 100) { msg = "Alert: excursion likely"; sub = `A rise above 180 mg/dL is expected within 2 h.`; }
+  else { msg = "Low risk"; sub = "No excursion expected in the next 2 h."; }
+  top.appendChild(el("div", "risk-state", `${msg}<small>${sub}</small>`));
+  card.appendChild(top);
+  const tte = (() => { if (!state.showFuture) return null; const o = p._onsets.find(o => o > i && o <= i + 24); return o ? (o - i) * STEP : null; })();
+  card.appendChild(el("dl", "kv", `
+    <dt>Glucose now</dt><dd>${g ?? "–"} mg/dL</dd>
+    <dt>Trend (30 min)</dt><dd>${(() => { const b = lastValid(p.cgm, i - 6); return g != null && b != null ? ((g - b) >= 0 ? "+" : "") + (g - b) + " mg/dL" : "–"; })()}</dd>
+    <dt>Risk of ≥250 mg/dL</dt><dd>${r2 != null ? r2 + "%" : "–"}</dd>
+    <dt>Alert threshold</dt><dd>${Math.round(THR * 100)}%</dd>
+    ${state.showFuture ? `<dt>Actual onset</dt><dd>${tte != null ? "in " + tte + " min" : "none in 2 h"}</dd>` : ""}`));
+}
+
+// ---------- explanations ----------
+const H = v => Math.round(v);
+function phrase(f, v) {
+  const n = v == null ? null : v;
+  const map = {
+    hist_spike_rate_tod: () => `Spikes around this time on ${H(n * 100)}% of past days`,
+    twin_proj_peak_habit: () => `Twin projects a peak of ${H(n)} mg/dL, including the usual next meal`,
+    twin_proj_peak: () => `Twin projects ${H(n)} mg/dL from food already eaten`,
+    twin_proj_g60: () => `Twin projects ${H(n)} mg/dL in 1 h`, twin_proj_g30: () => `Twin projects ${H(n)} mg/dL in 30 min`,
+    twin_proj_g120: () => `Twin projects ${H(n)} mg/dL in 2 h`, twin_proj_g120_habit: () => `Twin projects ${H(n)} mg/dL in 2 h with usual meal`,
+    mins_to_habit_meal: () => n == null ? "No usual meal due soon" : `Usual meal due in about ${H(n)} min`,
+    habit_meal_carbs: () => `Usual next meal is about ${H(n)} g carbs`, habit_meal_gi: () => `Usual next meal GI ${H(n)}`,
+    habit_meal_freq: () => `Eats this meal on ${H(n * 100)}% of days`,
+    g_now: () => `Glucose now ${H(n)} mg/dL`, g_delta_5m: () => `${n >= 0 ? "Up" : "Down"} ${Math.abs(H(n))} mg/dL in 5 min`,
+    g_delta_15m: () => `${n >= 0 ? "Up" : "Down"} ${Math.abs(H(n))} mg/dL in 15 min`, g_delta_30m: () => `${n >= 0 ? "Up" : "Down"} ${Math.abs(H(n))} mg/dL in 30 min`,
+    g_delta_60m: () => `${n >= 0 ? "Up" : "Down"} ${Math.abs(H(n))} mg/dL in 1 h`, g_accel: () => n >= 0 ? "Rise is speeding up" : "Rise is slowing",
+    g_min_3h: () => `Lowest reading in 3 h: ${H(n)}`, g_max_3h: () => `Highest reading in 3 h: ${H(n)}`, g_mean_1h: () => `1-h average ${H(n)} mg/dL`,
+    g_mean_24h: () => `24-h average ${H(n)} mg/dL`, tar_24h: () => `${H(n * 100)}% of last 24 h above range`, g_std_1h: () => `1-h variability ±${H(n)}`,
+    g_yday_max_next2h: () => `Yesterday this window peaked at ${H(n)} mg/dL`, g_yday_same: () => `Yesterday at this time: ${H(n)} mg/dL`,
+    mins_since_above180: () => `Last above 180: ${n >= 1440 ? "over a day" : H(n) + " min"} ago`, g_cv_24h: () => `24-h variability (CV) ${H(n * 100)}%`,
+    mins_since_meal: () => n >= 1440 ? "No meal logged today" : `Last logged meal ${H(n)} min ago`, last_meal_carbs: () => `Last meal ${H(n)} g carbs`,
+    last_meal_gi: () => `Last meal GI ${H(n)}`, carbs_logged_3h: () => `${H(n)} g carbs logged in 3 h`, carbs_logged_today: () => `${H(n)} g carbs logged today`,
+    twin_gut_carbs_g: () => `About ${H(n)} g carbs still being absorbed`, twin_insulin_action: () => `Insulin action ${n > 1 ? "elevated" : "low"}`,
+    twin_plasma_minus_sensor: () => `Blood glucose ${n >= 0 ? "ahead of" : "behind"} sensor by ${Math.abs(H(n))}`, twin_ex_boost: () => n > 1.03 ? "Recent exercise is boosting insulin sensitivity" : "No recent exercise boost",
+    hr_30m_rel: () => `Heart rate ${H(n)} bpm above night-time baseline`, hr_30m: () => `Heart rate ${H(n)} bpm`,
+    hrv_1h_rel: () => `HRV at ${H(n * 100)}% of personal baseline${n < .85 ? " (stress / illness signal)" : ""}`, hrv_1h: () => `HRV ${H(n)} ms`,
+    asleep_now: () => n > 0 ? "Asleep" : "Awake", sleep_last_h: () => `Slept ${n.toFixed(1)} h last night`, sleep_debt_3n: () => `${n.toFixed(1)} h sleep debt over 3 nights`,
+    deep_frac_last: () => `Deep sleep ${H(n * 100)}% last night`, night_hrv_z: () => `Night HRV ${n < 0 ? "below" : "above"} usual (z ${n.toFixed(1)})`,
+    night_hr_rel: () => `Night heart rate ${n >= 0 ? "+" : ""}${n.toFixed(1)} bpm vs usual`, sleep_tonight_h: () => `${n.toFixed(1)} h asleep so far tonight`,
+    wake_bouts_last: () => `${H(n)} awakenings last night`, night_hr_last: () => `Night heart rate ${H(n)} bpm`, night_hrv_last: () => `Night HRV ${H(n)} ms`,
+    steps_15m: () => `${H(n)} steps in 15 min`, steps_60m: () => `${H(n)} steps in the last hour`, steps_today: () => `${H(n)} steps today`,
+    mins_since_brisk: () => n >= 1440 ? "No brisk walking today" : `Brisk walk ${H(n)} min ago`,
+    tod_sin: () => "Time of day", tod_cos: () => "Time of day", weekend: () => n ? "Weekend routine" : "Weekday routine",
+    twin_SI: () => `Twin insulin sensitivity ${(n * 1e4).toFixed(2)}`, twin_sigma: () => `Twin beta-cell response ${(n * 100).toFixed(1)}`,
+    twin_Gb: () => `Twin basal glucose ${H(n)} mg/dL`, twin_dawn: () => `Dawn rise ${H(n)} mg/dL`, twin_disposition_index: () => `Disposition index ${n.toFixed(2)}`,
+    twin_fit_rmse: () => `Twin fit error ${n.toFixed(0)} mg/dL`,
+  };
+  if (map[f] && (n != null || f === "mins_to_habit_meal")) return map[f]();
+  if (f.startsWith("ehr_")) return `Record: ${f.slice(4).replace(/_/g, " ")} ${n == null ? "–" : (Math.abs(n) < 10 ? n.toFixed(1) : H(n))}`;
+  return `${f.replace(/_/g, " ")} ${n == null ? "–" : n}`;
+}
+const GLABEL = { cgm: "CGM", lifestyle: "watch/log", twin: "twin", ehr: "EHR", context: "clock" };
+function renderWhy() {
+  const p = D.patients[state.pi], i = state.now;
+  const ul = $("#why"); ul.innerHTML = "";
+  let k = i - (i % 3), ex = null;
+  for (let j = k; j >= k - 6; j -= 3) if (p.expl[j]) { ex = p.expl[j]; break; }
+  if (!ex) { ul.appendChild(el("li", "", `<span></span><span class="note">No explanation at this moment (sensor gap or glucose already above range).</span><span></span>`)); return; }
+  const mx = Math.max(...ex.map(e => Math.abs(e[1])), 0.5);
+  ex.forEach(([fi, c, v]) => {
+    const up = c > 0, f = FEATS[fi], grp = FGRP[fi];
+    const li = el("li", "", `<span class="arr ${up ? "up" : "down"}" aria-label="${up ? "raises" : "lowers"} risk">${up ? "↑" : "↓"}</span>
+      <span>${esc(phrase(f, v))}<span class="src">${GLABEL[grp]}</span></span>
+      <span class="bar"><span style="width:${Math.abs(c) / mx * 100}%;background:${up ? css("--crit") : css("--good")}"></span></span>`);
+    ul.appendChild(li);
+  });
+}
+function renderActions() {
+  const p = D.patients[state.pi], i = state.now, box = $("#actions"); box.innerHTML = "";
+  const g = lastValid(p.cgm, i), r = p.risk[i];
+  const tod = (START.getUTCHours() * 60 + i * STEP) % 1440;
+  const next = p.habits.filter(h => h.freq >= .25).map(h => ({ ...h, dt: ((h.time - tod) + 1440) % 1440 })).sort((a, b) => a.dt - b.dt)[0];
+  const add = (t, b) => box.appendChild(el("div", "action", `<b>${t}</b>${b}`));
+  if (g != null && g >= 180) add("Hyperglycaemia in progress", "Encourage 15–20 min of light walking and water; recheck in 60 min. Review if it recurs at this meal.");
+  else if (r != null && r >= THR * 100) {
+    const recent = p.meals.filter(ml => ml[0] <= i && ml[0] > i - 18).pop();
+    if (recent) add("Post-meal rise under way", `${esc(recent[1])} (${recent[2]} g carbs) was logged at ${fmtTime(recent[0])}. A 15–20 min walk now blunts the peak.`);
+    else if (next && next.dt <= 120) add(`Before ${next.slot} (usual ${fmtClock(next.time)})`, `Suggest a lower-GI swap or a smaller portion than the usual ~${next.carbs} g carbs, plus a 15–20 min walk after eating. <a href="#" data-goto="whatif" data-slot="${next.slot}">Test it in the simulator</a>.`);
+    else add("Rising risk, no meal logged", "Glucose pattern suggests food or stress the app hasn't captured. Ask the patient whether they ate or feel unwell.");
+    add("Nudge the patient", "Send a gentle app reminder. The twin will re-check after the next CGM reading.");
+  } else add("No action needed", "Keep monitoring. The twin re-evaluates every 5 minutes.");
+  box.querySelectorAll("[data-goto]").forEach(a => a.onclick = e => { e.preventDefault(); $("#wslot").value = a.dataset.slot; setTab("whatif"); initWhatIf(true); });
+}
+function renderAlerts() {
+  const p = D.patients[state.pi], i = state.now, ul = $("#alerts"); ul.innerHTML = "";
+  const list = p._alerts.filter(k => k <= i && k > i - 288).reverse();
+  if (!list.length) { ul.appendChild(el("li", "", `<span></span><span class="note">No alerts in the last 24 h.</span><span></span>`)); return; }
+  list.forEach(k => {
+    const key = p.id + ":" + k, acked = state.ack[key];
+    const hit = p._onsets.find(o => o > k && o <= k + 24);
+    const outcome = k + 24 > i ? `<span class="out pending">open</span>` : hit ? `<span class="out hit">spike after ${(hit - k) * STEP} min</span>` : `<span class="out miss">no spike</span>`;
+    const li = el("li", acked ? "ack" : "", `<span class="t">${fmtTime(k)}</span><span>Risk ${p.risk[k]}% ${outcome}</span>`);
+    const b = el("button", "btn small", acked ? "Seen" : "Acknowledge"); b.disabled = !!acked;
+    b.onclick = () => { state.ack[key] = true; renderAlerts(); };
+    li.appendChild(b); ul.appendChild(li);
+  });
+}
+function renderNotes() {
+  const p = D.patients[state.pi]; const ul = $("#notes"); ul.innerHTML = "";
+  (state.notes[p.id] || []).forEach(n => ul.appendChild(el("li", "", `<span class="mono" style="color:var(--muted);font-size:11px">${esc(n.t)}</span><br>${esc(n.text)}`)));
+}
+
+// ---------- week / AGP ----------
+function pct(arr, q) { const s = arr.filter(v => v != null).sort((a, b) => a - b); if (!s.length) return null; const k = (s.length - 1) * q, f = Math.floor(k); return s[f] + (s[Math.min(f + 1, s.length - 1)] - s[f]) * (k - f); }
+function renderWeek() {
+  const p = D.patients[state.pi], c = p.cgm.filter(v => v != null);
+  const mean = c.reduce((a, b) => a + b, 0) / c.length, sd = Math.sqrt(c.reduce((a, b) => a + (b - mean) ** 2, 0) / c.length);
+  const gmi = 3.31 + 0.02392 * mean, cv = sd / mean * 100;
+  const fr = f => c.filter(f).length / c.length * 100;
+  const vl = fr(v => v < 54), lo = fr(v => v >= 54 && v < 70), tir = fr(v => v >= 70 && v <= 180), hi = fr(v => v > 180 && v <= 250), vh = fr(v => v > 250);
+  const stat = (v, l, t, bad) => `<div class="stat"><div class="v ${bad ? "bad-t" : ""}">${v}</div><div class="l">${l}</div><div class="t">${t}</div></div>`;
+  $("#wkstats").innerHTML = stat(tir.toFixed(0) + "%", "Time in range 70–180", "target >70%", tir < 70) + stat(mean.toFixed(0), "Mean glucose, mg/dL", "", false) +
+    stat(gmi.toFixed(1) + "%", "GMI (estimated A1c)", `lab HbA1c ${p.ehr.hba1c.toFixed(1)}%`, gmi > 7) + stat(cv.toFixed(0) + "%", "Variability (CV)", "target ≤36%", cv > 36) +
+    stat((hi + vh).toFixed(0) + "%", "Time above 180", "target <25%", hi + vh > 25) + stat((lo + vl).toFixed(1) + "%", "Time below 70", "target <4%", lo + vl > 4) +
+    stat((c.length / N * 100).toFixed(0) + "%", "Sensor wear", "target >70%", false);
+  const parts = [["Very high >250", vh, "--serious"], ["High 181–250", hi, "--warn"], ["In range 70–180", tir, "--good"], ["Low 54–69", lo, "--crit"], ["Very low <54", vl, "--crit"]];
+  $("#tirbar").innerHTML = parts.filter(q => q[1] > 0.2).map(q => `<span style="width:${q[1]}%;background:var(${q[2]})" title="${q[0]}: ${q[1].toFixed(1)}%"></span>`).join("");
+  $("#tirleg").innerHTML = parts.map(q => `<div><i style="background:var(${q[2]})"></i>${q[0]} <b class="num" style="margin-left:auto">${q[1].toFixed(1)}%</b></div>`).join("");
+  // AGP
+  const host = $("#agp"); host.innerHTML = "";
+  const W = Math.max(320, host.clientWidth), Ht = 260, m = { l: 38, r: 10, t: 10, b: 22 };
+  const s = svg("svg", { width: W, height: Ht, viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Ambulatory glucose profile" }, host);
+  const bins = 48, x = b => m.l + b / bins * (W - m.l - m.r), y = v => m.t + (1 - (Math.min(Math.max(v, 40), 350) - 40) / 310) * (Ht - m.t - m.b);
+  svg("rect", { x: m.l, y: y(180), width: W - m.l - m.r, height: y(70) - y(180), fill: css("--band") }, s);
+  [70, 180, 250].forEach(v => { svg("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: css("--grid") }, s); svg("text", { x: m.l - 6, y: y(v) + 3.5, "text-anchor": "end", class: "tick" }, s).textContent = v; });
+  const q = { 5: [], 25: [], 50: [], 75: [], 95: [] };
+  for (let bIdx = 0; bIdx <= bins; bIdx++) {
+    const vals = []; const b0 = bIdx % bins;
+    for (let k = 0; k < N; k++) { const tod = (START.getUTCHours() * 60 + k * STEP) % 1440; if (Math.floor(tod / 30) === b0 || (Math.floor(tod / 30) === (b0 + bins - 1) % bins && tod % 30 >= 15) || (Math.floor(tod / 30) === (b0 + 1) % bins && tod % 30 < 15)) vals.push(p.cgm[k]); }
+    for (const k in q) q[k].push(pct(vals, k / 100));
+  }
+  const band = (lo, hi, fill) => svg("polygon", { points: q[hi].map((v, b) => `${x(b)},${y(v)}`).concat(q[lo].map((v, b) => `${x(b)},${y(v)}`).reverse()).join(" "), fill }, s);
+  band(5, 95, "rgba(42,120,214,.08)"); band(25, 75, css("--cgm-soft"));
+  svg("polyline", { points: q[50].map((v, b) => `${x(b)},${y(v)}`).join(" "), fill: "none", stroke: css("--cgm"), "stroke-width": 2 }, s);
+  for (let h = 0; h <= 24; h += 3) svg("text", { x: x(h * 2), y: Ht - 5, "text-anchor": "middle", class: "tick" }, s).textContent = `${pad2(h % 24)}:00`;
+  p.meals.forEach(ml => { const tod = (START.getUTCHours() * 60 + ml[0] * STEP) % 1440; svg("circle", { cx: x(tod / 30), cy: Ht - m.b - 4, r: 2.5, fill: css("--step"), opacity: .6 }, s); });
+  // lifestyle
+  const days = N / 288, steps = p.steps.reduce((a, b) => a + (b || 0), 0) / days;
+  let sleepMin = 0; p.stage.forEach(v => { if (v > 0) sleepMin += STEP; });
+  const hrv = p.hrv.filter((v, k) => v != null && p.stage[k] === 0), hrvM = hrv.reduce((a, b) => a + b, 0) / hrv.length;
+  const hr = p.hr.filter((v, k) => v != null && p.stage[k] > 0), hrM = hr.reduce((a, b) => a + b, 0) / hr.length;
+  $("#lifestats").innerHTML = stat(Math.round(steps).toLocaleString("en-IN"), "Steps per day", "target ≥7,000", steps < 7000) + stat((sleepMin / 60 / days).toFixed(1) + " h", "Sleep per night", "target 7–9 h", sleepMin / 60 / days < 6.5) +
+    stat(Math.round(hrM), "Sleeping heart rate", "bpm", false) + stat(Math.round(hrvM) + " ms", "Daytime HRV (RMSSD)", "higher = more recovered", false) + stat(p.meals.length, "Meals logged", `${(p.meals.length / days).toFixed(1)} per day`, false);
+}
+
+// ---------- record ----------
+function renderRecord() {
+  const p = D.patients[state.pi], e = p.ehr, t = p.twin;
+  const tile = (v, l, t2) => `<div class="stat"><div class="v">${v}</div><div class="l">${l}</div><div class="t">${t2}</div></div>`;
+  $("#twinphys").innerHTML = tile((t.SI * 1e4).toFixed(2), "Insulin sensitivity", "×10⁻⁴ /min per µU/mL") + tile((t.sigma * 100).toFixed(1), "Beta-cell response", "secretory gain ×100") +
+    tile((t.SI * t.sigma * 1e5).toFixed(2), "Disposition index", "cohort median ≈ 0.7") + tile(Math.round(t.Gb), "Basal glucose", "mg/dL, fasting set-point") +
+    tile("+" + Math.round(t.dawn), "Dawn rise", "mg/dL, 03:00→06:30") + tile("±" + t.rmse, "Twin fit error", "mg/dL on week-1 CGM");
+  const rows = [["HbA1c", e.hba1c.toFixed(1), "%", "<7.0", e.hba1c >= 7], ["Fasting plasma glucose", e.fpg, "mg/dL", "80–130", e.fpg > 130], ["HOMA-IR", e.homa_ir, "", "<2.5", e.homa_ir >= 2.5],
+    ["HOMA-B", e.homa_b, "%", "", false], ["BMI", e.bmi.toFixed(1), "kg/m²", "<23 (Asian)", e.bmi >= 25], ["Waist", e.waist.toFixed(0), "cm", "<90 M / <80 F", e.waist >= (p.sex === "M" ? 90 : 80)],
+    ["Blood pressure", `${e.sbp}/${e.dbp}`, "mmHg", "<130/80", e.sbp >= 130 || e.dbp >= 80], ["Triglycerides", e.tg, "mg/dL", "<150", e.tg >= 150], ["HDL", e.hdl, "mg/dL", ">40 M / >50 F", e.hdl < (p.sex === "M" ? 40 : 50)],
+    ["LDL", e.ldl, "mg/dL", "<100", e.ldl >= 100], ["eGFR", e.egfr, "mL/min/1.73m²", "≥60", e.egfr < 60]];
+  $("#labs").innerHTML = `<thead><tr><th>Test</th><th style="text-align:right">Value</th><th>Unit</th><th>Target</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${r[0]}</td><td class="n ${r[4] ? "flag" : ""}">${r[1]}</td><td>${r[2]}</td><td style="color:var(--muted)">${r[3]}</td></tr>`).join("") + "</tbody>";
+  // A1c trend
+  const host = $("#a1c"); host.innerHTML = "";
+  const W = Math.max(260, host.clientWidth), Ht = 140, m = { l: 34, r: 30, t: 16, b: 22 };
+  const pts = e.hba1c_hist.map(([d, v]) => [new Date(d).getTime(), v]).sort((a, b) => a[0] - b[0]);
+  const t0 = pts[0][0], t1 = pts[pts.length - 1][0], lo = Math.min(6.5, ...pts.map(q => q[1])) - .3, hi = Math.max(...pts.map(q => q[1])) + .4;
+  const s = svg("svg", { width: W, height: Ht, viewBox: `0 0 ${W} ${Ht}` }, host);
+  const x = tt => m.l + (tt - t0) / (t1 - t0 || 1) * (W - m.l - m.r), y = v => m.t + (1 - (v - lo) / (hi - lo)) * (Ht - m.t - m.b);
+  svg("line", { x1: m.l, x2: W - m.r, y1: y(7), y2: y(7), stroke: css("--good"), "stroke-width": .8 }, s);
+  svg("text", { x: W - m.r + 2, y: y(7) + 3, class: "tick" }, s).textContent = "7%";
+  svg("polyline", { points: pts.map(q => `${x(q[0])},${y(q[1])}`).join(" "), fill: "none", stroke: css("--cgm"), "stroke-width": 2 }, s);
+  pts.forEach(q => { svg("circle", { cx: x(q[0]), cy: y(q[1]), r: 4, fill: css("--panel"), stroke: css("--cgm"), "stroke-width": 2 }, s); svg("text", { x: x(q[0]), y: y(q[1]) - 8, "text-anchor": "middle", class: "tick", style: `fill:${css("--ink")}` }, s).textContent = q[1].toFixed(1); });
+  pts.forEach(q => svg("text", { x: x(q[0]), y: Ht - 4, "text-anchor": "middle", class: "tick" }, s).textContent = new Date(q[0]).toLocaleDateString("en-IN", { month: "short", year: "2-digit" }));
+  $("#dx").innerHTML = e.dx.map(d => `<span class="chip">${esc(d)}</span>`).join("");
+  $("#rx").innerHTML = e.meds.map(d => `<span class="chip">${esc(d)}</span>`).join("");
+  const gt = (n, gene, rs, eff) => `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)"><div><b>${gene}</b> <span class="mono" style="color:var(--muted);font-size:12px">${rs}</span><div class="note">${["no risk allele", "1 risk allele", "2 risk alleles"][n]} · ${eff}</div></div><span class="pill ${n === 2 ? "crit" : n === 1 ? "warn" : "ok"}">${n}/2</span></div>`;
+  $("#gen").innerHTML = gt(e.tcf7l2, "TCF7L2", "rs7903146", "lower insulin secretion") + gt(e.kcnj11, "KCNJ11", "rs5219", "beta-cell K-ATP channel") + gt(e.fto, "FTO", "rs9939609", "adiposity") +
+    `<p class="note" style="margin:8px 0 0">Polygenic risk score (South-Asian calibrated): <b class="num">${e.prs >= 0 ? "+" : ""}${e.prs.toFixed(2)} SD</b></p>`;
+  $("#habits").innerHTML = `<thead><tr><th>Meal</th><th>Usual time</th><th style="text-align:right">Carbs</th><th style="text-align:right">GI</th><th style="text-align:right">Logged on</th></tr></thead><tbody>` +
+    p.habits.map(h => `<tr><td style="text-transform:capitalize">${h.slot}</td><td class="mono">${h.freq ? fmtClock(h.time) : "–"}</td><td class="n">${h.freq ? h.carbs + " g" : "–"}</td><td class="n">${h.freq ? h.gi : "–"}</td><td class="n">${Math.round(h.freq * 100)}% of days</td></tr>`).join("") + "</tbody>";
+}
+
+// ---------- the twin in the browser (same equations as madhutwin/physiology.py) ----------
+const PH = D.physio;
+function simulate(tw, carbs, gi, walkMin, walkDelay, sglt2, startTod, mealAt = 30, minutes = 300) {
+  let G = tw.Gb, X = 0, I = 0, Y = 0, F1 = 0, F2 = 0, S1 = 0, S2 = 0, IG = G, ex = 0;
+  const ff = Math.min(Math.max((gi - 25) / 80, 0), 1), out = [];
+  const circ = m => 1 + 0.12 * Math.cos(2 * Math.PI * (m - 660) / 1440), dawn = m => Math.exp(-0.5 * ((m - 390) / 70) ** 2);
+  for (let t = 0; t < minutes; t++) {
+    const tod = (startTod + t) % 1440;
+    const spm = walkMin > 0 && t >= mealAt + walkDelay && t < mealAt + walkDelay + walkMin ? 105 : 0;
+    ex = ex * Math.exp(-1 / 360) + Math.max(spm - 60, 0) / 100;
+    const si = tw.SI * circ(tod) * (1 + 0.3 * Math.min(1, ex / 25)), gb = tw.Gb + tw.dawn * dawn(tod);
+    const mg = t === mealAt ? carbs * 1000 : 0;
+    const ra = PH.F_BIO * (PH.K_FAST * F2 + PH.K_SLOW * S2);
+    const renal = sglt2 ? PH.SGLT2_K * Math.max(G - PH.SGLT2_THR, 0) : PH.RENAL_K * Math.max(G - PH.RENAL_THR, 0);
+    const dG = -(PH.SG + X + PH.K_EX * spm) * G + PH.SG * gb + ra / tw.V - renal;
+    const dX = -PH.P2 * X + PH.P2 * si * I, dI = -PH.N_INS * I + Y, dY = PH.ALPHA * (tw.sigma * Math.max(G - tw.Gb, 0) - Y);
+    G = Math.min(Math.max(G + dG, 35), 600); X += dX; I = Math.max(I + dI, 0); Y = Math.max(Y + dY, 0);
+    const nF1 = F1 - PH.K_FAST * F1 + mg * ff, nF2 = F2 + PH.K_FAST * (F1 - F2), nS1 = S1 - PH.K_SLOW * S1 + mg * (1 - ff), nS2 = S2 + PH.K_SLOW * (S1 - S2);
+    F1 = nF1; F2 = nF2; S1 = nS1; S2 = nS2;
+    IG += (G - IG) / PH.TAU_ISF; out.push(IG);
+  }
+  return out;
+}
+function foodsFor(slot) { return D.foods.filter(f => f.slot === slot); }
+function initWhatIf(keep) {
+  const p = D.patients[state.pi], slot = $("#wslot").value;
+  const h = p.habits.find(x => x.slot === slot);
+  const opts = foodsFor(slot);
+  const usual = opts.slice().sort((a, b) => Math.abs(a.carbs - (h?.carbs || 60)) + Math.abs(a.gi - (h?.gi || 65)) - Math.abs(b.carbs - (h?.carbs || 60)) - Math.abs(b.gi - (h?.gi || 65)))[0];
+  const fill = (sel, val) => { sel.innerHTML = opts.map(f => `<option value="${f.key}">${esc(f.name)} · ${f.carbs} g · GI ${f.gi}${f.healthy ? " ✓" : ""}</option>`).join(""); sel.value = val; };
+  fill($("#wbase"), usual.key); fill($("#wfood"), usual.key);
+  if (!keep) { $("#wportion").value = 100; $("#wwalk").value = 0; $("#wdelay").value = 15; $("#wsglt2").checked = false; }
+  state.wi = { usualTime: h && h.freq ? h.time : { breakfast: 510, lunch: 810, snack: 1035, dinner: 1260 }[slot] };
+  renderWhatIf();
+}
+function renderWhatIf() {
+  const p = D.patients[state.pi], tw = p.twin;
+  const base = D.foods.find(f => f.key === $("#wbase").value), alt = D.foods.find(f => f.key === $("#wfood").value);
+  const portion = +$("#wportion").value / 100, walk = +$("#wwalk").value, delay = +$("#wdelay").value, sg = $("#wsglt2").checked;
+  $("#wportiono").textContent = Math.round(portion * 100) + "%"; $("#wwalko").textContent = walk + " min"; $("#wdelayo").textContent = delay + " min";
+  const start = state.wi.usualTime - 30;
+  const b = simulate(tw, base.carbs, base.gi, 0, 0, tw.sglt2, start), c = simulate(tw, alt.carbs * portion, alt.gi, walk, delay, sg || tw.sglt2, start);
+  $("#wisub").textContent = `meal at ${fmtClock(state.wi.usualTime)} · patient ${p.id}`;
+  const host = $("#wichart"); host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth), Ht = 280, m = { l: 38, r: 14, t: 12, b: 24 };
+  const s = svg("svg", { width: W, height: Ht, viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Simulated glucose response" }, host);
+  const x = t => m.l + t / 300 * (W - m.l - m.r), mx = Math.max(300, ...b, ...c) + 10, y = v => m.t + (1 - (v - 60) / (mx - 60)) * (Ht - m.t - m.b);
+  svg("rect", { x: m.l, y: y(180), width: W - m.l - m.r, height: y(70) - y(180), fill: css("--band") }, s);
+  [100, 180, 250].forEach(v => { svg("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: v === 180 ? css("--crit") : css("--grid"), "stroke-opacity": v === 180 ? .6 : 1 }, s); svg("text", { x: m.l - 6, y: y(v) + 3.5, "text-anchor": "end", class: "tick" }, s).textContent = v; });
+  for (let t = 30; t <= 300; t += 60) svg("text", { x: x(t), y: Ht - 6, "text-anchor": "middle", class: "tick" }, s).textContent = fmtClock(start + t);
+  if (walk > 0) svg("rect", { x: x(30 + delay), y: m.t, width: x(30 + delay + walk) - x(30 + delay), height: Ht - m.t - m.b, fill: css("--risk-soft") }, s),
+    svg("text", { x: x(30 + delay) + 4, y: m.t + 12, style: `fill:${css("--ink2")};font:11px var(--sans)` }, s).textContent = `walk ${walk} min`;
+  const line = (arr, col, w) => svg("polyline", { points: arr.map((v, t) => `${x(t).toFixed(1)},${y(v).toFixed(1)}`).join(" "), fill: "none", stroke: col, "stroke-width": w }, s);
+  line(b, css("--future"), 2); line(c, css("--accent"), 2.5);
+  const pk = a => a.indexOf(Math.max(...a));
+  [[b, css("--future")], [c, css("--accent")]].forEach(([a, col]) => { const k = pk(a); svg("circle", { cx: x(k), cy: y(a[k]), r: 4.5, fill: css("--panel"), stroke: col, "stroke-width": 2 }, s); svg("text", { x: x(k) + 7, y: y(a[k]) - 6, style: `fill:${css("--ink")};font:600 11px var(--mono)` }, s).textContent = Math.round(a[k]); });
+  svg("path", { d: `M${x(30) - 5} ${Ht - m.b} L${x(30) + 5} ${Ht - m.b} L${x(30)} ${Ht - m.b - 9} Z`, fill: css("--step") }, s);
+  const sb = summ(b), sc = summ(c);
+  const dl = (o, cls, title) => `<div class="col ${cls}"><h4>${title}</h4><dl><dt>Peak</dt><dd>${o.peak} mg/dL</dd><dt>Time to peak</dt><dd>${o.tpk} min</dd><dt>Above 180</dt><dd>${o.tar} min</dd><dt>Excursion probability*</dt><dd>${o.prob}%</dd></dl></div>`;
+  const V = D.metrics.whatif_validation.models["Personalised twin (EHR + CGM)"];
+  const vkey = walk > 0 && alt.key === base.key ? "walk_20" : alt.gi < base.gi ? "millet_swap" : portion < 1 ? "portion_minus30" : null;
+  const vtxt = vkey ? `Validation for this kind of change: true effect ${V[vkey + "_true_mean_effect"].toFixed(0)} mg/dL, twin predicted ${V[vkey + "_pred_mean_effect"].toFixed(0)} mg/dL on average (error ${V[vkey + "_effect_mae"].toFixed(1)} mg/dL per patient).` : "";
+  $("#widelta").innerHTML = dl(sb, "", "Usual meal") + dl(sc, "int", "With your change") +
+    `<div class="gain"><span style="font-size:12px;opacity:.8">Estimated improvement</span><b>${sc.peak - sb.peak > 0 ? "+" : ""}${sc.peak - sb.peak} mg/dL</b><span style="font-size:12px;opacity:.85">peak · ${sc.tar - sb.tar} min above 180 · probability ${sb.prob}% → ${sc.prob}%</span></div>` +
+    `<p class="note" style="grid-column:1/-1;margin:0"><b>Simulated estimate for discussion, not a treatment prescription.</b> * Twin-estimated chance of a ≥180 mg/dL excursion, from a 2-parameter curve linking the twin's projected peak to observed events (fitted on validation patients). ${vtxt} ${stressNote()}</p>`;
+}
+function stressNote() {
+  const S = D.metrics.stress_test; if (!S) return "";
+  const w = S.whatif_effects;
+  return `Under a model-mismatch stress test the ranking of who benefits held (correlation ${w.millet_swap.effect_corr.toFixed(2)} for a low-GI swap) but effect sizes were biased (millet: true ${w.millet_swap.true_mean_effect.toFixed(0)} vs Twin ${w.millet_swap.pred_mean_effect.toFixed(0)} mg/dL), so treat magnitudes as approximate.`;
+}
+function twinProb(peak) { const w = D.metrics.whatif_twin_prob; return w ? Math.round(100 / (1 + Math.exp(-(w.a + w.b * peak)))) : null; }
+function summ(a) { const pk = Math.max(...a), k = a.indexOf(pk); return { peak: Math.round(pk), tpk: Math.max(0, k - 30), tar: a.filter(v => v > 180).length, prob: twinProb(pk) }; }
+function renderValidation() {
+  const v = D.metrics.whatif_validation.models, names = Object.keys(v);
+  const row = (lab, key) => `<div style="margin:10px 0 4px" class="eyebrow">${lab}</div>` + names.map((n, j) => {
+    const val = v[n][key]; return `<div class="hbar ${j === 0 ? "best" : j === 2 ? "base" : ""}"><span>${esc(n)}</span><span class="track"><span style="width:${Math.max(0, val) * 100}%"></span></span><span class="num">${val.toFixed(2)}</span></div>`;
+  }).join("");
+  $("#wivalid").innerHTML = `<p class="note" style="margin:0">Because every virtual patient has a hidden "true" physiology, we re-ran each intervention on the true patient and correlated the true change in peak glucose with each model's prediction. This is a synthetic benchmark (generator and Twin share equations); real-patient effects remain unvalidated.</p>` +
+    row("Post-meal walk: correlation with true effect", "walk_20_effect_corr") + row("Rice → foxtail millet", "millet_swap_effect_corr") + row("30% smaller portion", "portion_minus30_effect_corr") +
+    row("Ranking patients by their usual post-lunch peak (Spearman)", "baseline_peak_rank_corr");
+}
+
+// ---------- model card ----------
+function renderModel() {
+  const M = D.metrics, fm = M.final_model, ev = M.event_level;
+  const tile = (v, l, t) => `<div class="stat"><div class="v">${v}</div><div class="l">${l}</div><div class="t">${t}</div></div>`;
+  $("#mtiles").innerHTML = tile(fm.auroc.toFixed(3), "AUROC", (() => { const ci = (M.ablation[Object.keys(M.ablation).pop()] || {}).ci; return ci ? `95% CI ${ci.auroc.lo.toFixed(3)}–${ci.auroc.hi.toFixed(3)}` : "2-h excursion ≥180"; })()) + tile(fm.auprc.toFixed(3), "AUPRC", `prevalence ${(M.ablation[Object.keys(M.ablation)[0]].prevalence * 100).toFixed(0)}%`) +
+    tile(Math.round(ev.detected_lead_ge_30min * 100) + "%", "Spikes warned ≥30 min ahead", ev.detected_lead_ge_30min_ci ? `95% CI ${Math.round(ev.detected_lead_ge_30min_ci[0] * 100)}–${Math.round(ev.detected_lead_ge_30min_ci[1] * 100)}% · ${ev.events.toLocaleString()} spikes` : `${ev.events.toLocaleString()} spikes`) + tile(ev.median_lead_min + " min", "Median warning time", "before onset") +
+    tile(ev.false_alerts_per_patient_day.toFixed(1), "False alerts / patient-day", ev.false_alerts_per_patient_day_ci ? `95% CI ${ev.false_alerts_per_patient_day_ci[0].toFixed(1)}–${ev.false_alerts_per_patient_day_ci[1].toFixed(1)} · threshold ${fm.threshold.toFixed(2)}` : `at threshold ${fm.threshold.toFixed(2)}`) + tile(M.forecast["120min"].mae_madhutwin.toFixed(1), "2-h forecast error", M.forecast["120min"].clarke ? `MAE mg/dL · Clarke A+B ${(M.forecast["120min"].clarke["A+B"] * 100).toFixed(1)}%` : "MAE, mg/dL");
+  const all = Object.assign({}, M.baselines, M.ablation), keys = Object.keys(all);
+  $("#ablation").innerHTML = keys.map(k => `<div class="hbar ${k.startsWith("MadhuTwin") ? "best" : Object.keys(M.baselines).includes(k) ? "base" : ""}"><span>${esc(k)}</span><span class="track"><span style="width:${(all[k].auroc - 0.5) / 0.5 * 100}%"></span></span><span class="num">${all[k].auroc.toFixed(3)}</span></div>`).join("") +
+    `<p class="note">Bars start at 0.5 (chance). Gray = simple baselines. Honest finding: once a week of CGM exists, the patient's own glucose history carries most of the signal. The EHR's biggest contribution is personalising the twin's physiology (see Record) and its what-if answers.</p>`;
+  $("#ops").innerHTML = `<thead><tr><th>Threshold</th><th style="text-align:right">Warned ≥30 min</th><th style="text-align:right">Median lead</th><th style="text-align:right">Alerts/day</th><th style="text-align:right">False/day</th><th style="text-align:right">Precision</th></tr></thead><tbody>` +
+    M.operating_points.map(o => `<tr ${Math.abs(o.threshold - fm.threshold) < 0.005 ? 'style="background:var(--accent-soft)"' : ""}><td class="mono">${o.threshold.toFixed(2)}${Math.abs(o.threshold - fm.threshold) < 0.005 ? " (default)" : ""}</td><td class="n">${Math.round(o.detected_lead_ge_30min * 100)}%</td><td class="n">${o.median_lead_min} min</td><td class="n">${o.alerts_per_patient_day.toFixed(1)}</td><td class="n">${o.false_alerts_per_patient_day.toFixed(1)}</td><td class="n">${Math.round(o.alert_precision * 100)}%</td></tr>`).join("") + "</tbody>";
+  $("#ops").insertAdjacentHTML("afterend", `<p class="note" id="opsnote">The default (${fm.threshold.toFixed(2)}) maximises F1 on validation patients: a reproducible rule for the demo, not a clinically optimised operating point. Detection and lead time count only alerts actually delivered under ${esc(D.alert_policy || "the alert policy")}.</p>`);
+  const on = document.querySelectorAll("#opsnote"); if (on.length > 1) on[0].remove();
+}
+
+
+// ---------- sick-day check (a week of HR / HRV / sleep vs personal baseline) ----------
+const SICK_THR = (D.metrics.sick_day && D.metrics.sick_day.flag_threshold_z) || 4;
+function sickToday(p, i) {
+  // a night's score becomes available at 12:00 of that day
+  const day = Math.floor((i * STEP + START.getUTCHours() * 60 - 720) / 1440);
+  return (p.sick || []).filter(x => x[0] <= day).slice(-7);
+}
+function renderSick() {
+  const p = D.patients[state.pi], card = $("#sickcard");
+  const days = sickToday(p, state.now);
+  card.innerHTML = `<h2>Sick-day check <small>last night vs own 7-night baseline</small></h2>`;
+  if (!days.length) { card.appendChild(el("p", "note", "Building a personal baseline (needs a few nights).")); return; }
+  const last = days[days.length - 1], flagged = last[1] >= SICK_THR;
+  const mx = Math.max(SICK_THR * 1.6, ...days.map(d => d[1]));
+  card.appendChild(el("div", "sickbars", days.map(d => `<div class="${d[1] >= SICK_THR ? "flag" : ""}" style="height:${Math.max(4, Math.max(0, d[1]) / mx * 100)}%" title="anomaly score ${d[1].toFixed(1)}"></div>`).join("")));
+  card.appendChild(el("div", "sickdays", days.map(d => `<span>${fmtDay(d[0] * 288 + 144).split(",")[0]}</span>`).join("")));
+  const msg = flagged
+    ? `<span class="pill crit">● Possible illness</span> Night heart rate ${last[2] >= 0 ? "+" : ""}${last[2].toFixed(0)} bpm and HRV ${last[3] >= 0 ? "+" : ""}${last[3].toFixed(0)} ms vs usual. Advisory: the clinician may consider sick-day guidance (more frequent glucose checks, fluids); any medication review is a clinician decision.`
+    : `<span class="pill ok">● Normal</span> Heart rate, HRV and sleep within this patient's usual range.`;
+  card.appendChild(el("p", "note", msg));
+}
+
+// ---------- patient app ----------
+const T = {
+  en: { hello: n => `Good ${["morning", "afternoon", "evening"][state.now % 288 < 144 ? 0 : state.now % 288 < 204 ? 1 : 2]}, ${n}`, now: "your sugar now",
+    hi_now: "Your sugar is above 180 right now", hi_now_p: "Drink a glass of water and take a slow 15-minute walk. We'll check again soon.",
+    alert: "Heads-up for the next 2 hours", alert_p: m => `Your sugar is likely to go above 180 after ${m}. Small changes help a lot today:`,
+    ok: "Looking steady", ok_p: "Your sugar should stay in range for the next 2 hours. Keep going!",
+    act_walk: "Walk briskly for 20 minutes, starting 15 minutes after eating", act_swap: "Take roti, millet or ragi instead of white rice", act_half: "Keep the rice portion to one small katori",
+    sick: "Your body may be fighting an infection", sick_p: "Your night-time heart rate and sleep are different from usual. Check your sugar more often, drink fluids, and call your doctor if you feel unwell.",
+    week: "This week in range", done: "Done", later: "Remind me later", call: "Call doctor", meal: { breakfast: "breakfast", lunch: "lunch", snack: "your evening snack", dinner: "dinner" }, next: "your next meal" },
+  hi: { hello: n => `नमस्ते, ${n}`, now: "अभी आपकी शुगर",
+    hi_now: "आपकी शुगर अभी 180 से ऊपर है", hi_now_p: "एक गिलास पानी पिएँ और 15 मिनट धीरे-धीरे टहलें। हम थोड़ी देर में फिर जाँचेंगे।",
+    alert: "अगले 2 घंटों के लिए सावधानी", alert_p: m => `${m} के बाद आपकी शुगर 180 से ऊपर जा सकती है। आज छोटे बदलाव बहुत मदद करेंगे:`,
+    ok: "सब ठीक है", ok_p: "अगले 2 घंटे आपकी शुगर सामान्य रहने की संभावना है। ऐसे ही चलते रहें!",
+    act_walk: "खाने के 15 मिनट बाद 20 मिनट तेज़ चलें", act_swap: "सफ़ेद चावल की जगह रोटी, बाजरा या रागी लें", act_half: "चावल एक छोटी कटोरी तक रखें",
+    sick: "आप बीमार हो सकते हैं", sick_p: "रात में आपकी धड़कन और नींद सामान्य से अलग हैं। शुगर बार-बार जाँचें, पानी पीते रहें और तबीयत ठीक न लगे तो डॉक्टर से बात करें।",
+    week: "इस हफ़्ते सामान्य दायरे में", done: "हो गया", later: "बाद में याद दिलाएँ", call: "डॉक्टर को कॉल करें", meal: { breakfast: "नाश्ते", lunch: "दोपहर के खाने", snack: "शाम के नाश्ते", dinner: "रात के खाने" }, next: "अगले खाने" },
+};
+state.lang = "en";
+function renderApp() {
+  const p = D.patients[state.pi], i = state.now, L = T[state.lang];
+  const g = lastValid(p.cgm, i), r = p.risk[i], prev = lastValid(p.cgm, i - 3);
+  const arrow = g != null && prev != null ? (g - prev > 6 ? "↗" : g - prev < -6 ? "↘" : "→") : "";
+  const tod = (START.getUTCHours() * 60 + i * STEP) % 1440;
+  const next = p.habits.filter(h => h.freq >= .25).map(h => ({ ...h, dt: ((h.time - tod) + 1440) % 1440 })).sort((a, b) => a.dt - b.dt)[0];
+  const mealName = next && next.dt <= 150 ? L.meal[next.slot] : L.next;
+  const first = p.name.split(" ")[0];
+  const c = p.cgm.filter(v => v != null), tir = c.filter(v => v >= 70 && v <= 180).length / c.length * 100;
+  let card;
+  if (g != null && g >= 180) card = `<div class="ph-card hi"><h3>${L.hi_now}</h3><p>${L.hi_now_p}</p></div>`;
+  else if (r != null && r >= THR * 100) card = `<div class="ph-card alert"><h3>${L.alert}</h3><p>${L.alert_p(mealName)}</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+        <div class="ph-act"><i>🚶</i><span>${L.act_walk}</span></div><div class="ph-act"><i>🍚</i><span>${L.act_swap}</span></div><div class="ph-act"><i>🥣</i><span>${L.act_half}</span></div></div>
+      <div class="ph-btns"><button type="button">${L.done}</button><button type="button" class="sec">${L.later}</button></div></div>`;
+  else card = `<div class="ph-card ok"><h3>${L.ok}</h3><p>${L.ok_p}</p></div>`;
+  const sk = sickToday(p, i), sick = sk.length && sk[sk.length - 1][1] >= SICK_THR;
+  const sickCard = sick ? `<div class="ph-card sick"><h3>${L.sick}</h3><p>${L.sick_p}</p><div class="ph-btns"><button type="button">${L.call}</button></div></div>` : "";
+  const ph = $("#phone"); ph.setAttribute("lang", state.lang === "hi" ? "hi" : "en");
+  ph.innerHTML = `<div class="ph-hello">${L.hello(first)}</div>
+    <div><div class="ph-big"><b>${g ?? "–"}</b><span>mg/dL ${arrow}</span></div><div class="ph-hello">${L.now} · ${fmtTime(i)}</div></div>
+    ${sickCard}${card}
+    <div class="ph-card"><div class="ph-hello">${L.week}</div><div style="font:600 22px var(--mono)">${Math.round(tir)}%</div>
+      <div class="ph-week"><span style="width:${tir}%;background:var(--good)"></span><span style="flex:1;background:var(--warn)"></span></div></div>`;
+}
+
+// ---------- model card: real-world + fairness ----------
+function renderRealWorld() {
+  const R = D.metrics.real_world, box = $("#realworld");
+  if (!R) { box.innerHTML = `<p class="note">Run the pipeline with the real-world data to populate this section.</p>`; return; }
+  const a = R.auroc_140, keys = Object.keys(a);
+  const bar = (k, v) => `<div class="hbar ${k === "CGM only" || k.startsWith("CGM + EHR") ? "best" : k.includes("baseline") || k.includes("Clock") ? "base" : ""}"><span>${esc(k)}</span><span class="track"><span style="width:${(v.auroc.point - .5) / .5 * 100}%"></span></span><span class="num">${v.auroc.point.toFixed(3)}</span></div><div class="ci" style="margin:-3px 0 6px 0;text-align:right">95% CI ${v.auroc.lo.toFixed(3)}–${v.auroc.hi.toFixed(3)}</div>`;
+  const ir = R.insulin_resistance, f = R.forecast, dx = R.cohort.by_diagnosis;
+  const fus = Object.keys(a).find(k => k.startsWith("CGM + EHR"));
+  box.innerHTML = `<p class="note" style="margin-top:0"><b>What this is:</b> a retrospective, cross-validated evaluation on ${R.cohort.patients} adults from two open cohorts (Hall et al. 2018, USA: 57; Colas et al. 2019, Spain: 208). Diagnosis mix: ${Object.entries(dx).map(([k, v]) => `${v} ${k}`).join(", ")}. Inputs are CGM and lab records only. The pipeline was <b>re-trained</b> within these cohorts (patient-level 5-fold CV); no synthetic-trained weights were transferred. Target: glucose ≥140 mg/dL for ≥15 min within 2 h (prevalence ${(R.cohort.prevalence_140 * 100).toFixed(1)}%), not the ≥180 target of the synthetic benchmark.</p>
+    <div class="mgrid" style="margin:8px 0">
+      <div class="stat"><div class="v">${a["CGM only"].auroc.point.toFixed(3)}</div><div class="l">AUROC · CGM-only model</div><div class="t">95% CI ${a["CGM only"].auroc.lo.toFixed(3)}–${a["CGM only"].auroc.hi.toFixed(3)} · ≥140 mg/dL</div></div>
+      <div class="stat"><div class="v">${a[fus].auroc.point.toFixed(3)}</div><div class="l">AUROC · CGM + EHR fusion</div><div class="t">95% CI ${a[fus].auroc.lo.toFixed(3)}–${a[fus].auroc.hi.toFixed(3)} · ≥140 mg/dL</div></div>
+    </div>
+    <div class="eyebrow" style="margin:10px 0 4px">All variants (AUROC, ≥140 mg/dL within 2 h)</div>${keys.map(k => bar(k, a[k])).join("")}
+    <div class="mgrid" style="margin-top:10px">
+      <div class="stat"><div class="v">${f["30min"].mae_fusion.toFixed(1)}</div><div class="l">30-min forecast error (mg/dL)</div><div class="t">no-change baseline ${f["30min"].mae_persistence.toFixed(1)}</div></div>
+      <div class="stat"><div class="v">${(f["30min"].clarke["A+B"] * 100).toFixed(1)}%</div><div class="l">Clarke zones A+B at 30 min</div><div class="t">zone A ${(f["30min"].clarke.A * 100).toFixed(1)}%</div></div>
+      <div class="stat"><div class="v">${ir["EHR + CGM (fused)"].spearman.toFixed(2)}</div><div class="l">Insulin resistance (SSPG) from EHR + CGM</div><div class="t">EHR only ${ir["EHR labs only"].spearman.toFixed(2)} · CGM only ${ir["CGM only"].spearman.toFixed(2)} · n=${ir.n_patients}</div></div>
+    </div>
+    <p class="note"><b>What it cannot show:</b> only ${dx.T2D || 0} participants have type 2 diabetes; meal and wearable fusion, the full Twin workflow and performance in Indian patients are untested on real people. The 2-hour alarm here is carried by CGM; adding labs did not improve it, while labs plus CGM gave the best insulin-resistance estimate (overlapping CIs, n=${ir.n_patients}).</p>`;
+}
+function renderFair() {
+  const sg = D.metrics.subgroups || [];
+  $("#fair").innerHTML = `<thead><tr><th>Subgroup</th><th style="text-align:right">Patients</th><th style="text-align:right">Event rate</th><th style="text-align:right">AUROC (95% CI)</th></tr></thead><tbody>` +
+    sg.map(g => `<tr><td>${esc(g.subgroup)}</td><td class="n">${g.patients}</td><td class="n">${(g.prevalence * 100).toFixed(0)}%</td><td class="n">${g.auroc.toFixed(3)}${g.auroc_lo != null ? ` <span class="ci">(${g.auroc_lo.toFixed(2)}–${g.auroc_hi.toFixed(2)})</span>` : ""}</td></tr>`).join("") +
+    `</tbody><caption style="caption-side:bottom;text-align:left" class="note">Exploratory diagnostic on small synthetic subgroups; it does not establish fairness. A release gate on subgroup performance is a proposed governance step, not yet operational.</caption>`;
+}
+
+
+// ---------- v3: hero (who -> when -> why -> what to do -> what if) ----------
+function reasonsAt(p, i) {
+  let k = i - (i % 3);
+  for (let j = k; j >= k - 6; j -= 3) if (p.why && p.why[j]) return p.why[j];
+  return null;
+}
+function confidence(p, i) {
+  // same rule as madhutwin/contract.py: ensemble spread (model disagreement), Low whenever data are insufficient
+  const sd = p.risk_sd[i] != null ? p.risk_sd[i] : lastValid(p.risk_sd, i, 1);
+  const n = readingsLastHour(p, i), ok = n >= MIN_READ;
+  const c = !ok ? "Low" : sd == null ? "Medium" : sd < 4 ? "High" : sd < 8 ? "Medium" : "Low";
+  return { sd, c, n, ok };
+}
+function habitNext(p, i) {
+  const tod = (START.getUTCHours() * 60 + i * STEP) % 1440;
+  return p.habits.filter(h => h.freq >= .25).map(h => ({ ...h, dt: ((h.time - tod) + 1440) % 1440 })).sort((a, b) => a.dt - b.dt)[0];
+}
+function reasonText(key, p, i, first) {
+  const g = lastValid(p.cgm, i), g30 = lastValid(p.cgm, i - 6), nx = habitNext(p, i);
+  const recent = p.meals.filter(ml => ml[0] <= i && ml[0] > i - 24).pop();
+  const ex = (p.expl[i - (i % 3)] || []).find(e => FEATS[e[0]] === "hist_spike_rate_tod");
+  const steps60 = p.steps.slice(Math.max(0, i - 11), i + 1).reduce((a, b) => a + (b || 0), 0);
+  return {
+    pattern: ex && ex[2] != null ? `${first} has spiked around this hour on ${Math.round(ex[2] * 100)}% of past days` : `spikes are usual for ${first} at this hour`,
+    meal: recent ? `${recent[1]} (${recent[2]} g carbs) is still being absorbed` : nx && nx.dt <= 150 ? `usual ${nx.slot} (~${nx.carbs} g carbs) is due in ${Math.round(nx.dt)} min` : "carbohydrate load expected",
+    glucose: g != null && g30 != null ? `glucose ${g} mg/dL, ${g - g30 >= 0 ? "up" : "down"} ${Math.abs(g - g30)} in 30 min` : "current glucose level",
+    twin: lastValid(p.tpeak, i, 1) ? `the twin projects a peak near ${lastValid(p.tpeak, i, 1)} mg/dL` : "the twin's projection",
+    sleep: "sleep, heart rate or HRV differ from baseline",
+    activity: `low activity (${steps60} steps in the last hour)`,
+    baseline: `${first}'s physiology (insulin sensitivity ${(p.twin.SI * 1e4).toFixed(1)}) favours spikes`,
+  }[key];
+}
+function bestAction(p, i) {
+  const tw = p.twin, nx = habitNext(p, i);
+  const recent = p.meals.filter(ml => ml[0] <= i && ml[0] > i - 18).pop();
+  if (recent) {
+    const since = (i - recent[0]) * STEP;
+    const b = simulate(tw, recent[2], recent[3], 0, 0, tw.sglt2, 600), w = simulate(tw, recent[2], recent[3], 20, Math.max(0, since), tw.sglt2, 600);
+    return { text: "20-minute brisk walk now", why: `${recent[1]} was eaten ${since} min ago`, b: summ(b), a: summ(w) };
+  }
+  if (nx && nx.dt <= 150) {
+    const food = D.foods.filter(f => f.slot === nx.slot).sort((a, b) => Math.abs(a.carbs - nx.carbs) + Math.abs(a.gi - nx.gi) - Math.abs(b.carbs - nx.carbs) - Math.abs(b.gi - nx.gi))[0];
+    const b = simulate(tw, food.carbs, food.gi, 0, 0, tw.sglt2, nx.time - 30);
+    const w = simulate(tw, food.carbs, food.gi, 20, 15, tw.sglt2, nx.time - 30);
+    return { text: `20-min brisk walk, 15 min after ${nx.slot}`, why: `usual ${nx.slot} at ${fmtClock(nx.time)}`, b: summ(b), a: summ(w), slot: nx.slot };
+  }
+  return null;
+}
+function renderHero() {
+  const p = D.patients[state.pi], i = state.now, h = $("#hero");
+  const g = lastValid(p.cgm, i), r = p.risk[i], first = p.name.split(" ")[0];
+  const cf = confidence(p, i), tte = p.tte[i], pk = p.peak[i];
+  const g30 = lastValid(p.cgm, i - 6), arrow = g != null && g30 != null ? (g - g30 > 10 ? "↗" : g - g30 < -10 ? "↘" : "→") : "";
+  if (g != null && g >= 180) {
+    h.className = "hero hi";
+    h.innerHTML = `<div><div class="eyebrow">Who · when</div><div class="h-head">${esc(p.name)} is <span class="when">above range now</span> (${g} mg/dL ${arrow})</div>
+      <p class="note">The 2-hour warning re-arms when glucose falls below 180. Suggest light walking and fluids; review if this recurs at the same meal.</p></div><div></div><div></div>`;
+    return;
+  }
+  if (!cf.ok) {
+    h.className = "hero nodata";
+    h.innerHTML = `<div><div class="eyebrow">Data quality</div><div class="h-head">${esc(p.name)}: insufficient recent CGM data</div>
+      <p class="note">Only ${cf.n} of 12 readings in the last hour (needs ${MIN_READ}). Alerts are suppressed and confidence is Low until the sensor recovers. Check sensor wear or warm-up.</p></div><div></div><div></div>`;
+    return;
+  }
+  const alert = r != null && r >= THR * 100;
+  const sent = p._alerts.filter(k => k <= i && k > i - 24).pop();
+  h.className = "hero" + (alert ? " alert" : "");
+  const whenTxt = alert && tte != null ? `excursion likely in <span class="when">~${Math.max(5, Math.round(tte / 5) * 5)} min</span> (around ${fmtTime(i + Math.round(tte / 5))})` : alert ? `excursion likely within <span class="when">2 h</span>` : `no excursion expected in the next 2 h`;
+  const rs = reasonsAt(p, i), labels = Object.fromEntries(D.reasons);
+  let why = "";
+  if (rs && alert) {
+    const pos = D.reasons.map(([k], j) => [k, rs[j]]).filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]);
+    const tot = pos.reduce((a, b) => a + b[1], 0) || 1;
+    why = pos.slice(0, 4).map(([k, v]) => `<div class="reason"><span>${esc(labels[k])}<br><span class="note">${esc(reasonText(k, p, i, first))}</span></span><span class="pc">${Math.round(v / tot * 100)}%</span><div class="rb"><span style="width:${v / tot * 100}%"></span></div></div>`).join("");
+  } else why = `<p class="note">Risk ${r ?? "–"}% is below the alert threshold (${Math.round(THR * 100)}%). Nothing to act on; the twin re-checks every 5 minutes.</p>`;
+  const act = alert ? bestAction(p, i) : null;
+  const actHtml = act ? `<div class="src">OPTION TO DISCUSS · ADVISORY</div><div class="act-big">${esc(act.text)}</div><div class="note">because ${esc(act.why)}</div>
+      <div class="wi-mini"><div>${act.slot ? "Usual " + act.slot : "No walk"}<b>${act.b.peak}</b>Twin-simulated peak · ${act.b.prob}%</div><span>→</span><div class="after">With walk<b>${act.a.peak}</b>Twin-simulated peak · ${act.a.prob}%</div></div>
+      <div class="src" style="margin-top:4px">Simulated estimate for discussion, not a prescription; checked only against synthetic ground truth.</div>
+      <div class="flow"><span>Risk ${r}%</span><i>→</i><span>${tte != null ? "spike ~" + fmtTime(i + Math.round(tte / 5)) : "spike <2 h"}</span><i>→</i><span>${esc(act.text.split(",")[0])}</span><i>→</i><span>peak −${act.b.peak - act.a.peak} mg/dL</span></div>
+      <button class="btn small" style="margin-top:8px" id="heroWhatif">Explore in the what-if simulator →</button>`
+    : alert ? `<div class="src">OPTION TO DISCUSS · ADVISORY</div><div class="act-big">Nudge the patient and recheck</div><div class="note">No meal pattern to act on; ask about unlogged food, illness or stress.</div>` : `<div class="act-big">No action needed</div>`;
+  h.innerHTML = `<div><div class="eyebrow">Who · when</div><div class="h-head">${esc(p.name)}: ${whenTxt}</div>
+      <div class="h-kv"><div><b>${g ?? "–"} ${arrow}</b><span>CGM now, mg/dL · ${fmtTime(i)}</span></div><div><b>${pk ?? "–"}</b><span>highest expected in next 2 h, mg/dL (ML)</span></div>
+      <div><b>${r ?? "–"}%${cf.sd != null ? `<span style="font-size:12px;color:var(--muted)"> ±${Math.round(cf.sd)}</span>` : ""}</b><span>2-h excursion risk</span></div><div><b>${cf.c}</b><span>confidence (ensemble spread · ${cf.n}/12 readings)</span></div></div>
+      <div class="fcline">ML forecast at +30 / +60 / +120 min: <b>${p.fc.f30[i] ?? "–"}</b> / <b>${p.fc.f60[i] ?? "–"}</b> / <b>${p.fc.f120[i] ?? "–"}</b> mg/dL<br>
+      Twin mechanistic projection (physics only, assumes usual next meal): peak <b>${p.tpeak[i] ?? "–"}</b> mg/dL<br>
+      ${sent != null ? `Alert delivered at <b>${fmtTime(sent)}</b>` : alert ? "Risk above threshold; alert already sent within the last hour" : "No alert in the last 2 h"} · policy: 1 per hour, ≥${MIN_READ}/12 readings</div></div>
+    <div><h3>Why now</h3>${why}</div>
+    <div><h3>What to do · what if</h3>${actHtml}</div>`;
+  const hb = $("#heroWhatif");
+  if (hb) hb.onclick = () => { if (act.slot) $("#wslot").value = act.slot; setTab("whatif"); initWhatIf(); $("#wwalk").value = 20; $("#wdelay").value = 15; renderWhatIf(); };
+}
+
+// ---------- v3: live twin state vs baseline ----------
+function sameHourMean(arr, i) {
+  const v = []; for (let k = i - 288; k >= 0; k -= 288) { const x = arr[k]; if (x != null) v.push(x); }
+  return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null;
+}
+function nightlyFor(p, i) {
+  const dayRel = Math.floor(i / 288);
+  const rows = (p.nightly || []).filter(x => x[0] <= dayRel);
+  return rows.length ? rows[rows.length - 1] : [dayRel, 1, 0];
+}
+function renderTwinState() {
+  const p = D.patients[state.pi], i = state.now, t = p.twin, box = $("#twinstate");
+  const [, sm, gd] = nightlyFor(p, i);
+  const g = lastValid(p.cgm, i), r = p.risk[i];
+  const usualR = sameHourMean(p.risk, i), usualPk = sameHourMean(p.tpeak, i);
+  const insVals = p.ins.filter(v => v != null).sort((a, b) => a - b), insMed = insVals[Math.floor(insVals.length / 2)] || 1;
+  const pc = (now, base) => base ? Math.round((now / base - 1) * 100) : null;
+  const chg = (v, unit = "%", invert = false) => v == null ? `<span class="chg-flat">–</span>` : Math.abs(v) < 3 ? `<span class="chg-flat">≈</span>` : `<span class="${(v > 0) !== invert ? "chg-up" : "chg-down"}">${v > 0 ? "↑" : "↓"}${Math.abs(v)}${unit}</span>`;
+  const rows = [
+    ["Insulin sensitivity", (t.SI * sm * 1e4).toFixed(2), (t.SI * 1e4).toFixed(2), chg(Math.round((sm - 1) * 100), "%", true), "re-fit nightly"],
+    ["Basal glucose", Math.round(t.Gb + gd), Math.round(t.Gb), chg(Math.round(gd), " mg/dL"), "re-fit nightly"],
+    ["β-cell response", (t.sigma * 100).toFixed(1), (t.sigma * 100).toFixed(1), `<span class="chg-flat">fixed</span>`, "fitted in week 1"],
+    ["Carbs still in gut", lastValid(p.gut, i, 1) != null ? lastValid(p.gut, i, 1) + " g" : "–", "–", "", "every 5 min"],
+    ["Insulin action", lastValid(p.ins, i, 1) != null ? (lastValid(p.ins, i, 1) / insMed).toFixed(1) + "×" : "–", "1.0×", "", "every 5 min"],
+    ["Twin projected peak (mechanistic, usual next meal)", lastValid(p.tpeak, i, 1) ?? "–", usualPk ? Math.round(usualPk) : "–", chg(usualPk && lastValid(p.tpeak, i, 1) ? Math.round(lastValid(p.tpeak, i, 1) - usualPk) : null, ""), "every 5 min"],
+    ["2-h risk", r != null ? r + "%" : "–", usualR != null ? Math.round(usualR) + "%" : "–", chg(r != null && usualR != null ? Math.round(r - usualR) : null, " pts"), "every 5 min"],
+  ];
+  const dayRel = Math.floor(i / 288), daysData = 7 + dayRel;
+  box.innerHTML = `<h2>Live twin state <span class="updated">updated ${fmtTime(i)}</span></h2>
+    <div class="pipe"><span class="on">CGM ${g ?? "–"} @ ${fmtTime(i)}</span><i>→</i><span>fused features</span><i>→</i><span>twin state</span><i>→</i><span>2-h projection</span><i>→</i><span>risk ${r ?? "–"}%</span></div>
+    <div style="overflow-x:auto"><table class="state"><thead><tr><th>State</th><th style="text-align:right">Now</th><th style="text-align:right">Usual</th><th style="text-align:right">Change</th></tr></thead><tbody>` +
+    rows.map(x => `<tr title="${x[4]}"><td>${x[0]}<div class="note" style="font-size:10.5px">${x[4]}</div></td><td class="n">${x[1]}</td><td class="n">${x[2]}</td><td class="n">${x[3]}</td></tr>`).join("") + `</tbody></table></div>
+    <div class="note" style="margin-top:8px">Twin maturity: personalised from EHR + ${daysData} days of CGM</div><div class="mature">${[0, 1, 2, 3, 5, 7].map(d => `<span class="${daysData >= d ? "on" : ""}" title="day ${d}"></span>`).join("")}</div>`;
+}
+
+// ---------- v3: today vs this patient's normal ----------
+function renderTodayBase() {
+  const p = D.patients[state.pi], i = state.now, box = $("#todaybase");
+  const day = Math.floor(i / 288), tod = i % 288;
+  const nightStats = d => { const a = Math.max(0, (d - 1) * 288 + 216), b = Math.min(d * 288 + 144, N); let sl = 0, hv = [], ok = a < b; for (let k = a; k < b; k++) if (p.stage[k] > 0) { sl++; if (p.hrv[k] != null) hv.push(p.hrv[k]); } return ok ? { h: sl * 5 / 60, hrv: hv.length ? hv.reduce((x, y) => x + y, 0) / hv.length : null } : null; };
+  const sumTo = (arr, d, upto) => { let s = 0; for (let k = d * 288; k <= d * 288 + upto && k < N; k++) s += arr[k] || 0; return s; };
+  const carbsTo = (d, upto) => p.meals.filter(m => m[0] >= d * 288 && m[0] <= d * 288 + upto).reduce((a, m) => a + m[2], 0);
+  const mean24 = end => { const v = p.cgm.slice(Math.max(0, end - 288), end + 1).filter(x => x != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
+  const lastNight = tod >= 144 ? day : day - 1;
+  const prevN = []; for (let d = 1; d < lastNight; d++) { const s_ = nightStats(d); if (s_) prevN.push(s_); }
+  const tn = lastNight >= 1 ? nightStats(lastNight) : null;
+  const avg = arr => arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+  const prevDays = []; for (let d = 0; d < day; d++) prevDays.push(d);
+  const rows = [
+    ["Sleep last night", tn ? tn.h.toFixed(1) + " h" : "–", avg(prevN.map(x => x.h)) != null ? avg(prevN.map(x => x.h)).toFixed(1) + " h" : "–"],
+    ["Night HRV", tn && tn.hrv ? Math.round(tn.hrv) + " ms" : "–", avg(prevN.map(x => x.hrv).filter(x => x)) ? Math.round(avg(prevN.map(x => x.hrv).filter(x => x))) + " ms" : "–"],
+    [`Steps by ${fmtTime(i)}`, sumTo(p.steps, day, tod).toLocaleString("en-IN"), prevDays.length ? Math.round(avg(prevDays.map(d => sumTo(p.steps, d, tod)))).toLocaleString("en-IN") : "–"],
+    [`Carbs logged by ${fmtTime(i)}`, carbsTo(day, tod) + " g", prevDays.length ? Math.round(avg(prevDays.map(d => carbsTo(d, tod)))) + " g" : "–"],
+    ["CGM mean, last 24 h", mean24(i) ? Math.round(mean24(i)) + " mg/dL" : "–", prevDays.length ? Math.round(avg(prevDays.map(d => mean24(d * 288 + tod)).filter(x => x))) + " mg/dL" : "–"],
+  ];
+  box.innerHTML = `<h2>Today vs ${esc(p.name.split(" ")[0])}'s normal <small>same time on previous days</small></h2><table><thead><tr><th>Signal</th><th style="text-align:right">Today</th><th style="text-align:right">Usual</th></tr></thead><tbody>` +
+    rows.map(x => `<tr><td>${x[0]}</td><td class="n">${x[1]}</td><td class="n">${x[2]}</td></tr>`).join("") + "</tbody></table>";
+}
+
+// ---------- v3: evidence ----------
+function renderEvidence() {
+  const M = D.metrics, tv = M.twin_value, fm = M.final_model, ev = M.event_level, U = M.uncertainty, TE = M.time_to_event;
+  const tile = (v, l, t) => `<div class="stat"><div class="v">${v}</div><div class="l">${l}</div><div class="t">${t}</div></div>`;
+  if (tv) {
+    const g = tv.auroc_gain, ld = tv.low_data || [], ms = tv.matched_sensitivity, nt = M.nightly_tracking, mat = M.twin_maturity || [], W = M.whatif_validation.models["Personalised twin (EHR + CGM)"];
+    const ld5 = ld[0];
+    $("#twinvalue").innerHTML = `<div class="flow" style="font-size:13px;margin:0 0 6px"><b style="margin-right:6px">Ordinary AI:</b><span>data</span><i>→</i><span>prediction</span></div>
+      <div class="flow" style="font-size:13px;margin:0 0 10px"><b style="margin-right:6px">MadhuTwin:</b><span>data</span><i>→</i><span>patient state</span><i>→</i><span>physiological simulation</span><i>→</i><span>prediction</span><i>→</i><span>intervention</span><i>→</i><span>re-simulation</span></div>
+      <p class="note" style="margin:0">Honest answer: on the 2-hour alarm with plenty of data, the twin adds little (AUROC ${tv.auroc_without_twin.toFixed(3)} → ${tv.auroc_with_twin.toFixed(3)}, Δ ${g.auroc.delta >= 0 ? "+" : ""}${g.auroc.delta.toFixed(4)}, 95% CI ${g.auroc.lo.toFixed(4)} to +${g.auroc.hi.toFixed(4)}). Its value shows up elsewhere:</p>
+      <div class="tv">
+        ${ld5 ? tile(`+${(ld5.auroc_with_twin - ld5.auroc_without_twin).toFixed(3)}`, `AUROC gain when only ${ld5.train_patients} patients are available to learn from`, `AUPRC +${(ld5.auprc_with_twin - ld5.auprc_without_twin).toFixed(3)} · physics is a prior that data-poor clinics can use`) : ""}
+        ${tile(`${W.millet_swap_true_mean_effect.toFixed(0)} vs ${W.millet_swap_pred_mean_effect.toFixed(0)}`, "true vs twin-predicted peak change, rice → millet (mg/dL)", `per-patient error ${W.millet_swap_effect_mae.toFixed(1)} mg/dL; a pure ML model cannot answer this`)}
+        ${tile(`ρ ${M.twin_recovery.insulin_sensitivity.cgm_only_twin.toFixed(2)} → ${M.twin_recovery.insulin_sensitivity.twin_fused.toFixed(2)}`, "insulin sensitivity recovered, CGM-only → EHR + CGM twin", "the EHR is what makes the physiology identifiable")}
+        ${nt ? tile(`SI ${Math.round((nt.illness_in_window.si_mult - 1) * 100)}% · Gb +${nt.illness_in_window.gb_shift.toFixed(0)}`, "nightly twin re-fit during illness (vs ≈0 otherwise)", `also tracks missed doses: Gb +${nt.missed_doses["3"] ? nt.missed_doses["3"].gb_shift.toFixed(0) : "–"} mg/dL after 3 missed days`) : ""}
+        ${ms ? tile(`${ms.false_alerts_per_day_without_twin.toFixed(2)} → ${ms.false_alerts_per_day_with_twin.toFixed(2)}`, `false alerts / patient-day at equal sensitivity (${Math.round(ms.target_detected_ge30 * 100)}% flagged ≥30 min early)`, "without twin → with twin") : ""}
+        ${mat.length ? tile(`ρ ${mat[0].di.toFixed(2)} → ${mat[mat.length - 1].di.toFixed(2)}`, "disposition index recovered, day 0 (EHR only) → day 7", mat.map(x => `d${x.days} ${x.di.toFixed(2)}`).join(" · ")) : ""}
+      </div>`;
+  }
+  // operating point
+  const op = M.operating_points.find(o => Math.abs(o.threshold - fm.threshold) < 0.005) || ev;
+  $("#oppoint").innerHTML = `<div class="mgrid">${tile(fm.threshold.toFixed(2), "operating threshold", "max F1 on validation patients")}${tile(Math.round(fm.sensitivity * 100) + "%", "sensitivity (per 5-min decision)", `specificity ${Math.round(fm.specificity * 100)}%`)}${tile(Math.round(ev.alert_precision * 100) + "%", "alert precision", "alerts followed by a spike within 2 h")}${tile(ev.false_alerts_per_patient_day.toFixed(1), "false alerts / patient-day", `${ev.alerts_per_patient_day.toFixed(1)} alerts/day in total`)}${tile(ev.median_lead_min + " min", "median warning time", `${Math.round(ev.detected_lead_ge_30min * 100)}% warned ≥30 min early`)}${TE ? tile(TE.onset_mae_min.toFixed(0) + " min", "error in predicted time of onset", `vs ${TE.onset_mae_naive_min.toFixed(0)} min for a fixed guess · peak error ${TE.peak_mae_mgdl.toFixed(0)} mg/dL`) : ""}</div>
+    <p class="note"><b>We optimise for useful alerts, not maximum sensitivity.</b> The raw model is re-scored every 5 minutes (${(288).toLocaleString()} decisions a day); alerts are debounced to at most one per hour, so a clinician sees ${ev.alerts_per_patient_day.toFixed(1)} alerts per patient-day, ${Math.round(ev.alert_precision * 100)}% of them followed by a real excursion. A clinic that prefers fewer interruptions can move to 0.70 (see table below).</p>`;
+  // calibration
+  const rel = M.reliability || [];
+  if (rel.length) {
+    const W = 300, Hh = 230, m = 34, sz = Math.min(W, Hh) - m - 10;
+    const host = $("#calib"); host.innerHTML = "";
+    const s_ = svg("svg", { width: "100%", viewBox: `0 0 ${W} ${Hh}`, role: "img", "aria-label": "Reliability diagram", style: "max-width:340px;display:block;margin:0 auto" }, host);
+    const x = v => m + v * sz, y = v => Hh - m + 8 - v * sz;
+    svg("line", { x1: x(0), y1: y(0), x2: x(1), y2: y(1), stroke: css("--line") }, s_);
+    [0, .5, 1].forEach(v => { svg("text", { x: x(v), y: Hh - 8, "text-anchor": "middle", class: "tick" }, s_).textContent = v; svg("text", { x: m - 6, y: y(v) + 4, "text-anchor": "end", class: "tick" }, s_).textContent = v; });
+    svg("polyline", { points: rel.map(r_ => `${x(r_.pred)},${y(r_.obs)}`).join(" "), fill: "none", stroke: css("--risk"), "stroke-width": 2 }, s_);
+    rel.forEach(r_ => svg("circle", { cx: x(r_.pred), cy: y(r_.obs), r: 4, fill: css("--panel"), stroke: css("--risk"), "stroke-width": 2 }, s_));
+    svg("text", { x: x(0.02), y: y(0.95), class: "tick" }, s_).textContent = "observed";
+    svg("text", { x: x(0.98), y: y(0.03), "text-anchor": "end", class: "tick" }, s_).textContent = "predicted";
+    host.appendChild(el("p", "note", `Expected calibration error <b>${U ? (U.ece * 100).toFixed(1) : "–"}%</b>, Brier ${fm.brier.toFixed(3)}. When the model says 80%, about ${Math.round((rel.find(r_ => r_.bin > .8 && r_.bin < .9) || rel[rel.length - 2]).obs * 100)}% of such moments are followed by an excursion. ${U ? `Each risk also carries ± from a 5-model bootstrap ensemble: a measure of model disagreement, not a calibrated clinical confidence (median ±${(U.median_risk_sd * 100).toFixed(1)} points); "High" confidence covers ${Math.round(U.share_high_confidence * 100)}% of decisions (AUROC ${U.auroc_high_confidence.toFixed(3)} vs ${U.auroc_low_or_medium.toFixed(3)} for the rest).` : ""}`));
+  }
+  // empirical forecast-band coverage, overall and patient by patient
+  const fc2 = M.forecast["120min"], cb = fc2.pi80_coverage_by_patient;
+  if (cb) $("#calib").appendChild(el("p", "note", `Forecast bands (+2 h): empirical coverage ${Math.round(fc2.pi80_coverage * 100)}% of held-out decisions; patient by patient median ${Math.round(cb.median * 100)}% (10th–90th percentile ${Math.round(cb.p10 * 100)}–${Math.round(cb.p90 * 100)}%, ${cb.n_patients} patients). Readings within a patient are correlated, so this is an observed coverage on this synthetic test set, not a guarantee.`));
+  // model-mismatch stress test
+  const S = M.stress_test;
+  if (S) {
+    const w = S.whatif_effects, ref = S.matched_reference, rt = S.risk_model_transferred, ev2 = S.event_level;
+    const row = (lab, a, b) => `<tr><td>${lab}</td><td class="n">${a}</td><td class="n">${b}</td></tr>`;
+    $("#stress").innerHTML = `<p class="note" style="margin-top:0">${S.n_patients} new virtual patients generated with deliberately different physiology (gut absorption, insulin kinetics, 13-min sensor lag, 1.6× sensor noise, a different insulin-sensitivity rhythm, 30% fewer logged meals). The Twin and the trained models were used unchanged.</p>
+      <div style="overflow-x:auto"><table><thead><tr><th>Measure</th><th style="text-align:right">Matched benchmark</th><th style="text-align:right">Mismatched generator</th></tr></thead><tbody>
+      ${row("Risk AUROC (model transferred, not retrained)", ref.auroc.toFixed(3), rt.auroc.toFixed(3))}
+      ${row("CGM-trend baseline AUROC", ref.cgm_trend_baseline_auroc.toFixed(3), rt.cgm_trend_baseline_auroc.toFixed(3))}
+      ${row("Spikes warned ≥30 min ahead (delivered alerts)", Math.round(ref.detected_lead_ge_30min * 100) + "%", Math.round(ev2.detected_lead_ge_30min * 100) + "%")}
+      ${row("False alerts / patient-day", ref.false_alerts_per_patient_day.toFixed(1), ev2.false_alerts_per_patient_day.toFixed(1))}
+      ${row("Insulin sensitivity recovered (ρ)", ref.si_recovery_twin_fused.toFixed(2), S.insulin_sensitivity_recovery_spearman.twin_fused.toFixed(2))}
+      ${["walk_20", "millet_swap", "portion_minus30"].map(k => row(`What-if ${({walk_20: "walk", millet_swap: "rice → millet", portion_minus30: "smaller portion"})[k]}: effect correlation · mean true vs Twin`, ref.whatif_effect_corr[k].toFixed(2), `${w[k].effect_corr.toFixed(2)} · ${w[k].true_mean_effect.toFixed(0)} vs ${w[k].pred_mean_effect.toFixed(0)} mg/dL`)).join("")}
+      </tbody></table></div>
+      <p class="note">Reading: risk prediction and physiology recovery held up; the Twin still ranked who benefits from an intervention, but effect <i>sizes</i> were biased when its assumptions were wrong. What-if magnitudes should be read as approximate until validated on real patients.</p>`;
+  }
+  // bridge
+  const R = M.real_world;
+  $("#bridge").innerHTML = `<div class="bridge"><div><b>1 · Synthetic training</b>300 India-context virtual patients; models trained on 210, tuned on 45.</div>
+    <div><b>2 · Virtual-patient validation</b>45 unseen virtual patients (days 8–21): AUROC ${fm.auroc.toFixed(3)}; twin and what-if checked against hidden ground truth.</div>
+    <div><b>3 · Retrospective open-cohort check</b>${R ? `${R.cohort.patients} adults (Hall 2018 USA, Colas 2019 Spain; only ${R.cohort.by_diagnosis.T2D || 0} with T2D), CGM + labs only. The feature pipeline was <b>re-trained and cross-validated within these cohorts</b> (patient-level 5-fold), target ≥140 mg/dL: CGM-only AUROC ${R.auroc_140["CGM only"].auroc.point.toFixed(3)}, CGM + EHR ${R.auroc_140[Object.keys(R.auroc_140).find(k => k.startsWith("CGM + EHR"))].auroc.point.toFixed(3)}.` : "not run"}</div></div>
+    <p class="note">The synthetic-trained model is not applied to real data as-is: the real cohorts are mostly non-diabetic, have no meal or smartwatch streams and use a 140 mg/dL threshold, so a direct transfer would not be a fair test.</p>`;
+  $("#prov").innerHTML = `<thead><tr><th>Data</th><th>Source</th><th>Type</th><th>Used for</th></tr></thead><tbody>
+    <tr><td>EHR (labs, Dx, Rx, genotype)</td><td>Synthea CSV schema</td><td>Synthetic</td><td>Baseline state, twin prior</td></tr>
+    <tr><td>CGM, 5-min</td><td>Physiology simulator</td><td>Synthetic</td><td>Dynamic state, labels</td></tr>
+    <tr><td>HR, HRV, steps, sleep</td><td>Simulator (Health Connect-style)</td><td>Synthetic</td><td>Lifestyle state, sick-day</td></tr>
+    <tr><td>Food log</td><td>Simulator, 37 Indian foods</td><td>Synthetic</td><td>Meal inputs to twin</td></tr>
+    <tr><td>Hall 2018 cohort (57)</td><td>Open, CC-BY 4.0</td><td>Real, de-identified</td><td>Retrospective CV check (re-trained)</td></tr>
+    <tr><td>Colas 2019 cohort (208)</td><td>Open, CC-BY</td><td>Real, de-identified</td><td>Retrospective CV check (re-trained)</td></tr></tbody>`;
+  $("#leak").innerHTML = `<ul class="note" style="margin:0;padding-left:18px;line-height:1.6">
+    <li><b>At time t only data at or before t is used.</b> Future CGM, future meals and future labels never enter a feature; labels are used only as training targets and for evaluation.</li>
+    <li>"Yesterday" features are lagged a full 24 h; time-of-day spike history uses <i>previous days</i> only; sleep features use completed nights only.</li>
+    <li>The twin's 2-h projection uses food already logged plus the <i>habitual</i> next meal learned from week 1, never the real future meal.</li>
+    <li><b>Patient-level split</b> (210 / 45 / 45): no patient appears in more than one set. Within each patient, week 1 (days 1–7) calibrates the twin and habits; evaluation uses days 8–21 only.</li>
+    <li>Automated tests check that changing future CGM leaves today's features unchanged.</li>
+    <li>Evaluation rows require a current reading below 180 mg/dL; rows whose next 2 h of CGM is mostly missing are excluded because their label is undefined.</li></ul>`;
+  const L = M.latency;
+  $("#latency").innerHTML = L ? `<table><tbody>
+    <tr><td>Twin state update (one 5-min step)</td><td class="n">${L.twin_state_update_ms.toFixed(3)} ms</td></tr>
+    <tr><td>Twin 2-hour projection</td><td class="n">${L.twin_2h_projection_ms.toFixed(2)} ms</td></tr>
+    <tr><td>Risk inference + SHAP reasons</td><td class="n">${L.risk_with_shap_explanation_ms.toFixed(1)} ms</td></tr>
+    <tr><td>What-if 5-hour simulation</td><td class="n">${L.whatif_5h_simulation_ms.toFixed(1)} ms</td></tr>
+    <tr><td>REST API request, end to end</td><td class="n">${L.api_risk_request_ms ? L.api_risk_request_ms.toFixed(1) + " ms" : "–"}</td></tr>
+    <tr><td>Models on disk</td><td class="n">${Object.values(L.model_sizes_mb).reduce((a, b) => a + b, 0).toFixed(0)} MB</td></tr></tbody></table>
+    <p class="note">${L.hardware.cores}-core laptop-class CPU, no GPU, Python ${L.hardware.python}. Runs on-premise; no cloud needed.</p>` : `<p class="note">Run scripts/benchmark.py.</p>`;
+  $("#limits").innerHTML = `<div class="grid2"><ul class="note" style="margin:0;padding-left:18px;line-height:1.6">
+      <li>Training population is an <b>India-context synthetic simulation</b>, not measured Indian patients.</li>
+      <li>Retrospective open-cohort check: 265 people (only 10 with T2D), USA and Spain, CGM + labs only; models re-trained there, not transferred.</li>
+      <li>No live device stream: the console replays recorded synthetic data; FHIR output is a sample, ABDM integration is a proposed path.</li>
+      <li>What-if effects are checked only against synthetic ground truth; a model-mismatch stress test showed biased effect sizes.</li>
+      <li>No prospective clinical validation; no treatment recommendations are authorised.</li>
+      <li>Assumes a CGM; physiological parameters are estimated, not measured.</li>
+      <li>Genotype adds nothing to the 2-hour alarm (AUROC ${M.genetics_ablation ? M.genetics_ablation.auroc_with_genetics.toFixed(4) + " with vs " + M.genetics_ablation.auroc_without_genetics.toFixed(4) + " without" : "unchanged"}), so it is kept only in the long-term baseline.</li></ul>
+    <div><div class="flow" style="font-size:13px"><span>Synthetic (done)</span><i>→</i><span>Retrospective Indian CGM cohort</span><i>→</i><span>Prospective pilot</span><i>→</i><span>Clinical validation (CDSCO SaMD)</span></div></div></div>`;
+}
+
+// ---------- orchestration ----------
+function setTab(t) {
+  state.tab = t;
+  $$(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === t ? "true" : "false"));
+  $$("[data-view]").forEach(v => v.hidden = v.dataset.view !== t);
+  renderTab();
+}
+function renderTab() {
+  if (state.tab === "now") { renderHero(); renderMain(); renderTwinState(); renderTodayBase(); renderSick(); renderWhy(); renderActions(); renderAlerts(); renderNotes(); }
+  if (state.tab === "app") renderApp();
+  if (state.tab === "week") renderWeek();
+  if (state.tab === "record") renderRecord();
+  if (state.tab === "whatif") { if (!state.wi || state.wi.pid !== state.pi) { initWhatIf(); state.wi.pid = state.pi; } else renderWhatIf(); renderValidation(); }
+  if (state.tab === "model") { renderModel(); renderEvidence(); renderRealWorld(); renderFair(); }
+}
+function renderAll() { renderRail(); renderHeader(); renderTab(); }
+
+$$(".tab").forEach(b => b.onclick = () => setTab(b.dataset.tab));
+$$("[data-lang]").forEach(b => b.onclick = () => { state.lang = b.dataset.lang; $$("[data-lang]").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false")); renderApp(); });
+$("#scrub").max = N - 25;
+$("#scrub").oninput = e => { state.now = +e.target.value; renderRail(); if (state.tab === "now" || state.tab === "app") renderTab(); };
+$("#showfuture").onchange = e => { state.showFuture = e.target.checked; renderTab(); };
+let timer = null;
+$("#play").onclick = () => {
+  state.playing = !state.playing; $("#play").setAttribute("aria-pressed", state.playing);
+  $("#play").textContent = state.playing ? "❚❚ Pause" : "▶ Replay live";
+  if (state.playing) { if (state.tab !== "now") setTab("now"); timer = setInterval(() => { if (state.now >= N - 25) { $("#play").click(); return; } state.now++; renderRail(); renderTab(); }, 140); }
+  else clearInterval(timer);
+};
+$("#jump").onclick = () => {
+  const p = D.patients[state.pi]; const nx = p._alerts.find(k => k > state.now + 1);
+  if (nx != null) { state.now = Math.min(nx + 1, N - 25); } else { let best = null; D.patients.forEach((q, pi) => { const k = q._alerts.find(k => k > state.now + 1); if (k != null && (!best || k < best.k)) best = { pi, k }; }); if (best) { state.pi = best.pi; state.now = Math.min(best.k + 1, N - 25); } }
+  setTab("now"); renderAll();
+};
+$("#addnote").onclick = () => { const t = $("#notetext").value.trim(); if (!t) return; const p = D.patients[state.pi]; (state.notes[p.id] ||= []).unshift({ t: `${fmtDay(state.now)} ${fmtTime(state.now)}`, text: t }); $("#notetext").value = ""; renderNotes(); };
+["#wbase", "#wfood", "#wportion", "#wwalk", "#wdelay", "#wsglt2"].forEach(s => $(s).addEventListener("input", renderWhatIf));
+$("#wslot").onchange = () => initWhatIf();
+$$("[data-preset]").forEach(b => b.onclick = () => {
+  const k = b.dataset.preset, slot = $("#wslot").value;
+  if (k === "reset") { initWhatIf(); return; }
+  if (k === "walk") { $("#wwalk").value = 20; $("#wdelay").value = 15; }
+  if (k === "portion") $("#wportion").value = 70;
+  if (k === "millet") { const h = foodsFor(slot).filter(f => f.healthy).sort((a, b) => a.gi - b.gi); const pick = foodsFor(slot).find(f => /millet|ragi/i.test(f.key)) || h[0]; if (pick) $("#wfood").value = pick.key; }
+  renderWhatIf();
+});
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(renderTab, 120); });
+if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", renderTab);
+new MutationObserver(renderTab).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+const st = pickStart(); state.pi = st.pi; state.now = st.i;
+renderAll();
+})();
+</script>

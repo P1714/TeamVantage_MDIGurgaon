@@ -1,0 +1,38 @@
+{
+ "date": "2026-10-20",
+ "commit": "84fd9d5",
+ "python": "3.11.15",
+ "cpu": "2-core x86-64 CPU",
+ "steps": [
+  {
+   "step": "Clone",
+   "cmd": "git clone <repo> && cd <repo>",
+   "result": "fresh checkout of the committed files only"
+  },
+  {
+   "step": "Install",
+   "cmd": "pip install -r requirements-lock.txt",
+   "result": "not re-run here: the environment already had exactly these pinned versions installed"
+  },
+  {
+   "step": "Tests",
+   "cmd": "python -m pytest -q -rs",
+   "result": "28 passed, 0 skipped (3 s)"
+  },
+  {
+   "step": "One-command rebuild",
+   "cmd": "python run.py",
+   "result": "exit code 0 in 14 min: pipeline 810 s, stress test 24 s, benchmark 4 s, console build <1 s"
+  },
+  {
+   "step": "Determinism",
+   "cmd": "compare reports/metrics.json",
+   "result": "identical to the committed run: AUROC 0.9117, warned ≥30 min 74.6%, median lead 75 min, 2.30 false alerts/day, 2-h MAE 21.0 mg/dL; stress-test AUROC 0.9175"
+  },
+  {
+   "step": "Console",
+   "cmd": "open dashboard/madhutwin_console.html",
+   "result": "opens offline; same alerts and values (checked by tests/test_api.py)"
+  }
+ ]
+}

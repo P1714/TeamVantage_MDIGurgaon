@@ -1,0 +1,35 @@
+{
+  "hardware": {
+    "cpu": "x86_64",
+    "cores": 2,
+    "python": "3.11.15",
+    "gpu": "none"
+  },
+  "twin_state_update_ms": 0.032,
+  "twin_2h_projection_ms": 0.819,
+  "risk_inference_ms": 0.029,
+  "risk_with_shap_explanation_ms": 6.78,
+  "whatif_5h_simulation_ms": 14.506,
+  "model_sizes_mb": {
+    "forecast_120m_q10.txt": 1.09,
+    "forecast_120m_q50.txt": 2.11,
+    "forecast_120m_q90.txt": 0.78,
+    "forecast_30m_q10.txt": 1.4,
+    "forecast_30m_q50.txt": 3.5,
+    "forecast_30m_q90.txt": 1.61,
+    "forecast_60m_q10.txt": 1.52,
+    "forecast_60m_q50.txt": 3.57,
+    "forecast_60m_q90.txt": 1.46,
+    "peak_2h.txt": 1.3,
+    "risk_ensemble_0.txt": 0.55,
+    "risk_ensemble_1.txt": 0.55,
+    "risk_ensemble_2.txt": 0.55,
+    "risk_ensemble_3.txt": 0.55,
+    "risk_ensemble_4.txt": 0.55,
+    "spike250_risk_2h.txt": 1.23,
+    "spike_risk_2h.txt": 2.13,
+    "time_to_onset.txt": 1.21
+  },
+  "api_risk_request_ms": 16.766,
+  "end_to_end_alert_ms": 8.45
+}
